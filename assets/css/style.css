@@ -38,6 +38,10 @@ nav a{
     font-family: "Sofia Sans", sans-serif;
 }
 
+nav a:hover{
+    color:#2F6BFF
+}
+
 .nav-btn{
     display: flex;
     gap: 33px;
@@ -68,8 +72,7 @@ nav a{
     font-weight: 800;
 }
 .nav-sec:hover{
-    background-color: black;
-    color: white;
+    background:linear-gradient(135deg,#02004a,#1ea7fd);
     cursor: pointer;
 }
 
@@ -104,6 +107,7 @@ nav a{
     word-spacing: 9px;
      font-family: "DM Sans", sans-serif;
      margin-top: 5px;
+     max-width: 750px;
 }
 .highlight{
     position: relative;
@@ -125,6 +129,7 @@ nav a{
     text-align: center;
     color: #000000A1;
     margin-top: 30px;
+    max-width: 450px;
      font-family: "Sofia Sans", sans-serif;
 }
 
@@ -293,10 +298,17 @@ border-radius:20px;
     cursor: pointer;
     
 }
+.ft-btn:hover{
+    background:linear-gradient(135deg,#0c06d1,#055484);
+}
 
 .secondary{
      background: rgba(255, 255, 255, 0.22);
 
+}
+
+.secondary:hover{
+    background:rgba(31, 100, 204, 0.22);
 }
 
 /* Helping Digital Section  */
@@ -443,11 +455,237 @@ border-radius:20px;
 }
 
 
-.agreements-right img{
+.agreements-right {
     width:100%;
-    max-width:520px;
+    max-width:480px;
 }
 
+/* Testimonial Section  */
+.testimonials{
+padding:120px 20px;
+text-align:center;
+overflow:hidden;
+}
+
+.testimonials-head{
+max-width:1200px;
+margin:auto;
+text-align:left;
+}
+
+/* .tag{
+color:#2F6BFF;
+font-size:14px;
+letter-spacing:2px;
+font-weight:600;
+} */
+
+.testimonials-head h2{
+font-size:34px;
+margin-top:10px;
+font-family: "DM Sans", sans-serif;
+
+font-weight: 800;
+line-height: 44px;
+letter-spacing: 0%;
+
+}
+
+.testimonial-wrapper{
+margin-top:80px;
+overflow:hidden;
+}
+
+.testimonial-slider{
+display:flex;
+transition:transform 0.4s ease;
+}
+
+.testimonial{
+min-width:100%;
+padding:0 20px;
+}
+
+.testimonial p{
+font-size:28px;
+line-height:1.5;
+max-width:700px;
+margin:auto;
+color:#0f172a;
+font-family: "DM Sans", sans-serif;
+}
+
+.author{
+display:block;
+margin-top:30px;
+color:#64748b;
+font-weight:500;
+font-family: "Sofia Sans", sans-serif;
+}
+
+.slider-indicator{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-top:40px;
+}
+
+.line{
+width:60px;
+height:3px;
+background:#e5e7eb;
+transition:all .3s;
+cursor: pointer;
+}
+
+.line.active{
+width:100px;
+background:#0f172a;
+}
+
+/* Footer CTA Section  */
+.cta-banner{
+max-width:1100px;
+margin:120px auto;
+background:linear-gradient(135deg,#3a4ff6,#1ea7fd);
+border-radius:15px;
+padding:80px 40px;
+position:relative;
+overflow:hidden;
+text-align:center;
+}
+
+.cta-content{
+max-width:700px;
+margin:auto;
+color:white;
+}
+
+.cta-content h2{
+max-width:500px;
+margin:0 auto;
+text-align:center;
+font-size: 36px;
+font-family: "DM Sans", sans-serif;
+text-transform: capitalize;
+}
+
+.cta-content p{
+max-width:400px;
+font-size: 16px;
+font-weight: 400;
+margin:10px auto 30px auto;
+text-align:center;
+font-family: "DM Sans", sans-serif;
+color: #FFFFFFC9;
+
+}
+
+.cta-illustration{
+position:absolute;
+bottom:0;
+left:0;
+width:260px;
+}
+
+.cta-illustrat{
+position:absolute;
+top:0;
+right:0;
+width:131px;
+pointer-events:none;
+}
+
+.cta-input{
+display:flex;
+justify-content:center;
+background:white;
+padding:6px;
+border-radius:10px;
+max-width:420px;
+margin:30px auto 0;
+font-family: "Sofia Sans", sans-serif;
+}
+
+.cta-input input{
+flex:1;
+border:none;
+padding:14px;
+outline:none;
+}
+
+/* Responsiveness */
+@media (max-width: 450px) {
+    nav{
+        display: none;
+    }
+    .bubble3{
+        right: 100px;
+        top: 100px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .hero h1{
+        font-size: 48px;
+        padding: 20px;
+    }
+    .features{
+        padding-top: 100px;
+    }
+    .features-grid{
+        grid-template-columns: 1fr;
+        
+    }
+    .features-card{
+        text-align: center;
+        max-width: 500px;
+    }
+    .ft-head{
+        text-align: center;
+        justify-content: center;
+    }
+    .features-btn{
+        flex-direction: column;
+        padding: 30px;
+    }
+    .dashboard-img{
+        margin-bottom: -100px;
+        margin-top: 30px;
+    }
+    .helping-container{
+        grid-template-columns: 1fr;
+    }
+    .helping-grid{
+        grid-template-columns: 1fr;
+    }
+    .agreements-container{
+        grid-template-columns: 1fr;
+    }
+    .agreements-left h2{
+        font-size: 32px;
+    }
+    .agreements-left img{
+        width: 100%;
+        max-width: 420px;
+    }
+    .agreements-right img{
+        width: 100%;
+        max-width: 420px;
+    }
+    .cta-illustration{
+        width: 100px;
+    }
+
+    .cta-content h2{
+        font-size: 25px;
+    }
+    .cta-input{
+        max-width: 420px;
+        margin: 10px auto 0;
+        padding: 3px;
+    }
+}
 
 
 

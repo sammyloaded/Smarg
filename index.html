@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/jpeg/png" href="/assets/img/favicon.jpeg" />
   </head>
   <body>
     <!-- Header section  -->
@@ -19,9 +20,9 @@
         <img src="assets/img/logo.png" />
       </div>
       <nav>
-        <a href="#">How it Works</a>
+        <a href="#how">How it Works</a>
         <a href="#">About Us</a>
-        <a href="#">Testimonials</a>
+        <a href="#testimonials">Testimonials</a>
       </nav>
       <div class="nav-btn">
         <a href="#">Sign In</a>
@@ -35,8 +36,7 @@
 
       <div class="hero-text">
         <h1>
-          The workplace for<br />
-          remote
+          The workplace for remote
           <span class="highlight">
             contracts
             <svg class="underline" viewBox="0 0 200 20">
@@ -52,8 +52,8 @@
         </h1>
       </div>
       <p>
-        Smarg is a remote contract facilitator that aims to secure, manage<br />
-        and ensure quality delivery for freelancers
+        Smarg is a remote contract facilitator that aims to secure, manage and
+        ensure quality delivery for freelancers
       </p>
       <div class="hero-btn">
         <input type="email" placeholder="Enter Email Address" />
@@ -102,7 +102,7 @@
     </section>
 
     <!-- Helping Digital Section  -->
-    <section class="helping">
+    <section class="helping" id="how">
       <div class="helping-container">
         <div class="helping-left">
           <h3>HELPING DIGITAL</h3>
@@ -206,5 +206,64 @@
         </div>
       </div>
     </section>
+
+    <!-- Testionials Section  -->
+    <section class="testimonials" id="testimonials">
+      <div class="testimonials-head">
+        <span class="tag">HELPING DIGITAL</span>
+        <h2>What Users Say<br />About Us</h2>
+      </div>
+
+      <div class="testimonial-wrapper">
+        <div class="testimonial-slider" id="testimonialSlider">
+          <div class="testimonial">
+            <p>
+              “A bit like building a house, from floor plans to final coat of
+              paint. Our process is very flexible”
+            </p>
+            <span class="author">Julie – Product Designer</span>
+          </div>
+
+          <div class="testimonial">
+            <p>
+              “Working with this platform completely changed how we manage
+              contracts. Everything is organized and clear.”
+            </p>
+            <span class="author">Daniel – Startup Founder</span>
+          </div>
+
+          <div class="testimonial">
+            <p>
+              “The easiest way I've ever managed freelance contracts. Payments
+              and approvals are seamless.”
+            </p>
+            <span class="author">Sophia – Freelancer</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-indicator">
+        <div class="line"></div>
+        <div class="line active"></div>
+        <div class="line"></div>
+      </div>
+    </section>
+
+    <!-- FOOTER CTA Section  -->
+    <section class="cta-banner">
+      <img src="assets/img/footer-cta.png" class="cta-illustration" />
+      <img src="assets/img/footer-cta2.png" class="cta-illustrat" />
+
+      <div class="cta-content">
+        <h2>The workplace for remote contracts gigs.</h2>
+        <p>For Choosing the best way of Contract</p>
+
+        <div class="cta-input">
+          <input type="email" placeholder="Enter Email Address" />
+          <button class="nav-sec">Get Started</button>
+        </div>
+      </div>
+    </section>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
