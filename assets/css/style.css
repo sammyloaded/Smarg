@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* font-family: 'Rubik', sans-serif; */
+  background: #ffffff;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px;
+    /* margin-top: 50px; */
+    align-content: center;
+    align-items: center;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 60px
+}
+
+nav a{
+    display: flex;
+    text-decoration: none;
+    justify-content: space-around;
+    color: #474747;
+    font-weight: 600;
+    letter-spacing: 0%;
+    line-height: 100%;
+    font-family: "Sofia Sans", sans-serif;
+}
+
+.nav-btn{
+    display: flex;
+    gap: 33px;
+    text-decoration: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-btn a{
+    text-decoration: none;
+     font-family: "Sofia Sans", sans-serif;
+    font-weight: 700;
+    color: #09005D;
+}
+
+.nav-btn a:hover{
+    color: #2F4FFF;
+}
+
+.nav-sec{
+    padding: 18px 50px;
+    background: linear-gradient(92.21deg, #2F4FFF 0.53%, #0085FF 99.3%);
+    border-radius: 7px;
+    /* height: 50px; */
+    color: #FFFFFF;
+    border: none;
+    font-weight: 800;
+}
+.nav-sec:hover{
+    background-color: black;
+    color: white;
+}
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+    justify-content: center;
+}
+
+.hero h4{
+    color: #2F4FFF;
+    text-align: center;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 139%;
+    letter-spacing: 17.5%;
+    font-family: "DM Sans", sans-serif;
+    text-transform: uppercase;
+}
+
+
+.hero h1{
+    font-size: 80px;
+    text-align: center;
+    line-height: 100%;
+    letter-spacing: 0%;
+    word-spacing: 9px;
+     font-family: "DM Sans", sans-serif;
+     margin-top: 5px;
+}
+.highlight{
+    position:relative;
+    
+}
+
+.underline::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:100%;
+    height:6px;
+    background:#2F6BFF;
+    border-radius:10px;
+}
+
+.hero p{
+    font-size: 16px;
+    text-align: center;
+    color: #000000A1;
+    margin-top: 23px;
+     font-family: "Sofia Sans", sans-serif;
+}
+
+.hero-btn{
+    display:flex;
+    align-items:center;
+    background:white;
+    border-radius:12px;
+    padding:6px;
+    width:420px;
+    box-shadow:0px 10px 30px rgba(0,0,0,0.08);
+}
+
+.hero-btn input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:16px;
+    font-family:"DM Sans", sans-serif;
+    font-size:14px;
+}
+
+.hero-btn button{
+    background:linear-gradient(135deg,#4F6BFF,#1EA7FD);
+    border:none;
+    color:white;
+    padding:14px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+}
+.bubble{
+    position:absolute;
+    border-radius:50%;
+    animation:float 6s ease-in-out infinite;
+    @keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0);}
+    }
+}
+
+.bubble1{
+    width:14px;
+    height:14px;
+    background:#2F6BFF;
+    left:120px;
+    top:200px;
+}
+
+.bubble2{
+    width:10px;
+    height:10px;
+    background:#2F6BFF;
+    right:250px;
+    top:380px;
+}
+
+.bubble3{
+    width:200px;
+    height:200px;
+    background:#EEF2FF;
+    left:320px;
+    top:260px;
+}
+
+
