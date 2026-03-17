@@ -483,6 +483,14 @@ border-radius:20px;
     max-width:480px;
 }
 
+.about2{
+  width: 100%;
+  height: auto;
+  display: block;
+  padding: 20px;
+
+}
+
 /* Testimonial Section  */
 .testimonials{
 padding:120px 20px;
@@ -687,6 +695,49 @@ outline:none;
     max-width: 82px;
 }
 
+/* Policy Section */
+.policies {
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.policies-container {
+    max-width: 900px;
+    width: 100%;
+}
+
+.policies h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 15px;
+    margin-top: 40px;
+    font-family: "Sofia Sans", sans-serif;
+}
+
+.policies h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-family: "Sofia Sans", sans-serif;
+}
+
+.policies p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 20px;
+    font-family: "Sofia Sans", sans-serif;
+}
+
+.policies h2:first-child {
+    margin-top: 0;
+}
+
 /* Responsiveness */
 @media (max-width: 450px) {
     nav{
@@ -780,6 +831,10 @@ outline:none;
     .agreements-right img{
         width: 100%;
         max-width: 420px;
+    }
+    .about2{
+        padding: 20px;
+    max-width: 420px;
     }
     .cta-illustration{
         width: 100px;
