@@ -356,7 +356,7 @@ border-radius:20px;
 .helping-grids{
     display: grid;
     grid-template-columns: repeat(2, auto);
-    padding: 120px 80px;
+    padding: 100px 50px;
     align-items: center;
     justify-content: center;
     gap: 60px;
@@ -364,7 +364,7 @@ border-radius:20px;
 .helping-grid{
     display: grid;
     grid-template-columns: repeat(4, auto);
-    padding: 120px 80px;
+    padding: 100px 50px;
     align-items: center;
     justify-content: center;
     gap: 60px;
