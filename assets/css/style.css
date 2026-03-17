@@ -43,6 +43,10 @@ nav a:hover{
     color:#2F6BFF
 }
 
+nav a.active{
+    color: #2F4FFF;
+}
+
 .nav-btn{
     display: flex;
     gap: 33px;
@@ -62,6 +66,7 @@ nav a:hover{
 .nav-btn a:hover{
     color: #2F4FFF;
 }
+
 
 .nav-sec{
     padding: 18px 50px;
@@ -740,6 +745,12 @@ outline:none;
 
 /* Responsiveness */
 @media (max-width: 450px) {
+
+    .header{
+    justify-content: space-between;
+    padding: 20px;
+
+    }
     nav{
         display: none;
     }
