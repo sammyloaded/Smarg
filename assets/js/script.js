@@ -1,3 +1,4 @@
+
 // Menu Javascript
 const hamburger = document.getElementById("hamburger");
   const mobileMenu = document.getElementById("mobileMenu");
@@ -86,3 +87,4 @@ slider.addEventListener("touchend", ()=>{
 
   updateSlider();
 });
+
