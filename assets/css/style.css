@@ -808,6 +808,26 @@ outline:none;
   gap: 35px;
 }
 
+.form-box img {
+  display: block;
+  margin: 0 auto;
+}
+
+.form-box h1{
+    text-align: center;
+    font-size: 22px;
+    color: #040403;
+    font-family: "DM Sans", sans-serif;
+}
+
+.form-box p{
+    text-align: center;
+    color: #5A5A5A;
+    font-size: 14px;
+    margin-top: -15px;
+    font-family: "Sofia Sans", sans-serif;
+}
+
 input {
   width: 100%;
   padding: 16px 18px; 
@@ -856,16 +876,27 @@ input:focus {
 
 .terms {
   font-size: 13px;
-  color: #5A5A5A;
   margin: 15px 0;
   font-family: "Sofia Sans", sans-serif;
   text-align: center;
+}
+
+.terms a.forgo{
+    color: #2522A7;
+}
+
+.terms a.forgo:hover{
+    color: black;
 }
 
 .terms a {
   color: black;
   text-decoration: none;
   
+}
+
+.terms a:hover{
+    color: #2522A7;
 }
 
 .buttons {
@@ -938,6 +969,30 @@ input:focus {
   align-items: center;      
   min-height: 100vh;       
   padding: 20px;            
+}
+
+.forgo-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.forgo-links a{
+    text-decoration: none;
+    color: #5A5A5A;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: "Sofia Sans", sans-serif;
+}
+
+.forgo-links span{
+    color: #0c06d1;
+    
+}
+
+.forgo-links span.for{
+    color:#0c06d1;
+    font-weight: 600;
 }
 
 /* Responsiveness */
