@@ -70,10 +70,12 @@ nav a:hover{
     color: #FFFFFF;
     border: none;
     font-weight: 800;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .nav-sec:hover{
     background:linear-gradient(135deg,#02004a,#1ea7fd);
     cursor: pointer;
+    transform: scale(1.05);
 }
 
 .hero{
@@ -323,6 +325,7 @@ border-radius:20px;
     grid-template-columns:1fr 1fr;
     align-items:center;
     gap:80px;
+    padding: 20px;
 }
 
 .helping-left h3{
@@ -350,6 +353,14 @@ border-radius:20px;
     font-family: "Sofia Sans", sans-serif;
 }
 
+.helping-grids{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    padding: 120px 80px;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
 .helping-grid{
     display: grid;
     grid-template-columns: repeat(4, auto);
@@ -359,8 +370,15 @@ border-radius:20px;
     gap: 60px;
 }
 
+
 .helping-card{
     max-width: 250px;
+   cursor: pointer;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+}
+.helping-card:hover{
+    transform: scale(1.05);
 }
 
 .helping-card h3{
@@ -422,7 +440,8 @@ border-radius:20px;
     grid-template-columns:1fr 1fr;
     align-items:center;
     gap:80px;
-    padding-top: 154px;
+    padding-top: 54px;
+    padding: 20px;
 }
 
 
@@ -544,12 +563,15 @@ background:#0f172a;
 }
 
 /* Footer CTA Section  */
+.cta2{
+    padding: 20px;
+}
 .cta-banner{
 max-width:1100px;
 margin:120px auto;
 background:linear-gradient(135deg,#3a4ff6,#1ea7fd);
 border-radius:15px;
-padding:80px 40px;
+padding:80px 20px;
 position:relative;
 overflow:hidden;
 text-align:center;
@@ -636,9 +658,11 @@ outline:none;
     display: flex;
     flex-direction: row;
     gap: 30px;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .socials img:hover{
-    opacity: 0.5;
+    opacity: 0.3;
+    transform: scale(1.05);
 }
 .footer h3{
     font-size: 18px;
@@ -655,9 +679,11 @@ outline:none;
     flex-direction: column;
     gap: 60px;
     padding-top: 31px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .footer a:hover{
     color:#0085FF;
+    transform: scale(1.05);
 }
 
 .footer-card img{
