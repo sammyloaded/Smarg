@@ -3,6 +3,12 @@ function toggleSidebar() {
     document.getElementById('mobile-sidebar').classList.toggle('active');
     document.getElementById('sidebar-overlay').classList.toggle('active');
 }
+// --- Profile Menu Logic ---
+function toggleProfileMenu(event) {
+    event.stopPropagation(); // Prevents the click from immediately closing the menu
+    const menu = document.getElementById('profileMenu');
+    menu.classList.toggle('active');
+}
 
 // --- View Switching Logic ---
 function showDashboard() {

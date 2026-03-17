@@ -65,19 +65,53 @@
       </div>
       <div class="header-actions">
         <div class="search-bar">
-          <img src="assets/img/search.png" />
+          <span><img src="assets/img/search.png" /></span>
           <input type="text" placeholder="Search anything..." />
         </div>
+
         <img
           src="assets/img/bell.png"
           alt="Notifications"
           class="bell-icon img-placeholder"
         />
-        <img
-          src="assets/img/profile.png"
-          alt="Profile"
-          class="profile-pic img-placeholder"
-        />
+
+        <div
+          class="profile-dropdown-container"
+          onclick="toggleProfileMenu(event)"
+        >
+          <div class="profile-trigger">
+            <img
+              src="assets/img/profile.png"
+              alt="Profile"
+              class="profile-pic img-placeholder"
+            />
+            <img
+              src="assets/img/arrow-down.png"
+              alt="v"
+              class="img-placeholder"
+              style="width: 10px; height: 10px; margin-left: 8px"
+            />
+          </div>
+
+          <div class="profile-menu" id="profileMenu">
+            <a href="#" class="profile-menu-item">
+              <img
+                src="assets/img/user-icon.png"
+                alt="User"
+                class="menu-icon img-placeholder"
+              />
+              My Profile
+            </a>
+            <a href="#" class="profile-menu-item">
+              <img
+                src="assets/img/logout.png"
+                alt="Logout"
+                class="menu-icon img-placeholder"
+              />
+              Log Out
+            </a>
+          </div>
+        </div>
       </div>
     </header>
 
