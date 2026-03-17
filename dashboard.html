@@ -3,430 +3,225 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smarg Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Dashboard - Smarg</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700;6..12,800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap"
       rel="stylesheet"
     />
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['"Nunito Sans"', "sans-serif"],
-            },
-            colors: {
-              brandDark: "#0B1032",
-              brandBlue: "#2563EB",
-            },
-          },
-        },
-      };
-    </script>
-    <style>
-      /* Mobile Sidebar Animation */
-      .sidebar-transition {
-        transition: transform 0.3s ease-in-out;
-      }
-      .sidebar-closed {
-        transform: translateX(-100%);
-      }
-      .sidebar-open {
-        transform: translateX(0);
-      }
-
-      /* Hide scrollbar for cleaner look */
-      ::-webkit-scrollbar {
-        width: 6px;
-      }
-      ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #e5e7eb;
-        border-radius: 10px;
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/dash.css" />
+    <link rel="icon" type="image/jpeg/png" href="/assets/img/favicon.jpeg" />
   </head>
-  <body class="bg-[#FAFAFB] text-gray-800 font-sans min-h-screen flex flex-col">
+  <body>
     <div
-      id="sidebarOverlay"
-      class="fixed inset-0 bg-black/50 z-40 hidden"
+      class="sidebar-overlay"
+      id="sidebar-overlay"
       onclick="toggleSidebar()"
     ></div>
 
-    <aside
-      id="sidebar"
-      class="fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 sidebar-transition sidebar-closed md:hidden flex flex-col"
-    >
-      <div
-        class="p-5 border-b border-gray-100 flex justify-between items-center"
-      >
-        <img src="assets/img/logo.png" alt="Smarg Logo" class="h-6" />
-        <button
-          onclick="toggleSidebar()"
-          class="text-3xl text-gray-500 hover:text-gray-800"
-        >
-          &times;
-        </button>
+    <div class="mobile-sidebar" id="mobile-sidebar">
+      <button class="close-sidebar" onclick="toggleSidebar()">×</button>
+      <div class="logo">
+        <img src="assets/img/logo.png" alt="Logo" />
       </div>
-      <nav class="flex flex-col p-4 gap-2">
+      <div class="mobile-nav">
         <a
           href="#"
-          class="flex items-center gap-3 p-3 text-blue-700 font-semibold bg-blue-50 rounded-lg"
+          class="active"
+          onclick="
+            showDashboard();
+            toggleSidebar();
+          "
         >
-          <img src="/assets/img/home-icom.png" alt="Home" class="w-5 h-5" />
+          <img
+            src="assets/img/home-icom.png"
+            alt="Home"
+            class="home-icon img-placeholder"
+          />
           Home
         </a>
-        <a
-          href="#"
-          class="flex items-center gap-3 p-3 text-gray-500 hover:bg-gray-50 hover:text-gray-800 rounded-lg"
-        >
-          Contracts
-        </a>
-        <a
-          href="#"
-          class="flex items-center gap-3 p-3 text-gray-500 hover:bg-gray-50 hover:text-gray-800 rounded-lg"
-        >
-          Payments
-        </a>
-      </nav>
-    </aside>
-
-    <header
-      class="bg-white border-b border-gray-100 px-4 md:px-8 py-4 flex items-center justify-between sticky top-0 z-30"
-    >
-      <div class="flex items-center gap-8">
-        <button
-          class="md:hidden text-2xl text-gray-600 focus:outline-none"
-          onclick="toggleSidebar()"
-        >
-          &#9776;
-        </button>
-        <img
-          src="assets/img/logo.png"
-          alt="Smarg Logo"
-          class="h-6 hidden md:block"
-        />
-
-        <nav
-          class="hidden md:flex gap-8 items-center ml-8 text-sm font-semibold"
-        >
-          <div
-            class="relative text-blue-700 flex items-center gap-2 pb-1 cursor-pointer"
-          >
-            <img src="assets/img/home-icom.png" alt="Home" class="w-4 h-4" />
-            Home
-            <div
-              class="absolute -bottom-5 left-0 w-full h-0.5 bg-blue-700"
-            ></div>
-          </div>
-          <a
-            href="#"
-            class="text-gray-500 hover:text-gray-800 transition-colors"
-            >Contracts</a
-          >
-          <a
-            href="#"
-            class="text-gray-500 hover:text-gray-800 transition-colors"
-            >Payments</a
-          >
-        </nav>
+        <a href="#">Contracts</a>
+        <a href="payments.html">Payments</a>
       </div>
+    </div>
 
-      <div class="flex items-center gap-4 md:gap-6">
-        <div class="hidden md:flex items-center text-gray-400 gap-2">
-          <svg
-            class="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            ></path>
-          </svg>
-          <input
-            type="text"
-            placeholder="Search anything..."
-            class="bg-transparent text-sm focus:outline-none w-48 text-gray-700 placeholder-gray-400"
-          />
+    <header class="header">
+      <div class="logo-nav">
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+        <div class="logo">
+          <img src="assets/img/logo.png" alt="Logo" />
         </div>
-
+        <div class="nav-links">
+          <a href="#" class="active" onclick="showDashboard()">
+            <img
+              src="assets/img/home-icom.png"
+              alt="Home"
+              class="home-icon img-placeholder"
+            />
+            Home
+          </a>
+          <a href="#">Contracts</a>
+          <a href="#">Payments</a>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="search-bar">
+          <img src="assets/img/search.png" />
+          <input type="text" placeholder="Search anything..." />
+        </div>
         <img
           src="assets/img/bell.png"
           alt="Notifications"
-          class="w-6 h-6 cursor-pointer"
+          class="bell-icon img-placeholder"
         />
-
-        <div
-          class="relative cursor-pointer"
-          onclick="toggleDropdown('profileDropdown')"
-        >
-          <div class="flex items-center gap-2">
-            <img
-              src="assets/img/profile.png"
-              alt="Profile"
-              class="w-9 h-9 rounded-full object-cover bg-blue-100"
-            />
-            <svg
-              class="w-4 h-4 text-gray-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              ></path>
-            </svg>
-          </div>
-          <div
-            id="profileDropdown"
-            class="absolute right-0 mt-3 w-48 bg-white border border-gray-100 rounded-xl shadow-lg hidden py-2 z-50"
-          >
-            <a
-              href="#"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-              >My Profile</a
-            >
-            <a
-              href="#"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-              >Settings</a
-            >
-            <hr class="my-1 border-gray-100" />
-            <a
-              href="#"
-              class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50"
-              >Log out</a
-            >
-          </div>
-        </div>
+        <img
+          src="assets/img/profile.png"
+          alt="Profile"
+          class="profile-pic img-placeholder"
+        />
       </div>
     </header>
 
-    <main
-      class="flex-1 max-w-[1400px] w-full mx-auto p-4 md:p-8 flex flex-col lg:flex-row gap-6 lg:gap-8"
-    >
-      <div class="lg:w-2/3 flex flex-col gap-8">
-        <div
-          class="bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl p-6 md:p-10 flex flex-col-reverse md:flex-row items-center justify-between text-white shadow-sm relative overflow-hidden"
-        >
-          <div class="z-10 mt-4 md:mt-0 text-center md:text-left">
-            <p class="text-lg md:text-xl font-light opacity-90">
-              Good Morning,
-            </p>
-            <h1 class="text-2xl md:text-4xl font-bold mb-6">Oluwasayo</h1>
-            <button
-              onclick="openModal('createContractModal')"
-              class="bg-white/20 hover:bg-white/30 border border-white/30 backdrop-blur-sm transition-colors text-white text-sm font-semibold py-2.5 px-6 rounded-lg flex items-center gap-2 mx-auto md:mx-0"
-            >
-              Create Contract <span>›</span>
-            </button>
-          </div>
-          <img
-            src="assets/img/handshake.png"
-            alt="Handshake Illustration"
-            class="w-48 md:w-64 z-10"
-          />
-          <div
-            class="absolute right-0 top-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20"
-          ></div>
-        </div>
-
-        <div>
-          <h2 class="text-lg font-bold text-gray-800 mb-4">
-            Activities Summary
-          </h2>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div
-              class="bg-brandDark rounded-xl p-5 text-white shadow-sm flex flex-col justify-between h-32 relative overflow-hidden"
-            >
-              <img
-                src="assets/img/act1.png"
-                alt="Completed"
-                class="w-6 h-6 mb-2"
-              />
-              <div class="text-2xl font-bold">340</div>
-              <div
-                class="text-xs text-gray-300 flex items-center justify-between mt-auto"
+    <div class="container">
+      <div id="dashboard-view">
+        <div class="main-col">
+          <div class="hero-banner">
+            <div class="hero-text">
+              <p>Good Morning,</p>
+              <h1>Oluwasayo</h1>
+              <button
+                class="btn-create"
+                onclick="openModal('modal-create-role')"
               >
-                Completed Contract <span>›</span>
-              </div>
+                Create Contract <span>›</span>
+              </button>
             </div>
-
-            <div
-              class="bg-white rounded-xl p-5 text-gray-800 border border-gray-100 shadow-sm flex flex-col justify-between h-32"
-            >
-              <img
-                src="assets/img/act2.png"
-                alt="Ongoing"
-                class="w-6 h-6 mb-2"
-              />
-              <div class="text-2xl font-bold">133</div>
-              <div
-                class="text-xs text-gray-500 flex items-center justify-between mt-auto"
-              >
-                Ongoing Contract <span>›</span>
-              </div>
-            </div>
-
-            <div
-              class="bg-white rounded-xl p-5 text-gray-800 border border-gray-100 shadow-sm flex flex-col justify-between h-32"
-            >
-              <img
-                src="assets/img/act3.png"
-                alt="Cancelled"
-                class="w-6 h-6 mb-2"
-              />
-              <div class="text-2xl font-bold">13</div>
-              <div
-                class="text-xs text-gray-500 flex items-center justify-between mt-auto"
-              >
-                Cancelled Contracts <span>›</span>
-              </div>
-            </div>
-
-            <div
-              class="bg-white rounded-xl p-5 text-gray-800 border border-gray-100 shadow-sm flex flex-col justify-between h-32"
-            >
-              <img
-                src="assets/img/act4.png"
-                alt="Clients"
-                class="w-6 h-6 mb-2"
-              />
-              <div class="text-2xl font-bold">52</div>
-              <div
-                class="text-xs text-gray-500 flex items-center justify-between mt-auto"
-              >
-                Active Clients <span>›</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex justify-between items-center mb-4">
-            <h2 class="text-lg font-bold text-gray-800">Contract Analytics</h2>
-            <select
-              class="text-sm bg-white border border-gray-200 rounded-lg px-3 py-1.5 text-gray-600 focus:outline-none cursor-pointer"
-            >
-              <option>Last 9 Months</option>
-              <option>Last 6 Months</option>
-            </select>
-          </div>
-          <div
-            class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm w-full"
-          >
             <img
-              src="assets/img/analytics.png"
-              alt="Contract Analytics Chart"
-              class="w-full h-auto object-contain"
+              src="assets/img/handshake.png"
+              alt="Good Morning Graphic"
+              class="hero-illustration img-placeholder"
             />
           </div>
-        </div>
-      </div>
 
-      <div class="lg:w-1/3 flex flex-col gap-8">
-        <div
-          class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm text-center"
-        >
-          <p class="text-xs font-semibold text-gray-400 tracking-wider mb-2">
-            AVAILABLE BALANCE
-          </p>
-          <div class="flex justify-center items-baseline mb-2">
-            <span class="text-3xl font-extrabold text-brandDark"
-              >₦ 340,000</span
-            >
-            <span class="text-xl font-bold text-gray-600">.78</span>
+          <div>
+            <div class="section-title-main">Activities Summary</div>
+            <div class="activities-grid">
+              <div class="activity-card dark">
+                <img
+                  src="assets/img/act1.png"
+                  alt="Icon"
+                  class="activity-icon img-placeholder"
+                />
+                <h3>340</h3>
+                <p>Completed Contract <span>›</span></p>
+              </div>
+              <div class="activity-card">
+                <img
+                  src="assets/img/act2.png"
+                  alt="Icon"
+                  class="activity-icon img-placeholder"
+                />
+                <h3>133</h3>
+                <p>Ongoing Contract <span>›</span></p>
+              </div>
+              <div class="activity-card">
+                <img
+                  src="assets/img/act3.png"
+                  alt="Icon"
+                  class="activity-icon img-placeholder"
+                />
+                <h3>13</h3>
+                <p>Cancelled Contracts <span>›</span></p>
+              </div>
+              <div class="activity-card">
+                <img
+                  src="assets/img/act4.png"
+                  alt="Icon"
+                  class="activity-icon img-placeholder"
+                />
+                <h3>52</h3>
+                <p>Active Clients <span>›</span></p>
+              </div>
+            </div>
           </div>
-          <div
-            class="text-green-500 text-sm font-semibold mb-6 flex items-center justify-center gap-1"
-          >
-            <span>▲</span> 36.5%
+
+          <div>
+            <div class="analytics-header">
+              <div class="section-title-main" style="margin: 0">
+                Contract Analytics
+              </div>
+              <select>
+                <option>Last 9 Months</option>
+                <option>Last 6 Months</option>
+                <option>Last 3 Months</option>
+              </select>
+            </div>
+            <div class="card">
+              <img
+                src="assets/img/analytics.png"
+                alt="Analytics Chart"
+                class="analytics-chart-img img-placeholder"
+              />
+            </div>
           </div>
-          <button
-            onclick="openModal('withdrawFundModal')"
-            class="w-full bg-[#1C2059] hover:bg-[#11143D] transition-colors text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2"
-          >
-            Withdraw Fund <span class="text-lg leading-none">↗</span>
-          </button>
         </div>
 
-        <div>
-          <h2 class="text-lg font-bold text-gray-800 mb-4">
-            Recent Activities
-          </h2>
-          <div class="flex flex-col gap-4">
-            <div
-              class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm"
+        <div class="side-col">
+          <div class="card balance-card">
+            <div class="balance-label">AVAILABLE BALANCE</div>
+            <div class="balance-amount">₦ 340,000<span>.78</span></div>
+            <div class="balance-increase">▲ 36.5%</div>
+            <button
+              class="btn-primary"
+              onclick="openModal('modal-withdraw-amount')"
             >
-              <div class="flex gap-4">
+              Withdraw Fund ↗
+            </button>
+          </div>
+
+          <div>
+            <div class="section-title-main">Recent Activities</div>
+            <div class="recent-activity-list">
+              <div class="activity-item">
                 <img
                   src="assets/img/akintola.png"
                   alt="User"
-                  class="w-10 h-10 rounded-full bg-pink-100 object-cover flex-shrink-0"
+                  class="avatar-img img-placeholder"
                 />
-                <div class="flex-1">
-                  <p
-                    class="text-sm text-gray-700 font-medium leading-snug mb-3"
-                  >
+                <div class="activity-content">
+                  <p>
                     Akintola request to
-                    <span
-                      class="bg-red-50 text-red-500 px-1.5 py-0.5 rounded text-xs mx-1"
-                      >cancel</span
-                    >
-                    this contract
+                    <span class="status-badge">cancel</span> this contract
                   </p>
-                  <div class="flex justify-between items-end">
+                  <div class="activity-footer">
                     <button
-                      class="bg-blue-50 text-blue-600 text-xs font-semibold py-2 px-4 rounded-lg hover:bg-blue-100 transition-colors"
+                      class="btn-action"
+                      onclick="openModal('modal-request-details')"
                     >
                       View Request
                     </button>
-                    <span class="text-[10px] font-bold text-gray-400 uppercase"
-                      >MAR 25, 2010</span
-                    >
+                    <span class="activity-date">MAR 25, 2010</span>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div
-              class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm"
-            >
-              <div class="flex gap-4">
+              <div class="activity-item">
                 <img
                   src="assets/img/akintola2.png"
                   alt="User"
-                  class="w-10 h-10 rounded-full bg-blue-100 object-cover flex-shrink-0"
+                  class="avatar-img img-placeholder"
                 />
-                <div class="flex-1">
-                  <p
-                    class="text-sm text-gray-700 font-medium leading-snug mb-3"
-                  >
+                <div class="activity-content">
+                  <p>
                     You rejected Akintola's cancellation request to this
                     contract
                   </p>
-                  <div class="flex justify-between items-end">
+                  <div class="activity-footer">
                     <button
-                      class="bg-blue-50 text-blue-600 text-xs font-semibold py-2 px-4 rounded-lg hover:bg-blue-100 transition-colors"
+                      class="btn-action"
+                      onclick="openModal('modal-request-details akintola')"
                     >
                       Escalate Request
                     </button>
-                    <span class="text-[10px] font-bold text-gray-400 uppercase"
-                      >MAR 25, 2010</span
-                    >
+                    <span class="activity-date">MAR 25, 2010</span>
                   </div>
                 </div>
               </div>
@@ -434,302 +229,787 @@
           </div>
         </div>
       </div>
-    </main>
 
-    <div
-      id="modalBackdrop"
-      class="fixed inset-0 bg-black/40 z-[60] hidden flex items-center justify-center p-4 backdrop-blur-sm"
-    >
-      <div
-        id="createContractModal"
-        class="modal-content hidden bg-white rounded-2xl w-full max-w-md p-6 relative shadow-2xl"
-      >
-        <button
-          onclick="closeAllModals()"
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl"
-        >
-          &times;
-        </button>
-        <h2 class="text-xl font-bold mb-4">Create Contract</h2>
-        <p class="text-sm text-gray-500 mb-6">
-          Start a new contract configuration here.
-        </p>
-        <button
-          onclick="window.location.href = 'contract-step-2.html'"
-          class="w-full bg-brandBlue text-white font-semibold py-3 rounded-xl hover:bg-blue-700 transition-colors"
-        >
-          Continue
-        </button>
-      </div>
-
-      <div
-        id="withdrawFundModal"
-        class="modal-content hidden bg-white rounded-2xl w-full max-w-md p-6 relative shadow-2xl"
-      >
-        <button
-          onclick="closeAllModals()"
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl"
-        >
-          &times;
-        </button>
-        <h2 class="text-xl font-bold mb-4">Withdraw Funds</h2>
-        <div class="mb-6">
-          <label class="block text-sm font-semibold text-gray-700 mb-2"
-            >Amount (NGN)</label
-          >
-          <input
-            type="number"
-            placeholder="Enter amount to withdraw"
-            class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-brandBlue focus:ring-1 focus:ring-brandBlue"
-          />
-        </div>
-        <button
-          onclick="switchModal('paymentMethodModal')"
-          class="w-full bg-brandBlue text-white font-semibold py-3 rounded-xl hover:bg-blue-700 transition-colors"
-        >
-          Continue
-        </button>
-      </div>
-
-      <div
-        id="paymentMethodModal"
-        class="modal-content hidden bg-white rounded-2xl w-full max-w-md p-6 relative shadow-2xl"
-      >
-        <button
-          onclick="closeAllModals()"
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl"
-        >
-          &times;
-        </button>
-        <h2 class="text-xl font-bold mb-4">Payment Details</h2>
-
-        <div class="relative mb-6">
-          <button
-            onclick="toggleDropdown('bankDropdown')"
-            class="w-full border border-gray-200 rounded-xl px-4 py-3 text-left flex justify-between items-center bg-gray-50 text-gray-700 font-medium"
-          >
-            Select Card / Bank Side
-            <svg
-              class="w-4 h-4 text-gray-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              ></path>
-            </svg>
-          </button>
-          <div
-            id="bankDropdown"
-            class="absolute w-full mt-2 bg-white border border-gray-100 rounded-xl shadow-lg hidden z-10"
-          >
-            <div
-              class="p-2 cursor-pointer hover:bg-gray-50 border-b border-gray-50"
-            >
-              **** **** **** 1234
-            </div>
-            <div class="p-2 cursor-pointer hover:bg-gray-50">
-              Access Bank - 0123456789
-            </div>
+      <div id="contract-view">
+        <div class="stepper">
+          <div class="step active" id="indicator-1">
+            <div class="step-circle">1</div>
+            <div class="step-label mt-2">Basic Information</div>
+          </div>
+          <div class="stepper-line" id="line-1"></div>
+          <div class="step" id="indicator-2">
+            <div class="step-circle">2</div>
+            <div class="step-label mt-2">Upload Contract</div>
+          </div>
+          <div class="stepper-line" id="line-2"></div>
+          <div class="step" id="indicator-3">
+            <div class="step-circle">3</div>
+            <div class="step-label mt-2">Payment</div>
           </div>
         </div>
 
-        <div class="flex flex-col gap-3">
-          <button
-            onclick="switchModal('successModal')"
-            class="w-full bg-brandBlue text-white font-semibold py-3 rounded-xl hover:bg-blue-700 transition-colors"
+        <div id="step-1" class="contract-step">
+          <div class="form-section">
+            <h2>Basic Information</h2>
+            <p>The status of a client or freelancer is based on</p>
+          </div>
+
+          <div class="section-title">Contract Information</div>
+          <div class="input-group">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Contract Name"
+            />
+            <div
+              class="input-group-modal"
+              style="flex: 1; margin: 0; padding: 0 15px; border-radius: 8px"
+            >
+              <select>
+                <option>NGN ∨</option>
+              </select>
+              <input type="text" placeholder="Contract Amount" />
+            </div>
+          </div>
+          <textarea
+            class="input-field"
+            placeholder="Contract Description"
+          ></textarea>
+
+          <div class="section-title">Add Client</div>
+          <div class="input-group" style="margin-bottom: 30px">
+            <input type="text" class="input-field" placeholder="Client Name" />
+            <input
+              type="email"
+              class="input-field"
+              placeholder="Client Email Address"
+            />
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn-primary" onclick="goToStep(2)">Continue</button>
+          </div>
+        </div>
+
+        <div id="step-2" class="contract-step" style="display: none">
+          <div class="form-section">
+            <h2>Upload Contract</h2>
+            <p>
+              Kindly upload your contract or
+              <a href="#" style="color: var(--primary)">use contract sample</a>
+            </p>
+          </div>
+
+          <input
+            type="file"
+            id="contract-file"
+            style="display: none"
+            accept=".pdf,.doc,.docx"
+          />
+
+          <div class="upload-area" id="upload-box">
+            <!-- <img src="" alt="Upload" class="upload-icon img-placeholder" /> -->
+            <p>Drag and drop file here or <a>Browse</a></p>
+            <span>Supported format : pdf, doc or docx</span>
+            <div id="file-name-display"></div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn-outline" onclick="goToStep(1)">Previous</button>
+            <button class="btn-primary" onclick="goToStep(3)">Continue</button>
+          </div>
+        </div>
+
+        <div id="step-3" class="contract-step" style="display: none">
+          <div class="form-section">
+            <h2>Choose Payment Method</h2>
+            <p>The status of a client or freelancer is based on</p>
+          </div>
+
+          <div class="payment-method" onclick="openModal('modal-choose-bank')">
+            <img
+              src="assets/img/cellphone.png"
+              alt="USSD"
+              class="payment-method-icon img-placeholder"
+            />
+            <span>Payment With USSD Code</span>
+          </div>
+          <div
+            class="payment-method"
+            onclick="openModal('modal-crypto-payment')"
           >
-            Withdraw 55,000 naira
-          </button>
+            <img
+              src="assets/img/wallet.png"
+              alt="Crypto"
+              class="payment-method-icon img-placeholder"
+            />
+            <span>Payment With Cryptocurrency</span>
+          </div>
+
+          <div class="divider">Or</div>
+
+          <div class="section-title">Select Card</div>
+
+          <div class="custom-select" id="contractCardSelect">
+            <div
+              class="select-trigger"
+              onclick="toggleDropdown('contractCardSelect')"
+            >
+              <div style="display: flex; align-items: center; gap: 10px">
+                <span class="radio-circle" style="border-color: var(--primary)"
+                  ><span
+                    style="
+                      background: var(--primary);
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      display: block;
+                      margin: 2px;
+                    "
+                  ></span
+                ></span>
+                MasterCard **** 2829
+              </div>
+              <span>∨</span>
+            </div>
+            <div class="select-options">
+              <div class="option selected">
+                <span class="radio-circle"></span>
+                <span>MasterCard **** 2829</span>
+                <img
+                  src="assets/img/mastercard.png"
+                  alt="MasterCard"
+                  class="bank-logo img-placeholder"
+                  style="margin-left: auto"
+                />
+              </div>
+              <div class="option">
+                <span class="radio-circle"></span>
+                <span>Visa **** 1234</span>
+                <img
+                  src="assets/img/visa.png"
+                  alt="Visa"
+                  class="bank-logo img-placeholder"
+                  style="margin-left: auto"
+                />
+              </div>
+            </div>
+          </div>
+
           <button
-            onclick="switchModal('addBankModal')"
-            class="w-full bg-gray-100 text-gray-700 font-semibold py-3 rounded-xl hover:bg-gray-200 transition-colors"
+            class="add-new-btn"
+            style="margin-bottom: 40px"
+            onclick="openModal('modal-add-new-card')"
           >
-            + Add new bank
+            <span>+</span> Add New Card
           </button>
-          <button
-            onclick="switchModal('withdrawFundModal')"
-            class="w-full text-gray-500 font-semibold py-2 hover:text-gray-800 transition-colors"
-          >
-            Back to amount
-          </button>
+
+          <div class="action-buttons">
+            <button class="btn-outline" onclick="goToStep(2)">Previous</button>
+            <button class="btn-primary" onclick="openModal('modal-success')">
+              Continue
+            </button>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div
-        id="addBankModal"
-        class="modal-content hidden bg-white rounded-2xl w-full max-w-md p-6 relative shadow-2xl"
-      >
-        <button
-          onclick="closeAllModals()"
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl"
-        >
-          &times;
-        </button>
-        <h2 class="text-xl font-bold mb-4">Add New Bank</h2>
-        <div class="flex flex-col gap-4 mb-6">
-          <input
-            type="text"
-            placeholder="Account Number"
-            class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-brandBlue"
-          />
-          <select
-            class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-brandBlue text-gray-500 bg-white"
-          >
-            <option>Select Bank</option>
-            <option>Access Bank</option>
-            <option>GTBank</option>
-          </select>
+    <div class="modal-overlay" id="modal-create-role">
+      <div class="modal-box">
+        <div class="modal-title">Create New Contract</div>
+        <div class="modal-subtitle">
+          Which Role are you playing in this project?
         </div>
-        <div class="flex gap-3">
-          <button
-            onclick="switchModal('paymentMethodModal')"
-            class="flex-1 bg-gray-100 text-gray-700 font-semibold py-3 rounded-xl hover:bg-gray-200 transition-colors"
-          >
-            Back
-          </button>
-          <button
-            onclick="switchModal('otpModal')"
-            class="flex-1 bg-brandBlue text-white font-semibold py-3 rounded-xl hover:bg-blue-700 transition-colors"
-          >
-            Add Bank
-          </button>
-        </div>
-      </div>
 
-      <div
-        id="otpModal"
-        class="modal-content hidden bg-white rounded-2xl w-full max-w-md p-6 relative shadow-2xl text-center"
-      >
-        <button
-          onclick="closeAllModals()"
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl"
-        >
-          &times;
-        </button>
-        <h2 class="text-xl font-bold mb-2">Enter OTP</h2>
-        <p class="text-sm text-gray-500 mb-6">We sent a code to your phone</p>
-        <div class="flex justify-center gap-2 mb-6">
-          <input
-            type="text"
-            maxlength="1"
-            class="w-12 h-12 text-center text-xl font-bold border border-gray-300 rounded-lg focus:outline-none focus:border-brandBlue"
-          />
-          <input
-            type="text"
-            maxlength="1"
-            class="w-12 h-12 text-center text-xl font-bold border border-gray-300 rounded-lg focus:outline-none focus:border-brandBlue"
-          />
-          <input
-            type="text"
-            maxlength="1"
-            class="w-12 h-12 text-center text-xl font-bold border border-gray-300 rounded-lg focus:outline-none focus:border-brandBlue"
-          />
-          <input
-            type="text"
-            maxlength="1"
-            class="w-12 h-12 text-center text-xl font-bold border border-gray-300 rounded-lg focus:outline-none focus:border-brandBlue"
-          />
+        <div class="role-cards">
+          <div class="role-card active" onclick="selectRole(this)">
+            <img
+              src="assets/img/freelancer.png"
+              alt="Freelancer"
+              class="role-icon img-placeholder"
+            />
+            <h4>Freelancer</h4>
+            <p>The status of a client or freelancer</p>
+          </div>
+          <div class="role-card" onclick="selectRole(this)">
+            <img
+              src="assets/img/client.png"
+              alt="Client"
+              class="role-icon img-placeholder"
+            />
+            <h4>Client</h4>
+            <p>The status of a client or freelancer</p>
+          </div>
         </div>
-        <button
-          onclick="switchModal('withdrawFundModal')"
-          class="w-full bg-brandBlue text-white font-semibold py-3 rounded-xl hover:bg-blue-700 transition-colors"
-        >
-          Confirm Bank
-        </button>
-      </div>
 
-      <div
-        id="successModal"
-        class="modal-content hidden bg-white rounded-2xl w-full max-w-sm p-8 relative shadow-2xl text-center"
-      >
-        <div
-          class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl"
-        >
-          ✓
-        </div>
-        <h2 class="text-xl font-bold text-gray-800 mb-2">Success!</h2>
-        <p class="text-sm text-gray-500 mb-6">Your withdrawal is processing.</p>
-        <button
-          onclick="closeAllModals()"
-          class="w-full bg-gray-100 text-gray-800 font-semibold py-3 rounded-xl hover:bg-gray-200 transition-colors"
-        >
-          Ok got it
+        <button class="btn-primary" onclick="startContractFlow()">
+          Continue
         </button>
       </div>
     </div>
 
-    <script>
-      // --- Sidebar Logic ---
-      function toggleSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        const overlay = document.getElementById("sidebarOverlay");
+    <div class="modal-overlay" id="modal-withdraw-amount">
+      <div class="modal-box">
+        <div class="modal-title">Withdraw Fund</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
 
-        if (sidebar.classList.contains("sidebar-closed")) {
-          sidebar.classList.remove("sidebar-closed");
-          sidebar.classList.add("sidebar-open");
-          overlay.classList.remove("hidden");
-        } else {
-          sidebar.classList.add("sidebar-closed");
-          sidebar.classList.remove("sidebar-open");
-          overlay.classList.add("hidden");
-        }
-      }
+        <div class="input-group-modal">
+          <select>
+            <option>NGN ∨</option>
+          </select>
+          <input type="text" placeholder="Amount" />
+        </div>
 
-      // --- Generic Dropdown Logic ---
-      function toggleDropdown(dropdownId) {
-        const dropdown = document.getElementById(dropdownId);
-        dropdown.classList.toggle("hidden");
-      }
+        <div class="available-bal-badge">Available balance : ₦500,000.45</div>
 
-      // Close dropdowns when clicking outside
-      window.addEventListener("click", function (e) {
-        const profileDropdown = document.getElementById("profileDropdown");
-        const bankDropdown = document.getElementById("bankDropdown");
+        <button
+          class="btn-primary"
+          onclick="switchModal('modal-withdraw-amount', 'modal-withdraw-card')"
+        >
+          Continue
+        </button>
+      </div>
+    </div>
 
-        if (!e.target.closest(".cursor-pointer")) {
-          if (profileDropdown && !profileDropdown.classList.contains("hidden"))
-            profileDropdown.classList.add("hidden");
-        }
-        if (!e.target.closest("#paymentMethodModal")) {
-          if (bankDropdown && !bankDropdown.classList.contains("hidden"))
-            bankDropdown.classList.add("hidden");
-        }
-      });
+    <div class="modal-overlay" id="modal-withdraw-card">
+      <div class="modal-box">
+        <div
+          class="back-link"
+          onclick="switchModal('modal-withdraw-card', 'modal-withdraw-amount')"
+        >
+          <img src="" alt="<" class="back-icon img-placeholder" /> Back to
+          Amount
+        </div>
 
-      // --- Modal Logic ---
-      const backdrop = document.getElementById("modalBackdrop");
-      const allModals = document.querySelectorAll(".modal-content");
+        <div class="balance-label" style="margin-top: 30px">
+          WITHDRAW AMOUNT
+        </div>
+        <div class="balance-amount" style="margin-bottom: 30px">
+          ₦ 340,000<span>.78</span>
+        </div>
 
-      function openModal(modalId) {
-        // Hide all contents first
-        allModals.forEach((m) => m.classList.add("hidden"));
+        <div class="section-title">Select Card</div>
 
-        // Show backdrop and target modal
-        backdrop.classList.remove("hidden");
-        document.getElementById(modalId).classList.remove("hidden");
-      }
+        <div class="custom-select" id="withdrawCardSelect">
+          <div
+            class="select-trigger"
+            onclick="toggleDropdown('withdrawCardSelect')"
+          >
+            <div style="display: flex; align-items: center; gap: 10px">
+              <img
+                src="assets/img/uba.png"
+                alt="UBA"
+                class="bank-logo img-placeholder"
+              />
+              2122774814 - Ogunlade Oluwasayo
+            </div>
+            <span>∨</span>
+          </div>
+          <div class="select-options">
+            <div class="option selected">
+              <span class="radio-circle"></span>
+              <span>MasterCard **** 2829</span>
+              <img
+                src="assets/img/mastercard.png"
+                alt="MasterCard"
+                class="bank-logo img-placeholder"
+                style="margin-left: auto"
+              />
+            </div>
+            <div class="option">
+              <span class="radio-circle"></span>
+              <span>Visa **** 1234</span>
+              <img
+                src="assets/img/visa.png"
+                alt="Visa"
+                class="bank-logo img-placeholder"
+                style="margin-left: auto"
+              />
+            </div>
+            <div class="option">
+              <span class="radio-circle"></span>
+              <span>Verve **** 2829</span>
+              <img
+                src="assets/img/verve.png"
+                alt="Verve"
+                class="bank-logo img-placeholder"
+                style="margin-left: auto"
+              />
+            </div>
+          </div>
+        </div>
 
-      function switchModal(newModalId) {
-        allModals.forEach((m) => m.classList.add("hidden"));
-        document.getElementById(newModalId).classList.remove("hidden");
-      }
+        <button
+          class="add-new-btn mb-4"
+          style="margin-bottom: 30px"
+          onclick="switchModal('modal-withdraw-card', 'modal-add-bank')"
+        >
+          <span>+</span> Add New Bank
+        </button>
 
-      function closeAllModals() {
-        backdrop.classList.add("hidden");
-        allModals.forEach((m) => m.classList.add("hidden"));
-      }
+        <button
+          class="btn-primary"
+          onclick="switchModal('modal-withdraw-card', 'modal-success')"
+        >
+          Withdraw ₦55,000
+        </button>
+      </div>
+    </div>
 
-      // Close modal if user clicks on the dark background
-      backdrop.addEventListener("click", function (e) {
-        if (e.target === backdrop) {
-          closeAllModals();
-        }
-      });
-    </script>
+    <div class="modal-overlay" id="modal-add-bank">
+      <div class="modal-box">
+        <div
+          class="back-link"
+          onclick="switchModal('modal-add-bank', 'modal-withdraw-card')"
+        >
+          <img src="" alt="<" class="back-icon img-placeholder" /> Back to
+          Amount
+        </div>
+
+        <div class="modal-title" style="margin-top: 30px">Add New Bank</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
+
+        <div class="input-group-modal">
+          <select style="width: 100%">
+            <option>Select Bank</option>
+          </select>
+        </div>
+        <div class="input-group-modal">
+          <input type="text" placeholder="Account Number" />
+        </div>
+
+        <div class="resolved-name-badge">OGUNLADE, OLUWASAYO JULIANA</div>
+
+        <button
+          class="btn-primary"
+          onclick="switchModal('modal-add-bank', 'modal-confirm-bank')"
+        >
+          Add Bank
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-confirm-bank">
+      <div class="modal-box">
+        <div
+          class="back-link"
+          onclick="switchModal('modal-confirm-bank', 'modal-add-bank')"
+        >
+          <img src="" alt="<" class="back-icon img-placeholder" /> Back to
+          Amount
+        </div>
+
+        <div class="modal-title" style="margin-top: 30px">
+          Confirm Bank Details
+        </div>
+        <div class="modal-subtitle">
+          A 6-digit verification has been sent to <strong>081***09</strong>
+        </div>
+
+        <div class="otp-container">
+          <input type="text" maxlength="1" class="otp-input" />
+          <input type="text" maxlength="1" class="otp-input" />
+          <input type="text" maxlength="1" class="otp-input" />
+          <input type="text" maxlength="1" class="otp-input" />
+          <input type="text" maxlength="1" class="otp-input" />
+          <input type="text" maxlength="1" class="otp-input" />
+        </div>
+
+        <button
+          class="btn-primary"
+          onclick="switchModal('modal-confirm-bank', 'modal-withdraw-card')"
+        >
+          Confirm Bank
+        </button>
+
+        <div class="resend-link">
+          Didn't receive any code? <br />
+          <a href="#">Resend Code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-success">
+      <div class="modal-box">
+        <img
+          src="assets/img/success.png"
+          alt="Success"
+          class="success-icon img-placeholder"
+        />
+        <div class="modal-title">Transaction Successful</div>
+        <div
+          class="modal-subtitle"
+          style="margin-bottom: 40px; line-height: 1.5"
+        >
+          The status of a client or freelancer is based<br />on who created the
+          contract or who
+        </div>
+        <button
+          class="btn-primary"
+          onclick="
+            closeAllModals();
+            showDashboard();
+          "
+        >
+          Okay, Got it
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-add-new-card">
+      <div class="modal-box">
+        <div class="modal-title">Add New Card</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
+
+        <div class="input-group-modal">
+          <input type="text" placeholder="Name on Card" style="width: 100%" />
+        </div>
+        <div
+          class="input-group-modal"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <input type="text" placeholder="Card Number" style="width: 100%" />
+          <img
+            src="assets/img/mastercard.png"
+            alt="MasterCard"
+            class="bank-logo img-placeholder"
+            style="width: 30px"
+          />
+        </div>
+
+        <div style="display: flex; gap: 15px; margin-bottom: 20px">
+          <div class="input-group-modal" style="flex: 1; margin-bottom: 0">
+            <input type="text" placeholder="CVV" style="width: 100%" />
+          </div>
+          <div class="input-group-modal" style="flex: 1; margin-bottom: 0">
+            <input type="text" placeholder="Expiry Date" style="width: 100%" />
+          </div>
+        </div>
+
+        <button
+          class="btn-primary"
+          onclick="closeAllModals()"
+          style="margin-top: 10px"
+        >
+          Add Card
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-choose-bank">
+      <div class="modal-box" style="max-width: 700px">
+        <div class="modal-title">Choose Your Bank</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
+
+        <div class="bank-grid">
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img src="assets/img/uba.png" alt="UBA" class="img-placeholder" />
+          </div>
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img src="assets/img/wema.png" alt="WEMA" class="img-placeholder" />
+          </div>
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img src="assets/img/kuda.png" alt="Kuda" class="img-placeholder" />
+          </div>
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img
+              src="assets/img/fidelity.png"
+              alt="Fidelity"
+              class="img-placeholder"
+            />
+          </div>
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img
+              src="assets/img/access.png"
+              alt="Access"
+              class="img-placeholder"
+            />
+          </div>
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img
+              src="assets/img/heritagebank.png"
+              alt="Heritage"
+              class="img-placeholder"
+            />
+          </div>
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img src="assets/img/fcmb.png" alt="FCMB" class="img-placeholder" />
+          </div>
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img
+              src="assets/img/unionbank.png"
+              alt="Union"
+              class="img-placeholder"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-ussd-code">
+      <div class="modal-box">
+        <img
+          src="assets/img/ussd.png"
+          alt="USSD Phone"
+          class="ussd-phone-icon img-placeholder"
+        />
+        <div class="modal-title">USSD Code</div>
+        <div class="modal-subtitle" style="line-height: 1.5">
+          Copy and dial the code below on your<br />phone to pay
+          <strong>₦55,000</strong>
+        </div>
+
+        <div class="ussd-code-box">
+          <span>*894*0004*0204#</span>
+          <button class="copy-btn">
+            <img
+              src="assets/img/copy-fill.png"
+              alt="Copy"
+              class="img-placeholder"
+              style="width: 16px; height: 16px"
+            />
+          </button>
+        </div>
+
+        <button
+          class="btn-primary"
+          onclick="switchModal('modal-ussd-code', 'modal-success')"
+          style="margin-top: 20px"
+        >
+          Confirm Payment
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-crypto-payment">
+      <div class="modal-box">
+        <div class="modal-title">Crypto Payment</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
+
+        <div class="input-group-modal" style="margin-top: 30px">
+          <input type="text" placeholder="Crypto Address" style="width: 100%" />
+        </div>
+
+        <div class="terms-text">
+          By signing up, I agree to the product's <a href="#">Privacy Policy</a
+          ><br />and <a href="#">Terms of Service</a>
+        </div>
+
+        <button
+          class="btn-primary"
+          onclick="switchModal('modal-crypto-payment', 'modal-success')"
+        >
+          Pay ₦55,000
+        </button>
+      </div>
+    </div>
+
+    <!-- Request Modal  -->
+    <div class="modal-overlay" id="modal-request-details">
+      <div
+        class="modal-box"
+        style="max-width: 550px; text-align: left; padding: 40px"
+      >
+        <div
+          class="modal-title"
+          style="text-align: center; margin-bottom: 40px; font-size: 24px"
+        >
+          Request from Akinwale
+        </div>
+
+        <div class="request-details-grid">
+          <div class="detail-block">
+            <span class="detail-label">REQUEST DATE</span>
+            <div class="detail-value">Aug 10, 2012</div>
+          </div>
+          <div class="detail-block">
+            <span class="detail-label">REQUEST TYPE</span>
+            <div
+              class="detail-value"
+              style="display: flex; align-items: center; gap: 10px"
+            >
+              Cancellation
+              <span
+                class="status-badge"
+                style="font-size: 12px; padding: 4px 8px"
+                >cancel</span
+              >
+            </div>
+          </div>
+          <div class="detail-block">
+            <span class="detail-label">REQUEST BY</span>
+            <div
+              class="detail-value"
+              style="display: flex; align-items: center; gap: 10px"
+            >
+              <img
+                src="assets/img/akintola.png"
+                alt="Brooklyn"
+                class="avatar-img img-placeholder"
+                style="width: 30px; height: 30px"
+              />
+              Brooklyn Simmons
+            </div>
+          </div>
+          <div class="detail-block">
+            <span class="detail-label">CONTRACT ROLE</span>
+            <div class="detail-value">Freelancer</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 30px">
+          <h4
+            style="
+              font-size: 16px;
+              margin-bottom: 10px;
+              color: var(--text-dark);
+            "
+          >
+            Reason for Cancellation
+          </h4>
+          <p
+            style="font-size: 14px; color: var(--text-light); line-height: 1.6"
+          >
+            The status of a client or freelancer is based on who created the
+            contract or who the role is assigned to. In that regard, no separate
+            client or freelancer dashboard. Based on one's status on the
+            contract, features would be enabled.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 15px; margin-top: 40px">
+          <button class="btn-reject" onclick="closeAllModals()">
+            Reject Request
+          </button>
+          <button class="btn-primary" onclick="closeAllModals()">
+            Accept Request
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Akintola Request  -->
+    <div class="modal-overlay" id="modal-request-details akintola">
+      <div
+        class="modal-box"
+        style="max-width: 550px; text-align: left; padding: 40px"
+      >
+        <div
+          class="modal-title"
+          style="text-align: center; margin-bottom: 40px; font-size: 24px"
+        >
+          Request from Akintola
+        </div>
+
+        <div class="request-details-grid">
+          <div class="detail-block">
+            <span class="detail-label">REQUEST DATE</span>
+            <div class="detail-value">Aug 10, 2012</div>
+          </div>
+          <div class="detail-block">
+            <span class="detail-label">REQUEST TYPE</span>
+            <div
+              class="detail-value"
+              style="display: flex; align-items: center; gap: 10px"
+            >
+              Cancellation
+              <span
+                class="status-badge"
+                style="font-size: 12px; padding: 4px 8px"
+                >cancel</span
+              >
+            </div>
+          </div>
+          <div class="detail-block">
+            <span class="detail-label">REQUEST BY</span>
+            <div
+              class="detail-value"
+              style="display: flex; align-items: center; gap: 10px"
+            >
+              <img
+                src="assets/img/akintola.png"
+                alt="Brooklyn"
+                class="avatar-img img-placeholder"
+                style="width: 30px; height: 30px"
+              />
+              Brooklyn Simmons
+            </div>
+          </div>
+          <div class="detail-block">
+            <span class="detail-label">CONTRACT ROLE</span>
+            <div class="detail-value">Freelancer</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 30px">
+          <h4
+            style="
+              font-size: 16px;
+              margin-bottom: 10px;
+              color: var(--text-dark);
+            "
+          >
+            Reason for Cancellation
+          </h4>
+          <p
+            style="font-size: 14px; color: var(--text-light); line-height: 1.6"
+          >
+            The status of a client or freelancer is based on who created the
+            contract or who the role is assigned to. In that regard, no separate
+            client or freelancer dashboard. Based on one's status on the
+            contract, features would be enabled.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 15px; margin-top: 40px">
+          <button class="btn-reject" onclick="closeAllModals()">
+            Reject Request
+          </button>
+          <button class="btn-primary" onclick="closeAllModals()">
+            Accept Request
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/dash.js"></script>
   </body>
 </html>
