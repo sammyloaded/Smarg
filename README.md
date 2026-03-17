@@ -4,7 +4,7 @@
 Smarg is a modern platform designed to simplify remote contract work between clients and freelancers. It provides a structured workspace where contracts, payments, and communication can be managed seamlessly in one place.
 ---
 
-[View Project](https://smarg-phi.vercel.app/)
+View Project - [https://smarg-phi.vercel.app/](https://smarg-phi.vercel.app/)
 
 ---
 
