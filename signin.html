@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In - Smarg</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/jpeg/png" href="/assets/img/favicon.jpeg" />
+  </head>
+  <body>
+    <!-- Header section  -->
+    <section class="header">
+      <div class="logo">
+        <a href="index.html"><img src="assets/img/logo.png" /></a>
+      </div>
+      <div class="hamburger" id="hamburger">☰</div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="auth-container">
+      <div class="form-box">
+        <h1>Welcome Back</h1>
+        <p>Enter your account details to Sign In</p>
+        <input type="email" placeholder="Email Address" />
+
+        <div class="password-field">
+          <input type="password" id="password" placeholder="Enter Password" />
+
+          <!-- Eye Icon (SVG) -->
+          <span class="toggle-password" id="togglePassword">
+            <!-- Eye (visible) -->
+            <svg
+              id="eyeOpen"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="#888"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+
+            <!-- Eye Off (hidden) -->
+            <svg
+              id="eyeClosed"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="#888"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              style="display: none"
+            >
+              <path
+                d="M17.94 17.94A10.94 10.94 0 0 1 12 20C5 20 1 12 1 12a21.77 21.77 0 0 1 5.06-6.94"
+              />
+              <path d="M1 1l22 22" />
+              <path d="M9.53 9.53a3 3 0 0 0 4.24 4.24" />
+            </svg>
+          </span>
+        </div>
+
+        <p class="terms">
+          <a href="forgot.html">Forgot Password?</a>
+        </p>
+
+        <div class="buttons">
+          <button class="google-btn">
+            <img src="assets/img/google.png" />Sign in with Google
+          </button>
+          <button class="signup-btn">Sign in</button>
+        </div>
+
+        <div class="already mobile-only">
+          <p class="signin">Not a member? <a href="signup.html">Sign up</a></p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      window.onload = function () {
+        document.getElementById("togglePassword").onclick = function () {
+          const password = document.getElementById("password");
+          const eyeOpen = document.getElementById("eyeOpen");
+          const eyeClosed = document.getElementById("eyeClosed");
+
+          if (password.type === "password") {
+            password.type = "text";
+            eyeOpen.style.display = "none";
+            eyeClosed.style.display = "block";
+          } else {
+            password.type = "password";
+            eyeOpen.style.display = "block";
+            eyeClosed.style.display = "none";
+          }
+        };
+      };
+    </script>
+    <script src="./assets/js/script.js" defer></script>
+  </body>
+</html>
