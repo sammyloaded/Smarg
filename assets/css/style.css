@@ -1077,6 +1077,17 @@ input:focus {
 
   .google-btn{
     justify-content: center;
+    color: black;
+  }
+
+  .google-btn:hover{
+    background-color: black;
+    color: white;
+  }
+
+  .signup-btn:hover{
+    color: white;
+    background-color: black;
   }
 
   .buttons {
