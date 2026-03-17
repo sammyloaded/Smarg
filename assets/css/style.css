@@ -883,8 +883,14 @@ input:focus {
   border: 1px solid #2522A7;
   background: #F9F8FF;
   cursor: pointer;
-  font-weight: 400;
+  font-weight: 700;
   transition: all 0.2s ease;
+  font-family: "Sofia Sans", sans-serif;
+}
+
+.google-btn img{
+    width: 100%;
+    max-width: 18px;
 }
 
 .google-btn:hover {
@@ -900,9 +906,10 @@ input:focus {
   border: none;
   background: rgba(37, 34, 167, 1);
   color: #fff;
-  font-weight: 400;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
+  font-family: "Sofia Sans", sans-serif;
 }
 
 .signup-btn:hover {
@@ -919,6 +926,18 @@ input:focus {
 
 .mobile-only {
   display: none;
+}
+
+.already p{
+    font-family: "Sofia Sans", sans-serif;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
+  min-height: 100vh;       
+  padding: 20px;            
 }
 
 /* Responsiveness */
