@@ -6,6 +6,16 @@ const hamburger = document.getElementById("hamburger");
     mobileMenu.classList.toggle("active");
   });
 
+//   Get Started Buttons Onclick 
+const buttons = document.querySelectorAll(".nav-sec, .ft-btn");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      window.location.href = "signup.html";
+    });
+  });
+  
+
 //   Testimonial Slider 
 const slider = document.getElementById("testimonialSlider");
 
