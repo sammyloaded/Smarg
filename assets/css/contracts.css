@@ -343,37 +343,50 @@
   .contracts-layout {
   flex-direction:column;
 }
-}@media (max-width:768px) {
-  .contracts-header-actions {
-  flex-direction:column;
-  gap:15px;
-  align-items:flex-start;
 }
-.search-box {
-  width:100%;
-}
-/* Convert Table to Stacked Cards on Mobile */
-    .list-header {
-  display:none;
-}
-.list-row {
-  grid-template-columns:1fr;
-  gap:10px;
-  padding:20px;
-}
-.list-row > div {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.list-row > div::before {
-  content:attr(data-label);
-  font-size:11px;
-  color:var(--text-light);
-  text-transform:uppercase;
-  font-weight:700;
-}
-.details-grid {
-  grid-template-columns:1fr;
-}
+@media (max-width: 768px) {
+    .contracts-header-actions { flex-direction: column; gap: 15px; align-items: flex-start; }
+    .search-box { width: 100%; }
+    
+    
+    .list-header { display: none; }
+    
+    .list-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 20px;
+        border: 1px solid var(--border-color); 
+        border-radius: 12px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    
+    .list-row > div { 
+        display: flex; 
+        align-items: center; 
+        justify-content: flex-end; 
+        text-align: right;
+    }
+    
+  
+    .list-row > div::before {
+        font-size: 11px;
+        color: var(--text-light);
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-right: auto; 
+    }
+    
+
+    .list-row > div:nth-child(1)::before { content: "Project Name"; }
+    .list-row > div:nth-child(2)::before { content: "Role"; }
+    .list-row > div:nth-child(3)::before { content: "Status"; }
+    .list-row > div:nth-child(4)::before { content: "Team Members"; }
+    
+
+    .list-row > .avatar-stack {
+        justify-content: flex-end;
+    }
+
+    .details-grid { grid-template-columns: 1fr; }
 }

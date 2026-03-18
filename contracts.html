@@ -22,13 +22,17 @@
     <div class="mobile-sidebar" id="mobile-sidebar">
       <button class="close-sidebar" onclick="toggleSidebar()">×</button>
       <div class="logo">
-        <img src="" alt="Logo" class="logo-img img-placeholder" /> smarg
+        <img src="assets/img/logo.png" alt="Logo" />
       </div>
       <div class="mobile-nav">
-        <a href="index.html">
-          <img src="" alt="Home" class="home-icon img-placeholder" /> Home
-        </a>
-        <a href="contracts.html" class="active">Contracts</a>
+        <a href="dashboard.html"> Home </a>
+        <a href="contracts.html" class="active"
+          ><img
+            src="assets/img/hand-shake1.png"
+            alt="Contracts"
+            class="home-icon img-placeholder"
+          />Contracts</a
+        >
         <a href="payments.html">Payments</a>
       </div>
     </div>
@@ -37,14 +41,16 @@
       <div class="logo-nav">
         <button class="hamburger" onclick="toggleSidebar()">☰</button>
         <div class="logo">
-          <img src="" alt="Logo" class="logo-img img-placeholder" /> smarg
+          <img src="assets/img/logo.png" alt="Logo" />
         </div>
         <div class="nav-links">
-          <a href="index.html">
-            <img src="" alt="Home" class="home-icon img-placeholder" /> Home
-          </a>
+          <a href="index.html"> Home </a>
           <a href="contracts.html" class="active">
-            <img src="" alt="Contracts" class="home-icon img-placeholder" />
+            <img
+              src="assets/img/hand-shake1.png"
+              alt="Contracts"
+              class="home-icon img-placeholder"
+            />
             Contracts
           </a>
           <a href="payments.html">Payments</a>
@@ -52,19 +58,27 @@
       </div>
       <div class="header-actions">
         <div class="search-bar">
-          <span>🔍</span>
+          <span><img src="assets/img/search.png" /></span>
           <input type="text" placeholder="Search anything..." />
         </div>
-        <img src="" alt="Notifications" class="bell-icon img-placeholder" />
+        <img
+          src="assets/img/bell.png"
+          alt="Notifications"
+          class="bell-icon img-placeholder"
+        />
 
         <div
           class="profile-dropdown-container"
           onclick="toggleProfileMenu(event)"
         >
           <div class="profile-trigger">
-            <img src="" alt="Profile" class="profile-pic img-placeholder" />
             <img
-              src=""
+              src="assets/img/profile.png"
+              alt="Profile"
+              class="profile-pic img-placeholder"
+            />
+            <img
+              src="assets/img/arrow-down.png"
               alt="v"
               class="img-placeholder"
               style="width: 10px; height: 10px; margin-left: 8px"
@@ -72,12 +86,20 @@
           </div>
           <div class="profile-menu" id="profileMenu">
             <a href="#" class="profile-menu-item"
-              ><img src="" alt="User" class="menu-icon img-placeholder" /> My
-              Profile</a
+              ><img
+                src="assets/img/user-icon.png"
+                alt="User"
+                class="menu-icon img-placeholder"
+              />
+              My Profile</a
             >
             <a href="#" class="profile-menu-item"
-              ><img src="" alt="Logout" class="menu-icon img-placeholder" /> Log
-              Out</a
+              ><img
+                src="assets/img/logout.png"
+                alt="Logout"
+                class="menu-icon img-placeholder"
+              />
+              Log Out</a
             >
           </div>
         </div>
@@ -97,7 +119,7 @@
             </div>
             <div class="search-box">
               <input type="text" placeholder="Search contracts" />
-              <span>🔍</span>
+              <span><img src="assets/img/search.png" /></span>
             </div>
           </div>
 
@@ -115,9 +137,21 @@
               <div>Client</div>
               <div>Ongoing</div>
               <div class="avatar-stack">
-                <img src="" alt="User" class="img-placeholder" />
-                <img src="" alt="User" class="img-placeholder" />
-                <img src="" alt="User" class="img-placeholder" />
+                <img
+                  src="assets/img/team1.png"
+                  alt="User"
+                  class="img-placeholder"
+                />
+                <img
+                  src="assets/img/team2.png"
+                  alt="User"
+                  class="img-placeholder"
+                />
+                <img
+                  src="assets/img/akintola.png"
+                  alt="User"
+                  class="img-placeholder"
+                />
               </div>
               <div>
                 <button
@@ -134,8 +168,16 @@
               <div>Freelancer</div>
               <div>Completed</div>
               <div class="avatar-stack">
-                <img src="" alt="User" class="img-placeholder" />
-                <img src="" alt="User" class="img-placeholder" />
+                <img
+                  src="assets/img/team3.png"
+                  alt="User"
+                  class="img-placeholder"
+                />
+                <img
+                  src="assets/img/team4.png"
+                  alt="User"
+                  class="img-placeholder"
+                />
               </div>
               <div>
                 <button
@@ -152,9 +194,91 @@
               <div>Freelancer</div>
               <div>Cancelled</div>
               <div class="avatar-stack">
-                <img src="" alt="User" class="img-placeholder" />
-                <img src="" alt="User" class="img-placeholder" />
-                <img src="" alt="User" class="img-placeholder" />
+                <img
+                  src="assets/img/team5.png"
+                  alt="User"
+                  class="img-placeholder"
+                />
+                <img
+                  src="assets/img/team6.png"
+                  alt="User"
+                  class="img-placeholder"
+                />
+                <img
+                  src="assets/img/team7.png"
+                  alt="User"
+                  class="img-placeholder"
+                />
+              </div>
+              <div>
+                <button
+                  class="btn-action-light"
+                  onclick="showContractDetails()"
+                >
+                  View Contract
+                </button>
+              </div>
+            </div>
+            <div class="list-row">
+              <div class="project-name font-bold">Love-hate Relationship</div>
+              <div>Clients</div>
+              <div>Completed</div>
+              <div class="avatar-stack">
+                <img
+                  src="assets/img/team8.png"
+                  alt="User"
+                  class="img-placeholder"
+                />
+              </div>
+              <div>
+                <button
+                  class="btn-action-light"
+                  onclick="showContractDetails()"
+                >
+                  View Contract
+                </button>
+              </div>
+            </div>
+            <div class="list-row">
+              <div class="project-name font-bold">Aspire Power Solutions</div>
+              <div>Freelancer</div>
+              <div>Cancelled</div>
+              <div class="avatar-stack">
+                <img
+                  src="assets/img/team2.png"
+                  alt="User"
+                  class="img-placeholder"
+                />
+                <img
+                  src="assets/img/akintola.png"
+                  alt="User"
+                  class="img-placeholder"
+                />
+                <img
+                  src="assets/img/team7.png"
+                  alt="User"
+                  class="img-placeholder"
+                />
+              </div>
+              <div>
+                <button
+                  class="btn-action-light"
+                  onclick="showContractDetails()"
+                >
+                  View Contract
+                </button>
+              </div>
+            </div>
+            <div class="list-row">
+              <div class="project-name font-bold">Love-hate Relationship</div>
+              <div>Clients</div>
+              <div>Completed</div>
+              <div class="avatar-stack">
+                <img
+                  src="assets/img/team8.png"
+                  alt="User"
+                  class="img-placeholder"
+                />
               </div>
               <div>
                 <button
@@ -202,7 +326,11 @@
           <div class="section-title-main mt-40">Contract Updates</div>
           <div class="recent-activity-list">
             <div class="activity-item">
-              <img src="" alt="User" class="avatar-img img-placeholder" />
+              <img
+                src="assets/img/akintola.png"
+                alt="User"
+                class="avatar-img img-placeholder"
+              />
               <div class="activity-content">
                 <p>
                   Akintola request to
@@ -220,7 +348,11 @@
               </div>
             </div>
             <div class="activity-item">
-              <img src="" alt="User" class="avatar-img img-placeholder" />
+              <img
+                src="assets/img/akintola2.png"
+                alt="User"
+                class="avatar-img img-placeholder"
+              />
               <div class="activity-content">
                 <p>
                   You rejected Akintola's cancellation request to this contract
@@ -228,7 +360,7 @@
                 <div class="activity-footer">
                   <button
                     class="btn-action"
-                    onclick="openModal('modal-request-details')"
+                    onclick="openModal('modal-escalate-contract')"
                   >
                     Escalate Request
                   </button>
@@ -461,7 +593,7 @@
               style="display: flex; align-items: center; gap: 10px"
             >
               <img
-                src=""
+                src="assets/img/akintola.png"
                 alt="Brooklyn"
                 class="avatar-img img-placeholder"
                 style="width: 30px; height: 30px"
@@ -615,6 +747,48 @@
           style="margin-top: 30px"
         >
           Replace Contract
+        </button>
+      </div>
+    </div>
+
+    <!-- Escalate Request Modal  -->
+    <div class="modal-overlay" id="modal-escalate-contract">
+      <div class="modal-box">
+        <div class="modal-title">Escalate Contract</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
+
+        <div style="margin-top: 30px">
+          <textarea
+            placeholder="Describe the issue briefly"
+            style="
+              width: 100%;
+              min-height: 150px;
+              padding: 20px;
+              border: 1px solid var(--border-color);
+              border-radius: 8px;
+              outline: none;
+              resize: none;
+              font-family: inherit;
+              font-size: 14px;
+              color: var(--text-dark);
+            "
+          ></textarea>
+        </div>
+
+        <div class="warning-note">
+          The status of a client or freelancer is based on who created the
+          contract or who the role is assigned to. In that regard, no separate
+          client
+        </div>
+
+        <button
+          class="btn-primary"
+          onclick="closeAllModals()"
+          style="margin-top: 30px"
+        >
+          Escalate
         </button>
       </div>
     </div>
