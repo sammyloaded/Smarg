@@ -213,6 +213,59 @@
     margin-top: 20px;
 }
 
+  .stats {
+  padding: 10px 10px;
+  background: white;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* BAR CHART */
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
+  flex: 1;
+}
+
+.bar-group {
+  text-align: center;
+}
+
+.bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 130px;
+}
+
+.bar {
+  width: 6px;
+  border-radius: 10px;
+  display: block;
+}
+
+.bar.light {
+  background: #2F6BFF;
+}
+
+.bar.dark {
+  background: #0B0B5C;
+}
+
+.bar-group p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
 /* ================= RESPONSIVE MEDIA QUERIES ================= */
 @media (max-width: 1024px) {
     .payments-layout { flex-direction: column; }
@@ -263,4 +316,26 @@
         white-space: nowrap; 
     }
     .trans-amount span { font-size: 11px; }
+
+    
+    .stats-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bar-chart {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .donut {
+    width: 130px;
+    height: 130px;
+  }
+
+  .donut::before {
+    width: 95px;
+    height: 95px;
+  }
 }
