@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contracts - Smarg</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/dash.css" />
+    <link rel="stylesheet" href="assets/css/contracts.css" />
+  </head>
+  <body>
+    <div
+      class="sidebar-overlay"
+      id="sidebar-overlay"
+      onclick="toggleSidebar()"
+    ></div>
+
+    <div class="mobile-sidebar" id="mobile-sidebar">
+      <button class="close-sidebar" onclick="toggleSidebar()">×</button>
+      <div class="logo">
+        <img src="" alt="Logo" class="logo-img img-placeholder" /> smarg
+      </div>
+      <div class="mobile-nav">
+        <a href="index.html">
+          <img src="" alt="Home" class="home-icon img-placeholder" /> Home
+        </a>
+        <a href="contracts.html" class="active">Contracts</a>
+        <a href="payments.html">Payments</a>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="logo-nav">
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+        <div class="logo">
+          <img src="" alt="Logo" class="logo-img img-placeholder" /> smarg
+        </div>
+        <div class="nav-links">
+          <a href="index.html">
+            <img src="" alt="Home" class="home-icon img-placeholder" /> Home
+          </a>
+          <a href="contracts.html" class="active">
+            <img src="" alt="Contracts" class="home-icon img-placeholder" />
+            Contracts
+          </a>
+          <a href="payments.html">Payments</a>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="search-bar">
+          <span>🔍</span>
+          <input type="text" placeholder="Search anything..." />
+        </div>
+        <img src="" alt="Notifications" class="bell-icon img-placeholder" />
+
+        <div
+          class="profile-dropdown-container"
+          onclick="toggleProfileMenu(event)"
+        >
+          <div class="profile-trigger">
+            <img src="" alt="Profile" class="profile-pic img-placeholder" />
+            <img
+              src=""
+              alt="v"
+              class="img-placeholder"
+              style="width: 10px; height: 10px; margin-left: 8px"
+            />
+          </div>
+          <div class="profile-menu" id="profileMenu">
+            <a href="#" class="profile-menu-item"
+              ><img src="" alt="User" class="menu-icon img-placeholder" /> My
+              Profile</a
+            >
+            <a href="#" class="profile-menu-item"
+              ><img src="" alt="Logout" class="menu-icon img-placeholder" /> Log
+              Out</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div id="contracts-list-view" class="contracts-layout">
+        <div class="main-col">
+          <h1 class="page-title">Contracts</h1>
+
+          <div class="contracts-header-actions">
+            <div class="pills-tabs">
+              <button class="pill active">All Projects</button>
+              <button class="pill">Ongoing</button>
+              <button class="pill">Completed</button>
+            </div>
+            <div class="search-box">
+              <input type="text" placeholder="Search contracts" />
+              <span>🔍</span>
+            </div>
+          </div>
+
+          <div class="contracts-list">
+            <div class="list-header">
+              <div>Project Name</div>
+              <div>Role</div>
+              <div>Status</div>
+              <div>Team Members</div>
+              <div>Action</div>
+            </div>
+
+            <div class="list-row">
+              <div class="project-name font-bold">Smarg Mobile App</div>
+              <div>Client</div>
+              <div>Ongoing</div>
+              <div class="avatar-stack">
+                <img src="" alt="User" class="img-placeholder" />
+                <img src="" alt="User" class="img-placeholder" />
+                <img src="" alt="User" class="img-placeholder" />
+              </div>
+              <div>
+                <button
+                  class="btn-action-filled"
+                  onclick="showContractDetails()"
+                >
+                  View Contract
+                </button>
+              </div>
+            </div>
+
+            <div class="list-row">
+              <div class="project-name font-bold">Mechoautotech</div>
+              <div>Freelancer</div>
+              <div>Completed</div>
+              <div class="avatar-stack">
+                <img src="" alt="User" class="img-placeholder" />
+                <img src="" alt="User" class="img-placeholder" />
+              </div>
+              <div>
+                <button
+                  class="btn-action-light"
+                  onclick="showContractDetails()"
+                >
+                  View Contract
+                </button>
+              </div>
+            </div>
+
+            <div class="list-row">
+              <div class="project-name font-bold">Aspire Power Solutions</div>
+              <div>Freelancer</div>
+              <div>Cancelled</div>
+              <div class="avatar-stack">
+                <img src="" alt="User" class="img-placeholder" />
+                <img src="" alt="User" class="img-placeholder" />
+                <img src="" alt="User" class="img-placeholder" />
+              </div>
+              <div>
+                <button
+                  class="btn-action-light"
+                  onclick="showContractDetails()"
+                >
+                  View Contract
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="side-col">
+          <div class="section-title-main">Activity Summary</div>
+
+          <div class="summary-blue-card">
+            <h2>340</h2>
+            <p>Total Contract</p>
+            <button
+              class="btn-withdraw"
+              style="
+                width: 100%;
+                margin-top: 20px;
+                text-align: left;
+                display: flex;
+                justify-content: space-between;
+              "
+            >
+              Create Contract <span>›</span>
+            </button>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-box">
+              <span class="stat-icon">+</span> Ongoing Contract
+              <span class="stat-number">133</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-icon">+</span> Completed Contract
+              <span class="stat-number">80</span>
+            </div>
+          </div>
+
+          <div class="section-title-main mt-40">Contract Updates</div>
+          <div class="recent-activity-list">
+            <div class="activity-item">
+              <img src="" alt="User" class="avatar-img img-placeholder" />
+              <div class="activity-content">
+                <p>
+                  Akintola request to
+                  <span class="status-badge">cancel</span> this contract
+                </p>
+                <div class="activity-footer">
+                  <button
+                    class="btn-action"
+                    onclick="openModal('modal-request-details')"
+                  >
+                    View Request
+                  </button>
+                  <span class="activity-date">MAR 25, 2010</span>
+                </div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <img src="" alt="User" class="avatar-img img-placeholder" />
+              <div class="activity-content">
+                <p>
+                  You rejected Akintola's cancellation request to this contract
+                </p>
+                <div class="activity-footer">
+                  <button
+                    class="btn-action"
+                    onclick="openModal('modal-request-details')"
+                  >
+                    Escalate Request
+                  </button>
+                  <span class="activity-date">MAR 25, 2010</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="contract-details-view"
+        class="contracts-layout"
+        style="display: none"
+      >
+        <div class="main-col">
+          <div class="back-link-page" onclick="showContractsList()">
+            <img
+              src="assets/img/back.png"
+              alt="<"
+              class="back-icon img-placeholder"
+            />
+            Back to Contracts
+          </div>
+
+          <h1 class="page-title" style="margin-top: 20px">
+            Aspire Power Solutions
+          </h1>
+
+          <h3 class="subsection-title">Description</h3>
+          <p class="description-text">
+            The status of a client or freelancer is based on who created the
+            contract or who the role is assigned to. In that regard, no separate
+            client or freelancer dashboard. Based on one's status on the
+            contract, features would be enabled.
+          </p>
+
+          <h3 class="subsection-title mt-40">Contract Details</h3>
+
+          <div class="details-grid">
+            <div>
+              <span class="detail-label">LAST UPDATED</span>
+              <div class="detail-value">Aug 10, 2012</div>
+            </div>
+            <div>
+              <span class="detail-label">PAYMENT METHOD</span>
+              <div
+                class="detail-value"
+                style="display: flex; align-items: center; gap: 10px"
+              >
+                <img
+                  src=""
+                  alt="MasterCard"
+                  class="img-placeholder"
+                  style="width: 24px; height: 16px"
+                />
+                MasterCard **** 2829
+              </div>
+            </div>
+            <div>
+              <span class="detail-label">STATUS</span>
+              <div style="display: flex; gap: 10px">
+                <div class="badge-locked">🔒 LOCKED</div>
+                <button
+                  class="btn-action-filled"
+                  onclick="openModal('modal-update-status')"
+                >
+                  ✎ Update Status
+                </button>
+              </div>
+            </div>
+            <div>
+              <span class="detail-label">SIGNEES</span>
+              <div style="display: flex; align-items: center; gap: 10px">
+                <div class="avatar-stack">
+                  <img src="" alt="User" class="img-placeholder" />
+                  <img src="" alt="User" class="img-placeholder" />
+                  <img src="" alt="User" class="img-placeholder" />
+                </div>
+                <button
+                  class="add-signee-btn"
+                  onclick="openModal('modal-invite-member')"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="side-col">
+          <div class="summary-blue-card" style="padding: 25px">
+            <div
+              style="font-size: 10px; letter-spacing: 1px; margin-bottom: 10px"
+            >
+              CONTRACT PAYMENT
+            </div>
+            <div style="font-size: 28px; font-weight: 800">
+              ₦ 340,000<span>.78</span>
+            </div>
+          </div>
+
+          <div class="document-card mt-20">
+            <div style="display: flex; gap: 15px; align-items: flex-start">
+              <img src="" alt="Word Doc" class="doc-icon img-placeholder" />
+              <div class="doc-title">
+                Contract approval from designated partners
+              </div>
+
+              <div class="dropdown-wrapper">
+                <button class="menu-dots-btn" onclick="toggleDocMenu(event)">
+                  ⋮
+                </button>
+                <div class="doc-dropdown-menu" id="docDropdownMenu">
+                  <a href="#" onclick="closeDocMenu()"
+                    ><img
+                      src=""
+                      alt="Del"
+                      class="img-placeholder"
+                      style="width: 14px"
+                    />
+                    Remove</a
+                  >
+                  <a
+                    href="#"
+                    onclick="
+                      closeDocMenu();
+                      openModal('modal-replace-contract');
+                    "
+                    ><img
+                      src=""
+                      alt="Rep"
+                      class="img-placeholder"
+                      style="width: 14px"
+                    />
+                    Replace</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="doc-footer mt-20">
+              <div class="date-badge">📅 AUG 10, 2012</div>
+              <img
+                src=""
+                alt="User"
+                class="img-placeholder"
+                style="width: 24px; height: 24px; border-radius: 50%"
+              />
+            </div>
+          </div>
+
+          <div class="section-title-main mt-40">Contract Updates</div>
+          <div class="recent-activity-list">
+            <div class="activity-item">
+              <img src="" alt="User" class="avatar-img img-placeholder" />
+              <div class="activity-content">
+                <p>
+                  Akintola request to
+                  <span class="status-badge">cancel</span> this contract
+                </p>
+                <div class="activity-footer">
+                  <button
+                    class="btn-action"
+                    onclick="openModal('modal-request-details')"
+                  >
+                    View Request
+                  </button>
+                  <span class="activity-date">MAR 25, 2010</span>
+                </div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <img src="" alt="User" class="avatar-img img-placeholder" />
+              <div class="activity-content">
+                <p>
+                  You rejected Akintola's cancellation request to this contract
+                </p>
+                <div class="activity-footer">
+                  <button
+                    class="btn-action"
+                    onclick="openModal('modal-request-details')"
+                  >
+                    Escalate Request
+                  </button>
+                  <span class="activity-date">MAR 25, 2010</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-request-details">
+      <div
+        class="modal-box"
+        style="max-width: 550px; text-align: left; padding: 40px"
+      >
+        <div
+          class="modal-title"
+          style="text-align: center; margin-bottom: 40px"
+        >
+          Request from Akinwale
+        </div>
+        <div class="request-details-grid">
+          <div class="detail-block">
+            <span class="detail-label">REQUEST DATE</span>
+            <div class="detail-value">Aug 10, 2012</div>
+          </div>
+          <div class="detail-block">
+            <span class="detail-label">REQUEST TYPE</span>
+            <div
+              class="detail-value"
+              style="display: flex; align-items: center; gap: 10px"
+            >
+              Cancellation
+              <span
+                class="status-badge"
+                style="font-size: 12px; padding: 4px 8px"
+                >cancel</span
+              >
+            </div>
+          </div>
+          <div class="detail-block">
+            <span class="detail-label">REQUEST BY</span>
+            <div
+              class="detail-value"
+              style="display: flex; align-items: center; gap: 10px"
+            >
+              <img
+                src=""
+                alt="Brooklyn"
+                class="avatar-img img-placeholder"
+                style="width: 30px; height: 30px"
+              />
+              Brooklyn Simmons
+            </div>
+          </div>
+          <div class="detail-block">
+            <span class="detail-label">CONTRACT ROLE</span>
+            <div class="detail-value">Freelancer</div>
+          </div>
+        </div>
+        <div style="margin-top: 30px">
+          <h4
+            style="
+              font-size: 16px;
+              margin-bottom: 10px;
+              color: var(--text-dark);
+            "
+          >
+            Reason for Cancellation
+          </h4>
+          <p
+            style="font-size: 14px; color: var(--text-light); line-height: 1.6"
+          >
+            The status of a client or freelancer is based on who created the
+            contract or who the role is assigned to. In that regard, no separate
+            client or freelancer dashboard. Based on one's status on the
+            contract, features would be enabled.
+          </p>
+        </div>
+        <div style="display: flex; gap: 15px; margin-top: 40px">
+          <button class="btn-reject" onclick="closeAllModals()">
+            Reject Request
+          </button>
+          <button class="btn-primary" onclick="closeAllModals()">
+            Accept Request
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-update-status">
+      <div class="modal-box">
+        <div class="modal-title">Update Status</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
+
+        <div class="custom-select" id="statusSelect" style="margin-top: 20px">
+          <div class="select-trigger" onclick="toggleDropdown('statusSelect')">
+            <div style="display: flex; align-items: center; gap: 10px">
+              Select a Status
+            </div>
+            <span>∨</span>
+          </div>
+          <div class="select-options">
+            <div class="option selected">
+              <span class="radio-circle"></span><span>Contract is Done</span>
+            </div>
+            <div class="option">
+              <span class="radio-circle"></span><span>Cancel Contract</span>
+            </div>
+            <div class="option">
+              <span class="radio-circle"></span
+              ><span>Escalate Contract Issue</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="warning-note">
+          The status of a client or freelancer is based on who created the
+          contract or who the role is assigned to. In that regard, no separate
+          client
+        </div>
+
+        <button
+          class="btn-primary"
+          onclick="closeAllModals()"
+          style="margin-top: 30px"
+        >
+          Update Status
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-invite-member">
+      <div class="modal-box">
+        <div class="modal-title">Invite New Member</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
+
+        <div
+          class="input-group-modal"
+          style="
+            margin: 30px 0;
+            border: 1px solid var(--border-color);
+            background: var(--white);
+          "
+        >
+          <input
+            type="email"
+            placeholder="Enter Email Address"
+            style="width: 100%; padding: 15px"
+          />
+        </div>
+
+        <button class="btn-primary" onclick="closeAllModals()">
+          Invite Member
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-replace-contract">
+      <div class="modal-box">
+        <div class="modal-title">Replace Contract</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
+
+        <input
+          type="file"
+          id="replace-file"
+          style="display: none"
+          accept=".pdf,.doc,.docx"
+        />
+        <div class="upload-area" id="replace-upload-box" style="margin: 30px 0">
+          <p>Drag and drop file here or <a href="#">Browse</a></p>
+          <span>Supported format : pdf, doc or docx</span>
+          <div
+            id="replace-file-name"
+            style="
+              color: var(--primary);
+              font-weight: 700;
+              margin-top: 15px;
+              display: none;
+            "
+          ></div>
+        </div>
+
+        <div class="warning-note">
+          The status of a client or freelancer is based on who created the
+          contract or who the role is assigned to. In that regard, no separate
+          client
+        </div>
+
+        <button
+          class="btn-primary"
+          onclick="closeAllModals()"
+          style="margin-top: 30px"
+        >
+          Replace Contract
+        </button>
+      </div>
+    </div>
+
+    <script src="assets/js/dash.js"></script>
+    <script src="assets/js/contracts,js"></script>
+  </body>
+</html>

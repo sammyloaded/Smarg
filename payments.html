@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payments - Smarg</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/dash.css" />
+    <link rel="stylesheet" href="assets/css/payments.css" />
+    <link rel="icon" type="image/jpeg/png" href="/assets/img/favicon.jpeg" />
+  </head>
+  <body>
+    <div
+      class="sidebar-overlay"
+      id="sidebar-overlay"
+      onclick="toggleSidebar()"
+    ></div>
+
+    <div class="mobile-sidebar" id="mobile-sidebar">
+      <button class="close-sidebar" onclick="toggleSidebar()">×</button>
+      <div class="logo">
+        <img src="assets/img/logo.png" alt="Logo" />
+      </div>
+      <div class="mobile-nav">
+        <a href="index.html">
+          <img src="" alt="Home" class="home-icon img-placeholder" /> Home
+        </a>
+        <a href="contracts.html">Contracts</a>
+        <a href="payments.html" class="active">Payments</a>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="logo-nav">
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+        <div class="logo">
+          <img src="assets/img/logo.png" alt="Logo" />
+        </div>
+        <div class="nav-links">
+          <a href="dashboard.html"> Home </a>
+          <a href="contracts.html">Contracts</a>
+          <a href="payments.html" class="active">
+            <img
+              src="assets/img/wallet.png"
+              alt="Payments"
+              class="home-icon img-placeholder"
+            />
+            Payments
+          </a>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="search-bar">
+          <span><img src="assets/img/search.png" /></span>
+          <input type="text" placeholder="Search anything..." />
+        </div>
+        <img
+          src="assets/img/bell.png"
+          alt="Notifications"
+          class="bell-icon img-placeholder"
+        />
+        <div
+          class="profile-dropdown-container"
+          onclick="toggleProfileMenu(event)"
+        >
+          <div class="profile-trigger">
+            <img
+              src="assets/img/profile.png"
+              alt="Profile"
+              class="profile-pic img-placeholder"
+            />
+            <img
+              src="assets/img/arrow-down.png"
+              alt="v"
+              class="img-placeholder"
+              style="width: 10px; height: 10px; margin-left: 8px"
+            />
+          </div>
+
+          <div class="profile-menu" id="profileMenu">
+            <a href="#" class="profile-menu-item">
+              <img
+                src="assets/img/user-icon.png"
+                alt="User"
+                class="menu-icon img-placeholder"
+              />
+              My Profile
+            </a>
+            <a href="#" class="profile-menu-item">
+              <img
+                src="assets/img/logout.png"
+                alt="Logout"
+                class="menu-icon img-placeholder"
+              />
+              Log Out
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div id="payments-view" class="payments-layout">
+        <div class="main-col">
+          <h1 class="page-title">Payments</h1>
+
+          <div class="payment-cards-row">
+            <div class="payment-card blue-card">
+              <div class="card-label">AVAILABLE BALANCE</div>
+              <div class="card-amount">₦ 340,000<span>.78</span></div>
+              <button
+                class="btn-withdraw"
+                onclick="openModal('modal-withdraw-amount')"
+              >
+                Withdraw Fund ↗
+              </button>
+            </div>
+
+            <div class="payment-card white-card relative-card">
+              <div class="card-label" style="color: var(--text-light)">
+                TOTAL BALANCE
+              </div>
+              <div class="card-amount" style="color: var(--text-dark)">
+                ₦ 340,000<span>.78</span>
+              </div>
+              <div class="balance-increase">▲ 36.5%</div>
+              <img
+                src="assets/img/wave.png"
+                alt="Wave Chart"
+                class="wave-chart img-placeholder"
+              />
+            </div>
+          </div>
+
+          <div class="transactions-section mt-40">
+            <h2 class="section-title-main">Transactions History</h2>
+
+            <div class="transactions-header">
+              <div class="tabs">
+                <button class="tab active" onclick="switchTab('income', this)">
+                  Income
+                </button>
+                <button class="tab" onclick="switchTab('spent', this)">
+                  Spent
+                </button>
+              </div>
+              <div class="search-box">
+                <input type="text" placeholder="Search transactions" />
+                <span><img src="assets/img/search.png" /></span>
+              </div>
+            </div>
+
+            <div class="transaction-list" id="transactions-list">
+              <div class="transaction-item">
+                <div class="user-info">
+                  <div class="avatar-wrapper">
+                    <img
+                      src="assets/img/profile1.png"
+                      alt="Avatar"
+                      class="avatar-img img-placeholder"
+                    />
+                    <span class="status-dot green"></span>
+                  </div>
+                  <div class="details">
+                    <h4>Aspire Power Solutions</h4>
+                    <p>CREDIT</p>
+                  </div>
+                </div>
+                <div class="trans-date">Aug 10, 2012</div>
+                <div class="trans-amount">₦ 340,000 <span>.78</span></div>
+              </div>
+
+              <div class="transaction-item">
+                <div class="user-info">
+                  <div class="avatar-wrapper">
+                    <img
+                      src="assets/img/profile2.png"
+                      alt="Avatar"
+                      class="avatar-img img-placeholder"
+                    />
+                    <span class="status-dot red"></span>
+                  </div>
+                  <div class="details">
+                    <h4>Fund Withdrawal</h4>
+                    <p>DEBIT</p>
+                  </div>
+                </div>
+                <div class="trans-date">Nov 13, 2001</div>
+                <div class="trans-amount">₦ 30,050 <span>.20</span></div>
+              </div>
+
+              <div class="transaction-item">
+                <div class="user-info">
+                  <div class="avatar-wrapper">
+                    <img
+                      src="assets/img/profile.png"
+                      alt="Avatar"
+                      class="avatar-img img-placeholder"
+                    />
+                    <span class="status-dot green"></span>
+                  </div>
+                  <div class="details">
+                    <h4>Contract Refund</h4>
+                    <p>CREDIT</p>
+                  </div>
+                </div>
+                <div class="trans-date">Sep 30, 1892</div>
+                <div class="trans-amount">₦ 7,300 <span>.80</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="side-col">
+          <div class="recent-payment-section">
+            <h2 class="section-title-main">Recent Payment Method</h2>
+
+            <div class="virtual-card">
+              <div class="circle circle-1"></div>
+              <div class="circle circle-2"></div>
+
+              <div class="card-content">
+                <img
+                  src="assets/img/visa1.png"
+                  alt="VISA"
+                  class="visa-logo img-placeholder"
+                />
+                <div class="card-number">**** 6787</div>
+                <div class="card-footer">
+                  <div class="card-name">OGUNLADE OLUWASAYO</div>
+                  <button class="btn-delete">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="payment-analytics-section mt-40">
+            <div class="analytics-header">
+              <h2 class="section-title-main" style="margin: 0">
+                Payment Analytics
+              </h2>
+              <select class="custom-select-small">
+                <option>Last 5 Months</option>
+                <option>Last 3 Months</option>
+                <option>Last 1 Months</option>
+              </select>
+            </div>
+
+            <div class="card analytics-card">
+              <div
+                class="card-label"
+                style="
+                  color: var(--text-light);
+                  font-size: 10px;
+                  margin-bottom: 10px;
+                "
+              >
+                TOTAL EARNED
+              </div>
+              <div
+                class="card-amount"
+                style="color: var(--text-dark); justify-content: center"
+              >
+                ₦ 340,000<span>.78</span>
+              </div>
+
+              <img
+                src="assets/img/bar-chart.png"
+                alt="Bar Chart"
+                class="bar-chart img-placeholder"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-withdraw-amount">
+      <div class="modal-box">
+        <div class="modal-title">Withdraw Fund</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
+        <div class="input-group-modal">
+          <select>
+            <option>NGN</option>
+          </select>
+          <input type="text" placeholder="Amount" />
+        </div>
+        <div class="available-bal-badge">Available balance : ₦500,000.45</div>
+        <button
+          class="btn-primary"
+          onclick="switchModal('modal-withdraw-amount', 'modal-withdraw-card')"
+        >
+          Continue
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-withdraw-card">
+      <div class="modal-box">
+        <div
+          class="back-link"
+          onclick="switchModal('modal-withdraw-card', 'modal-withdraw-amount')"
+        >
+          <img
+            src="assets/img/back.png"
+            alt="<"
+            class="back-icon img-placeholder"
+          />
+          Back to Amount
+        </div>
+        <div class="balance-label" style="margin-top: 30px">
+          WITHDRAW AMOUNT
+        </div>
+        <div class="balance-amount" style="margin-bottom: 30px">
+          ₦ 340,000<span>.78</span>
+        </div>
+        <div class="section-title">Select Card</div>
+        <div class="custom-select" id="withdrawCardSelect">
+          <div
+            class="select-trigger"
+            onclick="toggleDropdown('withdrawCardSelect')"
+          >
+            <div style="display: flex; align-items: center; gap: 10px">
+              <img
+                src="assets/img/uba.png"
+                alt="UBA"
+                class="bank-logo img-placeholder"
+              />
+              2122774814 - Ogunlade Oluwasayo
+            </div>
+            <span><img src="assets/img/arrow-down.png" /></span>
+          </div>
+          <div class="select-options">
+            <div class="option selected">
+              <span class="radio-circle"></span
+              ><span>MasterCard **** 2829</span>
+              <img
+                src="assets/img/mastercard.png"
+                alt="MasterCard"
+                class="bank-logo img-placeholder"
+                style="margin-left: auto"
+              />
+            </div>
+          </div>
+        </div>
+        <button
+          class="add-new-btn mb-4"
+          style="margin-bottom: 30px"
+          onclick="switchModal('modal-withdraw-card', 'modal-add-bank')"
+        >
+          <span>+</span> Add New Bank
+        </button>
+        <button
+          class="btn-primary"
+          onclick="switchModal('modal-withdraw-card', 'modal-success')"
+        >
+          Withdraw ₦55,000
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-add-bank">
+      <div class="modal-box">
+        <div
+          class="back-link"
+          onclick="switchModal('modal-add-bank', 'modal-withdraw-card')"
+        >
+          <img
+            src="assets/img/back.png"
+            alt="<"
+            class="back-icon img-placeholder"
+          />
+          Back to Amount
+        </div>
+        <div class="modal-title" style="margin-top: 30px">Add New Bank</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
+        <div class="input-group-modal">
+          <select style="width: 100%">
+            <option>Select Bank</option>
+          </select>
+        </div>
+        <div class="input-group-modal">
+          <input type="text" placeholder="Account Number" />
+        </div>
+        <div class="resolved-name-badge">OGUNLADE, OLUWASAYO JULIANA</div>
+        <button
+          class="btn-primary"
+          onclick="switchModal('modal-add-bank', 'modal-confirm-bank')"
+        >
+          Add Bank
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-confirm-bank">
+      <div class="modal-box">
+        <div
+          class="back-link"
+          onclick="switchModal('modal-confirm-bank', 'modal-add-bank')"
+        >
+          <img
+            src="assets/img/back.png"
+            alt="<"
+            class="back-icon img-placeholder"
+          />
+          Back to Amount
+        </div>
+        <div class="modal-title" style="margin-top: 30px">
+          Confirm Bank Details
+        </div>
+        <div class="modal-subtitle">
+          A 6-digit verification has been sent to <strong>081***09</strong>
+        </div>
+        <div class="otp-container">
+          <input type="text" maxlength="1" class="otp-input" /><input
+            type="text"
+            maxlength="1"
+            class="otp-input"
+          />
+          <input type="text" maxlength="1" class="otp-input" /><input
+            type="text"
+            maxlength="1"
+            class="otp-input"
+          />
+          <input type="text" maxlength="1" class="otp-input" /><input
+            type="text"
+            maxlength="1"
+            class="otp-input"
+          />
+        </div>
+        <button
+          class="btn-primary"
+          onclick="switchModal('modal-confirm-bank', 'modal-withdraw-card')"
+        >
+          Confirm Bank
+        </button>
+        <div class="resend-link">
+          Didn't receive any code? <br /><a href="#">Resend Code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-success">
+      <div class="modal-box">
+        <img
+          src="assets/img/success.png"
+          alt="Success"
+          class="success-icon img-placeholder"
+        />
+        <div class="modal-title">Transaction Successful</div>
+        <div
+          class="modal-subtitle"
+          style="margin-bottom: 40px; line-height: 1.5"
+        >
+          The status of a client or freelancer is based<br />on who created the
+          contract or who
+        </div>
+        <button class="btn-primary" onclick="closeAllModals()">
+          Okay, Got it
+        </button>
+      </div>
+    </div>
+
+    <script src="assets/js/dash.js"></script>
+    <script src="assets/js/payments.js"></script>
+  </body>
+</html>

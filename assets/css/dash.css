@@ -1013,7 +1013,54 @@ textarea.input-field {
 }
 .btn-reject:hover {
     background: #E5E5FF;
+}/* --- Profile Dropdown Menu --- */
+.profile-dropdown-container {
+    position: relative;
+    cursor: pointer;
 }
+.profile-trigger {
+    display: flex;
+    align-items: center;
+}
+.profile-menu {
+    display: none;
+    position: absolute;
+    top: 130%; /* Positions it just below the profile pic */
+    right: 0;
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    width: 200px;
+    z-index: 100;
+    padding: 10px 0;
+}
+.profile-menu.active {
+    display: block;
+}
+.profile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.profile-menu-item:hover {
+    background: #F8F8FF;
+    color: var(--primary);
+}
+.menu-icon {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+
 /* ================= RESPONSIVE MEDIA QUERIES ================= */
 @media (max-width:1024px) {
   .activities-grid {
@@ -1085,5 +1132,8 @@ textarea.input-field {
 .back-link {
   top:15px;
   left:15px;
+}
+.activities-grid{
+    grid-template-columns: repeat(2, auto);
 }
 }

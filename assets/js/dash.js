@@ -3,6 +3,12 @@ function toggleSidebar() {
     document.getElementById('mobile-sidebar').classList.toggle('active');
     document.getElementById('sidebar-overlay').classList.toggle('active');
 }
+// --- Profile Menu Logic ---
+function toggleProfileMenu(event) {
+    event.stopPropagation(); // Prevents the click from immediately closing the menu
+    const menu = document.getElementById('profileMenu');
+    menu.classList.toggle('active');
+}
 
 // --- View Switching Logic ---
 function showDashboard() {
@@ -141,4 +147,21 @@ otpInputs.forEach((input, index) => {
             otpInputs[index - 1].focus();
         }
     });
+});
+// Profile stuff 
+window.addEventListener('click', function(e) {
+    // Closes Custom Select Dropdowns
+    if (!e.target.closest('.custom-select')) {
+        document.querySelectorAll('.custom-select').forEach(select => {
+            select.classList.remove('active');
+        });
+    }
+    
+    // Closes Profile Menu Dropdown
+    if (!e.target.closest('.profile-dropdown-container')) {
+        const profileMenu = document.getElementById('profileMenu');
+        if (profileMenu && profileMenu.classList.contains('active')) {
+            profileMenu.classList.remove('active');
+        }
+    }
 });
