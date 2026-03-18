@@ -242,7 +242,7 @@
 /* --- Responsive Adjustments --- */
 @media (max-width:768px) {
   .settings-tabs {
-  flex-direction:column;
+  flex-direction:row;
   align-items:center;
   gap:10px;
 }
