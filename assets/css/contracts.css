@@ -112,12 +112,27 @@
     background: rgba(255, 255, 255, 0.3);
 }
 .btn-action-filled {
-  background:var(--primary);
-  color:var(--white);
+  background:#EDF1FF;
+  color:#2522A7;
   padding:8px 16px;
   border-radius:8px;
   font-size:12px;
   font-weight:700;
+  display: inline-flex;
+  gap: 8px;
+}
+/* Fix the icon */
+.btn-action-filled img {
+    width: 16px;
+    height: 16px;
+    display: block; 
+}
+
+.btn-action-filled span {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    gap: 8px;
 }
 .btn-action-light {
   background:#F0F0FF;
@@ -219,6 +234,7 @@
   font-weight:700;
   display:inline-flex;
   align-items:center;
+  gap: 5px;
 }
 .add-signee-btn {
   width:30px;
@@ -302,6 +318,8 @@
   border-radius:6px;
   font-size:11px;
   font-weight:700;
+  display: inline-flex;
+    gap: 8px;
 }
 /* --- Modal Additions --- */
 .warning-note {
@@ -320,7 +338,7 @@
   border-radius:12px;
   padding:60px 20px;
   text-align:center;
-  background:var(--white);
+  background:#EAF4FF;
   cursor:pointer;
   transition:0.2s;
 }
@@ -338,6 +356,8 @@
   width:100%;
   transition:0.2s;
 }
+
+
 /* ================= RESPONSIVE ================= */
 @media (max-width:1024px) {
   .contracts-layout {
@@ -389,4 +409,5 @@
     }
 
     .details-grid { grid-template-columns: 1fr; }
+  
 }

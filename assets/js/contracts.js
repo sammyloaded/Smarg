@@ -2,18 +2,40 @@
 function showContractsList() {
     document.getElementById('contracts-list-view').style.display = 'flex';
     document.getElementById('contract-details-view').style.display = 'none';
+    
+    // CRITICAL: Ensure wizard hides when returning to list
+    const contractView = document.getElementById('contract-view');
+    if (contractView) contractView.style.display = 'none';
 }
 
 function showContractDetails() {
     document.getElementById('contracts-list-view').style.display = 'none';
     document.getElementById('contract-details-view').style.display = 'flex';
+    
+    // CRITICAL: Ensure wizard hides when viewing details
+    const contractView = document.getElementById('contract-view');
+    if (contractView) contractView.style.display = 'none';
 }
+
+// OVERRIDE: Tell the page how to switch to the Contract Wizard specifically
+window.showContractView = function() {
+    // 1. Hide the list and details views
+    document.getElementById('contracts-list-view').style.display = 'none';
+    document.getElementById('contract-details-view').style.display = 'none';
+    
+    // 2. Show the Contract Wizard
+    const contractView = document.getElementById('contract-view');
+    if (contractView) {
+        contractView.style.display = 'block'; // MUST BE 'block', NOT 'flex'!
+        goToStep(1); 
+    }
+};
 
 // --- 3-Dot Document Menu Logic ---
 function toggleDocMenu(event) {
     event.stopPropagation(); // Stop click from bubbling up
     const menu = document.getElementById('docDropdownMenu');
-    menu.classList.toggle('active');
+    if (menu) menu.classList.toggle('active');
 }
 
 function closeDocMenu() {

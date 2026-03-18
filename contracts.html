@@ -44,7 +44,7 @@
           <img src="assets/img/logo.png" alt="Logo" />
         </div>
         <div class="nav-links">
-          <a href="index.html"> Home </a>
+          <a href="dashboard.html"> Home </a>
           <a href="contracts.html" class="active">
             <img
               src="assets/img/hand-shake1.png"
@@ -300,6 +300,7 @@
             <p>Total Contract</p>
             <button
               class="btn-withdraw"
+              onclick="openModal('modal-create-role')"
               style="
                 width: 100%;
                 margin-top: 20px;
@@ -413,7 +414,7 @@
                 style="display: flex; align-items: center; gap: 10px"
               >
                 <img
-                  src=""
+                  src="assets/img/mastercard.png"
                   alt="MasterCard"
                   class="img-placeholder"
                   style="width: 24px; height: 16px"
@@ -424,12 +425,12 @@
             <div>
               <span class="detail-label">STATUS</span>
               <div style="display: flex; gap: 10px">
-                <div class="badge-locked">🔒 LOCKED</div>
+                <div class="badge-locked"><img src="assets/img/padlock.png"> LOCKED</div>
                 <button
                   class="btn-action-filled"
                   onclick="openModal('modal-update-status')"
                 >
-                  ✎ Update Status
+                  <span><img src="assets/img/pencil.png"> Update Status</span>
                 </button>
               </div>
             </div>
@@ -437,9 +438,9 @@
               <span class="detail-label">SIGNEES</span>
               <div style="display: flex; align-items: center; gap: 10px">
                 <div class="avatar-stack">
-                  <img src="" alt="User" class="img-placeholder" />
-                  <img src="" alt="User" class="img-placeholder" />
-                  <img src="" alt="User" class="img-placeholder" />
+                  <img src="assets/img/team1.png" alt="User" class="img-placeholder" />
+                  <img src="assets/img/team2.png" alt="User" class="img-placeholder" />
+                  <img src="assets/img/akintola.png" alt="User" class="img-placeholder" />
                 </div>
                 <button
                   class="add-signee-btn"
@@ -451,6 +452,7 @@
             </div>
           </div>
         </div>
+        <!-- Right Sidebar  -->
 
         <div class="side-col">
           <div class="summary-blue-card" style="padding: 25px">
@@ -466,7 +468,7 @@
 
           <div class="document-card mt-20">
             <div style="display: flex; gap: 15px; align-items: flex-start">
-              <img src="" alt="Word Doc" class="doc-icon img-placeholder" />
+              <img src="assets/img/word.png" alt="Word Doc" class="doc-icon img-placeholder" />
               <div class="doc-title">
                 Contract approval from designated partners
               </div>
@@ -478,9 +480,9 @@
                 <div class="doc-dropdown-menu" id="docDropdownMenu">
                   <a href="#" onclick="closeDocMenu()"
                     ><img
-                      src=""
+                      src="assets/img/bin.png"
                       alt="Del"
-                      class="img-placeholder"
+                      
                       style="width: 14px"
                     />
                     Remove</a
@@ -492,9 +494,9 @@
                       openModal('modal-replace-contract');
                     "
                     ><img
-                      src=""
+                      src="assets/img/refresh.png"
                       alt="Rep"
-                      class="img-placeholder"
+                      
                       style="width: 14px"
                     />
                     Replace</a
@@ -504,9 +506,9 @@
             </div>
 
             <div class="doc-footer mt-20">
-              <div class="date-badge">📅 AUG 10, 2012</div>
+              <div class="date-badge"><img src="assets/img/calendar.png"> AUG 10, 2012</div>
               <img
-                src=""
+                src="assets/img/team1.png"
                 alt="User"
                 class="img-placeholder"
                 style="width: 24px; height: 24px; border-radius: 50%"
@@ -517,7 +519,7 @@
           <div class="section-title-main mt-40">Contract Updates</div>
           <div class="recent-activity-list">
             <div class="activity-item">
-              <img src="" alt="User" class="avatar-img img-placeholder" />
+              <img src="assets/img/akintola.png" alt="User" class="avatar-img img-placeholder" />
               <div class="activity-content">
                 <p>
                   Akintola request to
@@ -535,7 +537,7 @@
               </div>
             </div>
             <div class="activity-item">
-              <img src="" alt="User" class="avatar-img img-placeholder" />
+              <img src="assets/img/akintola2.png" alt="User" class="avatar-img img-placeholder" />
               <div class="activity-content">
                 <p>
                   You rejected Akintola's cancellation request to this contract
@@ -543,7 +545,7 @@
                 <div class="activity-footer">
                   <button
                     class="btn-action"
-                    onclick="openModal('modal-request-details')"
+                    onclick="openModal('modal-escalate-contract')"
                   >
                     Escalate Request
                   </button>
@@ -625,7 +627,7 @@
             contract, features would be enabled.
           </p>
         </div>
-        <div style="display: flex; gap: 15px; margin-top: 40px">
+        <div class="reject-btn">
           <button class="btn-reject" onclick="closeAllModals()">
             Reject Request
           </button>
@@ -788,12 +790,436 @@
           onclick="closeAllModals()"
           style="margin-top: 30px"
         >
-          Escalate
+          Escalate Contract
+        </button>
+      </div>
+    </div>
+    <!-- Create Contract Modal 1  -->
+    <div class="modal-overlay" id="modal-create-role">
+      <div class="modal-box">
+        <div class="modal-title">Create New Contract</div>
+        <div class="modal-subtitle">
+          Which Role are you playing in this project?
+        </div>
+
+        <div class="role-cards">
+          <div class="role-card active" onclick="selectRole(this)">
+            <img
+              src="assets/img/freelancer.png"
+              alt="Freelancer"
+              class="role-icon img-placeholder"
+            />
+            <h4>Freelancer</h4>
+            <p>The status of a client or freelancer</p>
+          </div>
+          <div class="role-card" onclick="selectRole(this)">
+            <img
+              src="assets/img/client.png"
+              alt="Client"
+              class="role-icon img-placeholder"
+            />
+            <h4>Client</h4>
+            <p>The status of a client or freelancer</p>
+          </div>
+        </div>
+
+        <button class="btn-primary" onclick="startContractFlow()">
+          Continue
         </button>
       </div>
     </div>
 
+    <!-- Contracts Modal  -->
+     <div id="contract-view" style="display: none; max-width: 800px; margin: 40px auto; width: 100%;">
+        <div class="stepper">
+          <div class="step active" id="indicator-1">
+            <div class="step-circle">1</div>
+            <div class="step-label mt-2">Basic Information</div>
+          </div>
+          <div class="stepper-line" id="line-1"></div>
+          <div class="step" id="indicator-2">
+            <div class="step-circle">2</div>
+            <div class="step-label mt-2">Upload Contract</div>
+          </div>
+          <div class="stepper-line" id="line-2"></div>
+          <div class="step" id="indicator-3">
+            <div class="step-circle">3</div>
+            <div class="step-label mt-2">Payment</div>
+          </div>
+        </div>
+
+        <div id="step-1" class="contract-step">
+          <div class="form-section">
+            <h2>Basic Information</h2>
+            <p>The status of a client or freelancer is based on</p>
+          </div>
+
+          <div class="section-title">Contract Information</div>
+          <div class="input-group">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Contract Name"
+            />
+            <div
+              class="input-group-modal"
+              style="flex: 1; margin: 0; padding: 0 15px; border-radius: 8px"
+            >
+              <select>
+                <option>NGN</option>
+              </select>
+              <input type="text" placeholder="Contract Amount" />
+            </div>
+          </div>
+          <textarea
+            class="input-field"
+            placeholder="Contract Description"
+          ></textarea>
+
+          <div class="section-title">Add Client</div>
+          <div class="input-group" style="margin-bottom: 30px">
+            <input type="text" class="input-field" placeholder="Client Name" />
+            <input
+              type="email"
+              class="input-field"
+              placeholder="Client Email Address"
+            />
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn-primary" onclick="goToStep(2)">Continue</button>
+          </div>
+        </div>
+
+        <div id="step-2" class="contract-step" style="display: none">
+          <div class="form-section">
+            <h2>Upload Contract</h2>
+            <p>
+              Kindly upload your contract or
+              <a href="#" style="color: var(--primary)">use contract sample</a>
+            </p>
+          </div>
+
+          <input
+            type="file"
+            id="contract-file"
+            style="display: none"
+            accept=".pdf,.doc,.docx"
+          />
+
+          <div class="upload-area" id="upload-box">
+            <!-- <img src="" alt="Upload" class="upload-icon img-placeholder" /> -->
+            <p>Drag and drop file here or <a>Browse</a></p>
+            <span>Supported format : pdf, doc or docx</span>
+            <div id="file-name-display"></div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn-outline" onclick="goToStep(1)">Previous</button>
+            <button class="btn-primary" onclick="goToStep(3)">Continue</button>
+          </div>
+        </div>
+
+        <div id="step-3" class="contract-step" style="display: none">
+          <div class="form-section">
+            <h2>Choose Payment Method</h2>
+            <p>The status of a client or freelancer is based on</p>
+          </div>
+
+          <div class="payment-method" onclick="openModal('modal-choose-bank')">
+            <img
+              src="assets/img/cellphone.png"
+              alt="USSD"
+              class="payment-method-icon img-placeholder"
+            />
+            <span>Payment With USSD Code</span>
+          </div>
+          <div
+            class="payment-method"
+            onclick="openModal('modal-crypto-payment')"
+          >
+            <img
+              src="assets/img/wallet.png"
+              alt="Crypto"
+              class="payment-method-icon img-placeholder"
+            />
+            <span>Payment With Cryptocurrency</span>
+          </div>
+
+          <div class="divider">Or</div>
+
+          <div class="section-title">Select Card</div>
+
+          <div class="custom-select" id="contractCardSelect">
+            <div
+              class="select-trigger"
+              onclick="toggleDropdown('contractCardSelect')"
+            >
+              <div style="display: flex; align-items: center; gap: 10px">
+                <span class="radio-circle" style="border-color: var(--primary)"
+                  ><span
+                    style="
+                      background: var(--primary);
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      display: block;
+                      margin: 2px;
+                    "
+                  ></span
+                ></span>
+                MasterCard **** 2829
+              </div>
+              <span>∨</span>
+            </div>
+            <div class="select-options">
+              <div class="option selected">
+                <span class="radio-circle"></span>
+                <span>MasterCard **** 2829</span>
+                <img
+                  src="assets/img/mastercard.png"
+                  alt="MasterCard"
+                  class="bank-logo img-placeholder"
+                  style="margin-left: auto"
+                />
+              </div>
+              <div class="option">
+                <span class="radio-circle"></span>
+                <span>Visa **** 1234</span>
+                <img
+                  src="assets/img/visa.png"
+                  alt="Visa"
+                  class="bank-logo img-placeholder"
+                  style="margin-left: auto"
+                />
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="add-new-btn"
+            style="margin-bottom: 40px"
+            onclick="openModal('modal-add-new-card')"
+          >
+            <span>+</span> Add New Card
+          </button>
+
+          <div class="action-buttons">
+            <button class="btn-outline" onclick="goToStep(2)">Previous</button>
+            <button class="btn-primary" onclick="openModal('modal-success')">
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pay with Bank Modal  -->
+    <div class="modal-overlay" id="modal-choose-bank">
+      <div class="modal-box" style="max-width: 700px">
+        <div class="modal-title">Choose Your Bank</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
+
+        <div class="bank-grid">
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img src="assets/img/uba.png" alt="UBA" class="img-placeholder" />
+          </div>
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img src="assets/img/wema.png" alt="WEMA" class="img-placeholder" />
+          </div>
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img src="assets/img/kuda.png" alt="Kuda" class="img-placeholder" />
+          </div>
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img
+              src="assets/img/fidelity.png"
+              alt="Fidelity"
+              class="img-placeholder"
+            />
+          </div>
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img
+              src="assets/img/access.png"
+              alt="Access"
+              class="img-placeholder"
+            />
+          </div>
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img
+              src="assets/img/heritagebank.png"
+              alt="Heritage"
+              class="img-placeholder"
+            />
+          </div>
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img src="assets/img/fcmb.png" alt="FCMB" class="img-placeholder" />
+          </div>
+          <div
+            class="bank-card"
+            onclick="switchModal('modal-choose-bank', 'modal-ussd-code')"
+          >
+            <img
+              src="assets/img/unionbank.png"
+              alt="Union"
+              class="img-placeholder"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-ussd-code">
+      <div class="modal-box">
+        <img
+          src="assets/img/ussd.png"
+          alt="USSD Phone"
+          class="ussd-phone-icon img-placeholder"
+        />
+        <div class="modal-title">USSD Code</div>
+        <div class="modal-subtitle" style="line-height: 1.5">
+          Copy and dial the code below on your<br />phone to pay
+          <strong>₦55,000</strong>
+        </div>
+
+        <div class="ussd-code-box">
+          <span>*894*0004*0204#</span>
+          <button class="copy-btn">
+            <img
+              src="assets/img/copy-fill.png"
+              alt="Copy"
+              class="img-placeholder"
+              style="width: 16px; height: 16px"
+            />
+          </button>
+        </div>
+
+        <button
+          class="btn-primary"
+          onclick="switchModal('modal-ussd-code', 'modal-success')"
+          style="margin-top: 20px"
+        >
+          Confirm Payment
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-crypto-payment">
+      <div class="modal-box">
+        <div class="modal-title">Crypto Payment</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
+
+        <div class="input-group-modal" style="margin-top: 30px">
+          <input type="text" placeholder="Crypto Address" style="width: 100%" />
+        </div>
+
+        <div class="terms-text">
+          By signing up, I agree to the product's <a href="#">Privacy Policy</a
+          ><br />and <a href="#">Terms of Service</a>
+        </div>
+
+        <button
+          class="btn-primary"
+          onclick="switchModal('modal-crypto-payment', 'modal-success')"
+        >
+          Pay ₦55,000
+        </button>
+      </div>
+    </div>
+
+    <!-- Transfer Successful Modal  -->
+     <div class="modal-overlay" id="modal-success">
+      <div class="modal-box">
+        <img
+          src="assets/img/success.png"
+          alt="Success"
+          class="success-icon img-placeholder"
+        />
+        <div class="modal-title">Transaction Successful</div>
+        <div
+          class="modal-subtitle"
+          style="margin-bottom: 40px; line-height: 1.5"
+        >
+          The status of a client or freelancer is based<br />on who created the
+          contract or who
+        </div>
+       <button class="btn-primary" onclick="closeAllModals(); showContractsList();">Okay, Got it</button>
+      </div>
+    </div>
+
+    <!-- Add New Card Modal  -->
+    <div class="modal-overlay" id="modal-add-new-card">
+      <div class="modal-box">
+        <div class="modal-title">Add New Card</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
+
+        <div class="input-group-modal">
+          <input type="text" placeholder="Name on Card" style="width: 100%" />
+        </div>
+        <div
+          class="input-group-modal"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <input type="text" placeholder="Card Number" style="width: 100%" />
+          <img
+            src="assets/img/mastercard.png"
+            alt="MasterCard"
+            class="bank-logo img-placeholder"
+            style="width: 30px"
+          />
+        </div>
+
+        <div style="display: flex; gap: 15px; margin-bottom: 20px">
+          <div class="input-group-modal" style="flex: 1; margin-bottom: 0">
+            <input type="text" placeholder="CVV" style="width: 100%" />
+          </div>
+          <div class="input-group-modal" style="flex: 1; margin-bottom: 0">
+            <input type="text" placeholder="Expiry Date" style="width: 100%" />
+          </div>
+        </div>
+
+        <button
+          class="btn-primary"
+          onclick="closeAllModals()"
+          style="margin-top: 10px"
+        >
+          Add Card
+        </button>
+      </div>
+    </div>
+
+
     <script src="assets/js/dash.js"></script>
-    <script src="assets/js/contracts,js"></script>
+    <script src="assets/js/contracts.js"></script>
   </body>
 </html>

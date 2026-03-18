@@ -419,6 +419,7 @@ img {
   border:1px solid var(--border-color);
   border-radius:12px;
   background:var(--white);
+  height: 9vh;
 }
 .avatar-img {
   width:40px;
@@ -1011,6 +1012,11 @@ textarea.input-field {
     justify-content: center;
     align-items: center;
 }
+.reject-btn{
+display: flex;
+gap: 15px;
+margin-top: 40px;
+}
 .btn-reject:hover {
     background: #E5E5FF;
 }/* --- Profile Dropdown Menu --- */
@@ -1135,5 +1141,11 @@ textarea.input-field {
 }
 .activities-grid{
     grid-template-columns: repeat(2, auto);
+}
+.request-details-grid{
+  grid-template-columns: 1fr;
+}
+.reject-btn{
+  flex-direction: column;
 }
 }
