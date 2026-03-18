@@ -901,13 +901,17 @@ input:focus {
 
 .buttons {
   display: flex;
+  flex-direction: column; /* THIS is key */
   gap: 12px;
 }
 
 .google-btn {
-  flex: 1;
   display: flex;
+  align-items: center;
+  justify-content: center; 
   gap: 10px;
+
+  width: 100%;
   padding: 14px;
   font-size: 14px;
   border-radius: 10px;
@@ -915,13 +919,19 @@ input:focus {
   background: #F9F8FF;
   cursor: pointer;
   font-weight: 700;
-  transition: all 0.2s ease;
   font-family: "Sofia Sans", sans-serif;
 }
 
-.google-btn img{
-    width: 100%;
-    max-width: 18px;
+.google-btn img {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  margin: 0; 
+}
+
+.google-btn span {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .google-btn:hover {
