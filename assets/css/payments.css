@@ -60,6 +60,8 @@
     font-size: 12px;
     font-weight: 700;
     transition: 0.2s;
+    display: inline-flex;
+    gap: 8px;
 }
 .btn-withdraw:hover { background: rgba(255,255,255,0.3); }
 
