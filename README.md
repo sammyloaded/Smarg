@@ -87,6 +87,5 @@ This project is licensed under the MIT License.
 
 ## Author
 
-**Sammyloaded Dev - [https://sammyloaded.dev/](https://sammyloaded.dev/)**
-
+**Sammyloaded Dev - https://sammyloaded.dev**
 ---
