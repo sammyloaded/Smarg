@@ -27,7 +27,38 @@ This project is built using:
 ## Project Structure
 
 ```bash
-# To be added
+smarg/
+│
+├── assets/
+│   ├── css/
+│   │   ├── contracts.css      # Styles for contracts page
+│   │   ├── dash.css           # Dashboard styles
+│   │   ├── payments.css       # Payments page styles
+│   │   ├── profile.css        # Profile page styles
+│   │   └── style.css          # Global / main styles
+│   │
+│   ├── img/                   # Images, icons, illustrations
+│   │
+│   └── js/
+│       ├── contracts.js       # Contracts page logic
+│       ├── dash.js            # Dashboard interactions
+│       ├── payments.js        # Payments functionality
+│       ├── profile.js         # Profile interactions
+│       └── script.js          # Global / shared scripts
+│
+├── about.html                 # About page
+├── confirmation.html          # Confirmation page
+├── contracts.html             # Contracts page
+├── dashboard.html             # Dashboard page
+├── forgot.html                # Password reset page
+├── index.html                 # Landing page
+├── payments.html              # Payments page
+├── privacy-policy.html        # Privacy policy page
+├── profile.html               # User profile page
+├── signin.html                # Login page
+├── signup.html                # Registration page
+│
+└── README.md                  # Project documentation
 ```
 
 ---
