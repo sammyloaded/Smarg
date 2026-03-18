@@ -31,13 +31,24 @@
     </section>
 
     <section class="auth-container">
-      <div class="form-box">
+      <form
+        class="form-box"
+        onsubmit="
+          event.preventDefault();
+          window.location.href = 'dashboard.html';
+        "
+      >
         <h1>Welcome Back</h1>
         <p>Enter your account details to Sign In</p>
-        <input type="email" placeholder="Email Address" />
+        <input type="email" placeholder="Email Address" required />
 
         <div class="password-field">
-          <input type="password" id="password" placeholder="Enter Password" />
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            required
+          />
 
           <!-- Eye Icon (SVG) -->
           <span class="toggle-password" id="togglePassword">
@@ -82,21 +93,16 @@
         </p>
 
         <div class="buttons">
-          <button class="google-btn">
+          <button type="button" class="google-btn">
             <img src="assets/img/google.png" /><span>Sign in with Google</span>
           </button>
-          <button
-            class="signup-btn"
-            onclick="window.location.href = 'dashboard.html'"
-          >
-            Sign in
-          </button>
+          <button type="submit" class="signup-btn">Sign in</button>
         </div>
 
         <div class="already mobile-only">
           <p class="signin">Not a member? <a href="signup.html">Sign up</a></p>
         </div>
-      </div>
+      </form>
     </section>
 
     <script>
