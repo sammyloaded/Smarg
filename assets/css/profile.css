@@ -1,0 +1,252 @@
+/* ================= PROFILE PAGE SPECIFIC STYLES ================= */
+
+.page-title {
+  font-size:20px;
+  font-weight:800;
+  color:var(--text-dark);
+}
+/* --- Top Navigation Tabs --- */
+.settings-tabs {
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin-bottom:40px;
+}
+.settings-tab-btn {
+  font-size:14px;
+  font-weight:700;
+  color:var(--text-light);
+  padding:10px 25px;
+  border-radius:20px;
+  background:transparent;
+  transition:0.2s;
+}
+.settings-tab-btn.active {
+  background:#F0F0FF;
+  color:var(--primary);
+}
+/* --- Avatar Section --- */
+.avatar-edit-wrapper {
+  position:relative;
+  display:inline-block;
+  margin-bottom:30px;
+}
+.avatar-large {
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  object-fit:cover;
+}
+.edit-avatar-btn {
+  position:absolute;
+  bottom:0;
+  right:0;
+  width:24px;
+  height:24px;
+  background:var(--primary);
+  color:var(--white);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+  border:2px solid var(--white);
+  cursor:pointer;
+}
+/* --- Forms --- */
+.form-section-title {
+  font-size:16px;
+  font-weight:800;
+  color:var(--text-dark);
+  margin-bottom:5px;
+}
+.form-section-subtitle {
+  font-size:12px;
+  color:var(--text-light);
+  margin-bottom:25px;
+}
+.form-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+.form-group label {
+  display:block;
+  font-size:11px;
+  font-weight:700;
+  color:var(--text-light);
+  margin-bottom:8px;
+}
+.form-input {
+  width:100%;
+  border:1px solid var(--border-color);
+  border-radius:8px;
+  padding:14px 15px;
+  font-size:14px;
+  color:var(--text-dark);
+  outline:none;
+  background:var(--white);
+  transition:0.2s;
+}
+.form-input:focus {
+  border-color:var(--primary);
+}
+.form-input.text-placeholder {
+  color:var(--text-light);
+}
+.phone-input-wrapper {
+  display:flex;
+  align-items:center;
+  border:1px solid var(--border-color);
+  border-radius:8px;
+  padding:14px 15px;
+  background:var(--white);
+}
+.phone-input-wrapper select {
+  border:none;
+  outline:none;
+  background:transparent;
+  font-weight:700;
+  margin-right:10px;
+  padding-right:10px;
+  border-right:1px solid var(--border-color);
+}
+.btn-save-changes {
+  background:var(--primary);
+  color:var(--white);
+  padding:14px 30px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:700;
+  transition:0.2s;
+  border:none;
+  cursor:pointer;
+}
+.btn-save-changes:hover {
+  opacity:0.9;
+}
+/* --- Cards & Banks Sub Tabs --- */
+.sub-tabs {
+  display:flex;
+  gap:30px;
+  border-bottom:1px solid var(--border-color);
+  margin-bottom:30px;
+}
+.sub-tab-btn {
+  font-size:14px;
+  font-weight:700;
+  color:var(--text-light);
+  padding-bottom:15px;
+  position:relative;
+}
+.sub-tab-btn.active {
+  color:var(--text-dark);
+}
+.sub-tab-btn.active::after {
+  content:'';
+  position:absolute;
+  bottom:-1px;
+  left:0;
+  width:100%;
+  height:2px;
+  background:var(--primary);
+}
+/* --- Saved Cards UI --- */
+.saved-card-dark {
+  background:#0B1032;
+  /* Very dark blue */
+    border-radius:16px;
+  padding:30px;
+  color:var(--white);
+  position:relative;
+  overflow:hidden;
+  height:200px;
+  max-width:400px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  margin-bottom:30px;
+}
+.saved-card-dark .circle {
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,0.03);
+}
+.saved-card-dark .circle-1 {
+  width:150px;
+  height:150px;
+  top:-30px;
+  right:-30px;
+}
+.saved-card-dark .circle-2 {
+  width:100px;
+  height:100px;
+  bottom:-20px;
+  right:50px;
+}
+.saved-card-dark .card-content {
+  position:relative;
+  z-index:2;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.saved-card-dark .card-logo {
+  width:50px;
+  height:auto;
+}
+.saved-card-dark .card-number {
+  font-size:20px;
+  font-weight:600;
+  letter-spacing:2px;
+  margin-top:auto;
+  margin-bottom:10px;
+}
+.saved-card-dark .card-footer {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+}
+.saved-card-dark .card-name {
+  font-size:10px;
+  letter-spacing:1px;
+  color:#A0A0C0;
+  text-transform:uppercase;
+}
+.saved-card-dark .btn-delete-card {
+  color:var(--white);
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+  text-decoration:underline;
+}
+.btn-add-new-block {
+  background:#F8F8FF;
+  color:var(--primary);
+  border:1px dashed var(--border-color);
+  padding:20px;
+  border-radius:12px;
+  font-size:14px;
+  font-weight:700;
+  width:100%;
+  max-width:200px;
+  text-align:center;
+  cursor:pointer;
+  transition:0.2s;
+}
+.btn-add-new-block:hover {
+  border-color:var(--primary);
+  background:#F0F0FF;
+}
+/* --- Responsive Adjustments --- */
+@media (max-width:768px) {
+  .settings-tabs {
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
+.form-grid {
+  grid-template-columns:1fr;
+}
+}

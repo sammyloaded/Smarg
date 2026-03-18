@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Settings - Smarg</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/dash.css" />
+    <link rel="stylesheet" href="assets/css/profile.css" />
+    <link rel="icon" type="image/jpeg/png" href="/assets/img/favicon.jpeg" />
+  </head>
+  <body>
+    <div
+      class="sidebar-overlay"
+      id="sidebar-overlay"
+      onclick="toggleSidebar()"
+    ></div>
+
+    <div class="mobile-sidebar" id="mobile-sidebar">
+      <button class="close-sidebar" onclick="toggleSidebar()">×</button>
+      <div class="logo">
+        <img src="assets/img/logo.png" alt="Logo" />
+      </div>
+      <div class="mobile-nav">
+        <a href="dashboard.html">Home</a>
+        <a href="contracts.html">Contracts</a>
+        <a href="payments.html">Payments</a>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="logo-nav">
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+        <div class="logo">
+          <img src="assets/img/logo.png" alt="Logo" />
+        </div>
+        <div class="nav-links">
+          <a href="dashboard.html">Home</a>
+          <a href="contracts.html">Contracts</a>
+          <a href="payments.html">Payments</a>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="search-bar">
+          <span><img src="assets/img/search.png" alt="Search" /></span>
+          <input type="text" placeholder="Search anything..." />
+        </div>
+        <img
+          src="assets/img/bell.png"
+          alt="Notifications"
+          class="bell-icon img-placeholder"
+        />
+
+        <div
+          class="profile-dropdown-container"
+          onclick="toggleProfileMenu(event)"
+        >
+          <div class="profile-trigger">
+            <img
+              src="assets/img/profile.png"
+              alt="Profile"
+              class="profile-pic img-placeholder"
+            />
+            <img
+              src="assets/img/arrow-down.png"
+              alt="v"
+              class="img-placeholder"
+              style="width: 10px; height: 10px; margin-left: 8px"
+            />
+          </div>
+          <div class="profile-menu" id="profileMenu">
+            <a href="profile.html" class="profile-menu-item"
+              ><img
+                src="assets/img/user-icon.png"
+                alt="User"
+                class="menu-icon img-placeholder"
+              />
+              My Profile</a
+            >
+            <a href="signin.html" class="profile-menu-item"
+              ><img
+                src="assets/img/logout.png"
+                alt="Logout"
+                class="menu-icon img-placeholder"
+              />
+              Log Out</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container" style="max-width: 900px; margin: 0 auto">
+      <h1 class="page-title" style="margin-bottom: 40px">Account Settings</h1>
+
+      <div class="settings-tabs">
+        <button
+          class="settings-tab-btn active"
+          onclick="switchSettingTab('view-profile', this)"
+        >
+          Profile
+        </button>
+        <button
+          class="settings-tab-btn"
+          onclick="switchSettingTab('view-security', this)"
+        >
+          Security
+        </button>
+        <button
+          class="settings-tab-btn"
+          onclick="switchSettingTab('view-cards-banks', this)"
+        >
+          Cards & Banks
+        </button>
+      </div>
+
+      <div id="view-profile" class="settings-view" style="display: block">
+        <div class="avatar-edit-wrapper">
+          <img
+            src="assets/img/profile.png"
+            alt="Profile"
+            class="avatar-large img-placeholder"
+          />
+          <button class="edit-avatar-btn">✎</button>
+        </div>
+
+        <div class="form-section-title">Basic Information</div>
+        <p class="form-section-subtitle">
+          By signing up, I agree to the product's
+        </p>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" value="Oluwasayo" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" value="Ogunlade" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <div class="phone-input-wrapper">
+              <select>
+                <option>234</option>
+              </select>
+              <input
+                type="text"
+                value="08163399714"
+                class="form-input"
+                style="border: none; padding: 0"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input
+              type="email"
+              value="ogunladeoluwasayo@gmail.com"
+              class="form-input"
+              style="background: #f8f8ff"
+            />
+          </div>
+          <div class="form-group">
+            <label>Date of Birth</label>
+            <input
+              type="date"
+              placeholder="Select Date"
+              class="form-input text-placeholder"
+            />
+          </div>
+        </div>
+
+        <div style="text-align: right; margin-top: 40px">
+          <button
+            class="btn-save-changes"
+            onclick="openModal('modal-profile-success')"
+          >
+            Save Changes
+          </button>
+        </div>
+      </div>
+
+      <div id="view-security" class="settings-view" style="display: none">
+        <div class="form-section-title">Update Password</div>
+        <p class="form-section-subtitle">
+          By signing up, I agree to the product's
+        </p>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Old Password</label>
+            <input type="password" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>New Password</label>
+            <input type="password" class="form-input" />
+          </div>
+        </div>
+
+        <div style="text-align: right; margin-top: 40px">
+          <button
+            class="btn-save-changes"
+            onclick="openModal('modal-password-success')"
+          >
+            Save Changes
+          </button>
+        </div>
+      </div>
+
+      <div id="view-cards-banks" class="settings-view" style="display: none">
+        <div class="sub-tabs">
+          <button
+            class="sub-tab-btn active"
+            onclick="switchSubTab('subview-cards', this)"
+          >
+            Cards
+          </button>
+          <button
+            class="sub-tab-btn"
+            onclick="switchSubTab('subview-banks', this)"
+          >
+            Banks
+          </button>
+        </div>
+
+        <div id="subview-cards" class="sub-view" style="display: block">
+          <div class="form-section-title">Saved Cards</div>
+          <p class="form-section-subtitle">
+            By signing up, I agree to the product's
+          </p>
+
+          <div class="saved-card-dark">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="card-content">
+              <img
+                src="assets/img/visa1.png"
+                alt="VISA"
+                class="card-logo img-placeholder"
+              />
+              <div class="card-number">**** 6787</div>
+              <div class="card-footer">
+                <div class="card-name">OGUNLADE OLUWASAYO</div>
+                <button class="btn-delete-card">Delete</button>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="btn-add-new-block"
+            onclick="openModal('modal-add-card-profile')"
+          >
+            Add New Card
+          </button>
+        </div>
+
+        <div id="subview-banks" class="sub-view" style="display: none">
+          <div class="form-section-title">Saved Banks</div>
+          <p class="form-section-subtitle">
+            By signing up, I agree to the product's
+          </p>
+
+          <div class="saved-card-dark">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="card-content">
+              <img
+                src="assets/img/accessbank.png"
+                alt="Access"
+                class="card-logo img-placeholder"
+                style="width: 100px"
+              />
+              <div class="card-number">2122774814</div>
+              <div class="card-footer">
+                <div class="card-name">OGUNLADE OLUWASAYO</div>
+                <button class="btn-delete-card">Delete</button>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="btn-add-new-block"
+            onclick="openModal('modal-add-bank-profile')"
+          >
+            Add New Bank
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-password-success">
+      <div
+        class="modal-box"
+        style="text-align: center; max-width: 400px; padding: 50px 30px"
+      >
+        <div
+          style="
+            width: 60px;
+            height: 60px;
+            background: #e8f5e9;
+            color: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 20px;
+          "
+        >
+          ✓
+        </div>
+        <h2
+          style="
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+          "
+        >
+          Password Changed Successfully
+        </h2>
+        <button class="btn-primary" onclick="closeAllModals()">Okay</button>
+      </div>
+    </div>
+    <div class="modal-overlay" id="modal-profile-success">
+      <div
+        class="modal-box"
+        style="text-align: center; max-width: 400px; padding: 50px 30px"
+      >
+        <div
+          style="
+            width: 60px;
+            height: 60px;
+            background: #e8f5e9;
+            color: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 20px;
+          "
+        >
+          ✓
+        </div>
+        <h2
+          style="
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+          "
+        >
+          Profile Changes Saved Successfully
+        </h2>
+        <button class="btn-primary" onclick="closeAllModals()">Okay</button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-card-success">
+      <div
+        class="modal-box"
+        style="text-align: center; max-width: 400px; padding: 50px 30px"
+      >
+        <div
+          style="
+            width: 60px;
+            height: 60px;
+            background: #e8f5e9;
+            color: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 20px;
+          "
+        >
+          ✓
+        </div>
+        <h2
+          style="
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+          "
+        >
+          Card Added Successfully
+        </h2>
+        <button class="btn-primary" onclick="closeAllModals()">Okay</button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-bank-success">
+      <div
+        class="modal-box"
+        style="text-align: center; max-width: 400px; padding: 50px 30px"
+      >
+        <div
+          style="
+            width: 60px;
+            height: 60px;
+            background: #e8f5e9;
+            color: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 20px;
+          "
+        >
+          ✓
+        </div>
+        <h2
+          style="
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+          "
+        >
+          Bank Added Successfully
+        </h2>
+        <button class="btn-primary" onclick="closeAllModals()">Okay</button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-add-card-profile">
+      <div class="modal-box">
+        <div class="modal-title">Add New Card</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
+
+        <div
+          class="input-group-modal"
+          style="
+            border: 1px solid var(--border-color);
+            background: var(--white);
+            margin-bottom: 20px;
+          "
+        >
+          <input
+            type="text"
+            placeholder="Name on Card"
+            style="
+              width: 100%;
+              border: none;
+              padding: 15px;
+              outline: none;
+              background: transparent;
+            "
+          />
+        </div>
+        <div
+          class="input-group-modal"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border-color);
+            background: var(--white);
+            margin-bottom: 20px;
+            padding-right: 15px;
+          "
+        >
+          <input
+            type="text"
+            placeholder="Card Number"
+            style="
+              width: 100%;
+              border: none;
+              padding: 15px;
+              outline: none;
+              background: transparent;
+            "
+          />
+          <img
+            src="assets/img/mastercard.png"
+            alt="MasterCard"
+            class="bank-logo img-placeholder"
+            style="width: 30px"
+          />
+        </div>
+
+        <div style="display: flex; gap: 15px; margin-bottom: 30px">
+          <div
+            class="input-group-modal"
+            style="
+              flex: 1;
+              border: 1px solid var(--border-color);
+              background: var(--white);
+              margin-bottom: 0;
+            "
+          >
+            <input
+              type="text"
+              placeholder="CVV"
+              style="
+                width: 100%;
+                border: none;
+                padding: 15px;
+                outline: none;
+                background: transparent;
+              "
+            />
+          </div>
+          <div
+            class="input-group-modal"
+            style="
+              flex: 1;
+              border: 1px solid var(--border-color);
+              background: var(--white);
+              margin-bottom: 0;
+            "
+          >
+            <input
+              type="text"
+              placeholder="Expiry Date"
+              style="
+                width: 100%;
+                border: none;
+                padding: 15px;
+                outline: none;
+                background: transparent;
+              "
+            />
+          </div>
+        </div>
+
+        <button
+          class="btn-primary"
+          onclick="switchModal('modal-add-card-profile', 'modal-card-success')"
+        >
+          Add Card
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-add-bank-profile">
+      <div class="modal-box">
+        <div class="modal-title">Add New Bank</div>
+        <div class="modal-subtitle">
+          The status of a client or freelancer is based on
+        </div>
+
+        <div
+          class="input-group-modal"
+          style="
+            border: 1px solid var(--border-color);
+            background: var(--white);
+            margin-bottom: 20px;
+          "
+        >
+          <select
+            style="
+              width: 100%;
+              padding: 15px;
+              border: none;
+              outline: none;
+              background: transparent;
+            "
+          >
+            <option>Select Bank</option>
+          </select>
+        </div>
+        <div
+          class="input-group-modal"
+          style="
+            border: 1px solid var(--border-color);
+            background: var(--white);
+            margin-bottom: 20px;
+          "
+        >
+          <input
+            type="text"
+            placeholder="Account Number"
+            style="
+              width: 100%;
+              padding: 15px;
+              border: none;
+              outline: none;
+              background: transparent;
+            "
+          />
+        </div>
+
+        <div
+          style="
+            background: #f0f0ff;
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 15px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            text-align: left;
+          "
+        >
+          OGUNLADE, OLUWASAYO JULIANA
+        </div>
+
+        <button
+          class="btn-primary"
+          onclick="
+            switchModal('modal-add-bank-profile', 'modal-confirm-bank-profile')
+          "
+        >
+          Add Bank
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-confirm-bank-profile">
+      <div class="modal-box">
+        <div class="modal-title">Confirm Bank Details</div>
+        <div class="modal-subtitle">
+          A 6-digit verification has been sent to <strong>081***09</strong>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+          "
+        >
+          <input
+            type="text"
+            maxlength="1"
+            style="
+              width: 50px;
+              height: 50px;
+              border: 1px solid var(--border-color);
+              border-radius: 8px;
+              font-size: 24px;
+              text-align: center;
+              font-weight: 700;
+              outline: none;
+            "
+          />
+          <input
+            type="text"
+            maxlength="1"
+            style="
+              width: 50px;
+              height: 50px;
+              border: 1px solid var(--border-color);
+              border-radius: 8px;
+              font-size: 24px;
+              text-align: center;
+              font-weight: 700;
+              outline: none;
+            "
+          />
+          <input
+            type="text"
+            maxlength="1"
+            style="
+              width: 50px;
+              height: 50px;
+              border: 1px solid var(--border-color);
+              border-radius: 8px;
+              font-size: 24px;
+              text-align: center;
+              font-weight: 700;
+              outline: none;
+            "
+          />
+          <input
+            type="text"
+            maxlength="1"
+            style="
+              width: 50px;
+              height: 50px;
+              border: 1px solid var(--border-color);
+              border-radius: 8px;
+              font-size: 24px;
+              text-align: center;
+              font-weight: 700;
+              outline: none;
+            "
+          />
+          <input
+            type="text"
+            maxlength="1"
+            style="
+              width: 50px;
+              height: 50px;
+              border: 1px solid var(--border-color);
+              border-radius: 8px;
+              font-size: 24px;
+              text-align: center;
+              font-weight: 700;
+              outline: none;
+            "
+          />
+          <input
+            type="text"
+            maxlength="1"
+            style="
+              width: 50px;
+              height: 50px;
+              border: 1px solid var(--border-color);
+              border-radius: 8px;
+              font-size: 24px;
+              text-align: center;
+              font-weight: 700;
+              outline: none;
+            "
+          />
+        </div>
+
+        <button
+          class="btn-primary"
+          onclick="
+            switchModal('modal-confirm-bank-profile', 'modal-bank-success')
+          "
+        >
+          Confirm Bank
+        </button>
+
+        <div style="font-size: 14px; color: var(--text-dark); margin-top: 20px">
+          Didn't receive any code? <br /><a
+            href="#"
+            style="
+              color: var(--text-dark);
+              font-weight: 700;
+              text-decoration: underline;
+            "
+            >Resend Code</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/dash.js"></script>
+    <script src="assets/js/profile.js"></script>
+  </body>
+</html>
