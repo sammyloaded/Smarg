@@ -148,3 +148,20 @@ otpInputs.forEach((input, index) => {
         }
     });
 });
+// Profile stuff 
+window.addEventListener('click', function(e) {
+    // Closes Custom Select Dropdowns
+    if (!e.target.closest('.custom-select')) {
+        document.querySelectorAll('.custom-select').forEach(select => {
+            select.classList.remove('active');
+        });
+    }
+    
+    // Closes Profile Menu Dropdown
+    if (!e.target.closest('.profile-dropdown-container')) {
+        const profileMenu = document.getElementById('profileMenu');
+        if (profileMenu && profileMenu.classList.contains('active')) {
+            profileMenu.classList.remove('active');
+        }
+    }
+});

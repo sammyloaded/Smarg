@@ -1,0 +1,264 @@
+/* ================= PAYMENTS PAGE SPECIFIC STYLES ================= */
+
+.payments-layout {
+    display: flex;
+    gap: 40px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+
+.mt-40 { margin-top: 40px; }
+
+/* --- Top Cards Row --- */
+.payment-cards-row {
+    display: flex;
+    gap: 20px;
+}
+
+.payment-card {
+    flex: 1;
+    border-radius: 16px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.card-amount {
+    font-size: 32px;
+    font-weight: 800;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    margin-bottom: 15px;
+}
+.card-amount span { font-size: 18px; }
+
+/* Blue Card Specifics */
+.blue-card {
+    background: linear-gradient(135deg, #3080FF 0%, #1A4DD3 100%);
+    color: var(--white);
+    border: none;
+}
+.btn-withdraw {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+.btn-withdraw:hover { background: rgba(255,255,255,0.3); }
+
+/* White Card Specifics */
+.white-card {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+}
+.wave-chart {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    height: auto;
+}
+
+/* --- Transactions History --- */
+.transactions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.tabs {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+.tab {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-light);
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.tab.active {
+    background: #F0F0FF;
+    color: var(--primary);
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 15px;
+    background: var(--white);
+    width: 250px;
+}
+.search-box input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 13px;
+    background: transparent;
+}
+.search-box span { font-size: 14px; color: var(--text-light); }
+
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #F5F5F8;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 40%;
+}
+.avatar-wrapper { position: relative; flex-shrink: 0; }
+.avatar-wrapper .avatar-img { width: 45px; height: 45px; border-radius: 50%; }
+.status-dot {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+}
+.status-dot.green { background: var(--success); }
+.status-dot.red { background: var(--danger); }
+
+.details h4 { font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+.details p { font-size: 10px; font-weight: 700; color: var(--text-light); letter-spacing: 0.5px; }
+
+.trans-date { font-size: 13px; color: var(--text-light); font-weight: 600; width: 30%; }
+.trans-amount { font-size: 15px; font-weight: 800; color: var(--text-dark); text-align: right; width: 30%; }
+.trans-amount span { font-size: 12px; color: var(--text-light); }
+
+/* --- Virtual Credit Card --- */
+.virtual-card {
+    background: #0B1032; /* Very dark blue */
+    border-radius: 16px;
+    padding: 25px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+}
+.circle-1 { width: 150px; height: 150px; top: -30px; right: -30px; }
+.circle-2 { width: 100px; height: 100px; bottom: -20px; right: 50px; }
+
+.card-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: space-between;}
+.visa-logo { width: 50px; height: auto; }
+.card-number { font-size: 16px; font-weight: 600; letter-spacing: 2px; margin-top: auto; margin-bottom: 10px;}
+.card-footer { display: flex; justify-content: space-between; align-items: flex-end; }
+.card-name { font-size: 10px; letter-spacing: 1px; color: #A0A0C0;}
+.btn-delete { color: var(--white); font-size: 12px; font-weight: 700; cursor: pointer; }
+
+/* --- Payment Analytics --- */
+.custom-select-small {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    outline: none;
+    background: var(--white);
+}
+.analytics-card {
+    text-align: center;
+    padding: 30px;
+}
+.bar-chart {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* ================= RESPONSIVE MEDIA QUERIES ================= */
+@media (max-width: 1024px) {
+    .payments-layout { flex-direction: column; }
+}
+
+@media (max-width: 768px) {
+    .payment-cards-row { flex-direction: column; }
+    .transactions-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .search-box { width: 100%; }
+    
+    /* FIX: Keep transactions in a straight row on mobile */
+    .transaction-item { 
+        flex-direction: row; 
+        align-items: center; 
+        justify-content: space-between; 
+        gap: 8px; 
+        padding-bottom: 15px; 
+    }
+    
+    /* Make the user info flexible so it truncates if needed */
+    .user-info { 
+        width: auto; 
+        flex: 1; 
+        gap: 8px; 
+        min-width: 0; 
+    } 
+    .avatar-wrapper .avatar-img { width: 35px; height: 35px; }
+    .details { min-width: 0; } /* allows text truncation */
+    .details h4 { 
+        font-size: 13px; 
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+    }
+    .details p { font-size: 10px; }
+    
+    /* Adjust date and amount fonts to fit perfectly on the single line */
+    .trans-date { 
+        width: auto; 
+        font-size: 11px; 
+        text-align: center; 
+        white-space: nowrap; 
+    }
+    .trans-amount { 
+        width: auto; 
+        font-size: 14px; 
+        text-align: right; 
+        white-space: nowrap; 
+    }
+    .trans-amount span { font-size: 11px; }
+}
