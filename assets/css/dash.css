@@ -419,7 +419,6 @@ img {
   border:1px solid var(--border-color);
   border-radius:12px;
   background:var(--white);
-  height: 9vh;
 }
 .avatar-img {
   width:40px;
