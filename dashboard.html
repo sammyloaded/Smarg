@@ -369,7 +369,14 @@
           </div>
         </div>
 
-        <div id="step-1" class="contract-step">
+        <form
+          id="step-1"
+          class="contract-step"
+          onsubmit="
+            event.preventDefault();
+            goToStep(2);
+          "
+        >
           <div class="form-section">
             <h2>Basic Information</h2>
             <p>The status of a client or freelancer is based on</p>
@@ -381,38 +388,54 @@
               type="text"
               class="input-field"
               placeholder="Contract Name"
+              required
             />
             <div
               class="input-group-modal"
               style="flex: 1; margin: 0; padding: 0 15px; border-radius: 8px"
             >
               <select>
-                <option>NGN ∨</option>
+                <option>NGN</option>
               </select>
-              <input type="text" placeholder="Contract Amount" />
+              <input type="text" placeholder="Contract Amount" required />
             </div>
           </div>
           <textarea
             class="input-field"
             placeholder="Contract Description"
+            required
           ></textarea>
 
           <div class="section-title">Add Client</div>
           <div class="input-group" style="margin-bottom: 30px">
-            <input type="text" class="input-field" placeholder="Client Name" />
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Client Name"
+              required
+            />
             <input
               type="email"
               class="input-field"
               placeholder="Client Email Address"
+              required
             />
           </div>
 
           <div class="action-buttons">
-            <button class="btn-primary" onclick="goToStep(2)">Continue</button>
+            <button type="submit" class="btn-primary">Continue</button>
           </div>
-        </div>
+        </form>
 
-        <div id="step-2" class="contract-step" style="display: none">
+        <form
+          id="step-2"
+          class="contract-step"
+          style="display: none"
+          onsubmit="
+            event.preventDefault();
+            goToStep(3);
+          "
+        >
           <div class="form-section">
             <h2>Upload Contract</h2>
             <p>
@@ -424,8 +447,9 @@
           <input
             type="file"
             id="contract-file"
-            style="display: none"
+            style="opacity: 0; position: absolute; z-index: -1"
             accept=".pdf,.doc,.docx"
+            required
           />
 
           <div class="upload-area" id="upload-box">
@@ -436,10 +460,12 @@
           </div>
 
           <div class="action-buttons">
-            <button class="btn-outline" onclick="goToStep(1)">Previous</button>
-            <button class="btn-primary" onclick="goToStep(3)">Continue</button>
+            <button type="button" class="btn-outline" onclick="goToStep(1)">
+              Previous
+            </button>
+            <button type="submit" class="btn-primary">Continue</button>
           </div>
-        </div>
+        </form>
 
         <div id="step-3" class="contract-step" style="display: none">
           <div class="form-section">
@@ -572,7 +598,13 @@
     <!-- Withdrawal Modal  -->
 
     <div class="modal-overlay" id="modal-withdraw-amount">
-      <div class="modal-box">
+      <form
+        class="modal-box"
+        onsubmit="
+          event.preventDefault();
+          switchModal('modal-withdraw-amount', 'modal-withdraw-card');
+        "
+      >
         <div class="modal-title">Withdraw Fund</div>
         <div class="modal-subtitle">
           The status of a client or freelancer is based on
@@ -580,20 +612,15 @@
 
         <div class="input-group-modal">
           <select>
-            <option>NGN ∨</option>
+            <option>NGN</option>
           </select>
-          <input type="text" placeholder="Amount" />
+          <input type="text" placeholder="Amount" required />
         </div>
 
         <div class="available-bal-badge">Available balance : ₦500,000.45</div>
 
-        <button
-          class="btn-primary"
-          onclick="switchModal('modal-withdraw-amount', 'modal-withdraw-card')"
-        >
-          Continue
-        </button>
-      </div>
+        <button type="submit" class="btn-primary">Continue</button>
+      </form>
     </div>
 
     <div class="modal-overlay" id="modal-withdraw-card">
@@ -686,7 +713,13 @@
     </div>
 
     <div class="modal-overlay" id="modal-add-bank">
-      <div class="modal-box">
+      <form
+        class="modal-box"
+        onsubmit="
+          event.preventDefault();
+          switchModal('modal-add-bank', 'modal-confirm-bank');
+        "
+      >
         <div
           class="back-link"
           onclick="switchModal('modal-add-bank', 'modal-withdraw-card')"
@@ -710,22 +743,23 @@
           </select>
         </div>
         <div class="input-group-modal">
-          <input type="text" placeholder="Account Number" />
+          <input type="text" placeholder="Account Number" required />
         </div>
 
         <div class="resolved-name-badge">OGUNLADE, OLUWASAYO JULIANA</div>
 
-        <button
-          class="btn-primary"
-          onclick="switchModal('modal-add-bank', 'modal-confirm-bank')"
-        >
-          Add Bank
-        </button>
-      </div>
+        <button type="submit" class="btn-primary">Add Bank</button>
+      </form>
     </div>
 
     <div class="modal-overlay" id="modal-confirm-bank">
-      <div class="modal-box">
+      <form
+        class="modal-box"
+        onsubmit="
+          event.preventDefault();
+          switchModal('modal-confirm-bank', 'modal-withdraw-card');
+        "
+      >
         <div
           class="back-link"
           onclick="switchModal('modal-confirm-bank', 'modal-add-bank')"
@@ -746,26 +780,21 @@
         </div>
 
         <div class="otp-container">
-          <input type="text" maxlength="1" class="otp-input" />
-          <input type="text" maxlength="1" class="otp-input" />
-          <input type="text" maxlength="1" class="otp-input" />
-          <input type="text" maxlength="1" class="otp-input" />
-          <input type="text" maxlength="1" class="otp-input" />
-          <input type="text" maxlength="1" class="otp-input" />
+          <input type="text" maxlength="1" class="otp-input" required />
+          <input type="text" maxlength="1" class="otp-input" required />
+          <input type="text" maxlength="1" class="otp-input" required />
+          <input type="text" maxlength="1" class="otp-input" required />
+          <input type="text" maxlength="1" class="otp-input" required />
+          <input type="text" maxlength="1" class="otp-input" required />
         </div>
 
-        <button
-          class="btn-primary"
-          onclick="switchModal('modal-confirm-bank', 'modal-withdraw-card')"
-        >
-          Confirm Bank
-        </button>
+        <button type="submit" class="btn-primary">Confirm Bank</button>
 
         <div class="resend-link">
           Didn't receive any code? <br />
           <a href="#">Resend Code</a>
         </div>
-      </div>
+      </form>
     </div>
 
     <div class="modal-overlay" id="modal-success">
@@ -797,14 +826,25 @@
 
     <!-- Add New Card Modal  -->
     <div class="modal-overlay" id="modal-add-new-card">
-      <div class="modal-box">
+      <form
+        class="modal-box"
+        onsubmit="
+          event.preventDefault();
+          closeAllModals();
+        "
+      >
         <div class="modal-title">Add New Card</div>
         <div class="modal-subtitle">
           The status of a client or freelancer is based on
         </div>
 
         <div class="input-group-modal">
-          <input type="text" placeholder="Name on Card" style="width: 100%" />
+          <input
+            type="text"
+            placeholder="Name on Card"
+            style="width: 100%"
+            required
+          />
         </div>
         <div
           class="input-group-modal"
@@ -814,7 +854,12 @@
             align-items: center;
           "
         >
-          <input type="text" placeholder="Card Number" style="width: 100%" />
+          <input
+            type="text"
+            placeholder="Card Number"
+            style="width: 100%"
+            required
+          />
           <img
             src="assets/img/mastercard.png"
             alt="MasterCard"
@@ -825,21 +870,22 @@
 
         <div style="display: flex; gap: 15px; margin-bottom: 20px">
           <div class="input-group-modal" style="flex: 1; margin-bottom: 0">
-            <input type="text" placeholder="CVV" style="width: 100%" />
+            <input type="text" placeholder="CVV" style="width: 100%" required />
           </div>
           <div class="input-group-modal" style="flex: 1; margin-bottom: 0">
-            <input type="text" placeholder="Expiry Date" style="width: 100%" />
+            <input
+              type="text"
+              placeholder="Expiry Date"
+              style="width: 100%"
+              required
+            />
           </div>
         </div>
 
-        <button
-          class="btn-primary"
-          onclick="closeAllModals()"
-          style="margin-top: 10px"
-        >
+        <button type="submit" class="btn-primary" style="margin-top: 10px">
           Add Card
         </button>
-      </div>
+      </form>
     </div>
 
     <!-- Pay with Bank Modal  -->
@@ -956,28 +1002,35 @@
 
     <!-- Pay with Crypto Modal  -->
     <div class="modal-overlay" id="modal-crypto-payment">
-      <div class="modal-box">
+      <form
+        class="modal-box"
+        onsubmit="
+          event.preventDefault();
+          switchModal('modal-crypto-payment', 'modal-success');
+        "
+      >
         <div class="modal-title">Crypto Payment</div>
         <div class="modal-subtitle">
           The status of a client or freelancer is based on
         </div>
 
         <div class="input-group-modal" style="margin-top: 30px">
-          <input type="text" placeholder="Crypto Address" style="width: 100%" />
+          <input
+            type="text"
+            placeholder="Crypto Address"
+            style="width: 100%"
+            required
+          />
         </div>
 
         <div class="terms-text">
-          By signing up, I agree to the product's <a href="#">Privacy Policy</a
-          ><br />and <a href="#">Terms of Service</a>
+          By signing up, I agree to the product's
+          <a href="privacy-policy.html">Privacy Policy</a><br />and
+          <a href="#">Terms of Service</a>
         </div>
 
-        <button
-          class="btn-primary"
-          onclick="switchModal('modal-crypto-payment', 'modal-success')"
-        >
-          Pay ₦55,000
-        </button>
-      </div>
+        <button type="submit" class="btn-primary">Pay ₦55,000</button>
+      </form>
     </div>
 
     <!-- Request Modal  -->

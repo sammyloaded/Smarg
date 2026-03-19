@@ -433,7 +433,13 @@
     </div>
 
     <div class="modal-overlay" id="modal-add-card-profile">
-      <div class="modal-box">
+      <form
+        class="modal-box"
+        onsubmit="
+          event.preventDefault();
+          switchModal('modal-add-card-profile', 'modal-card-success');
+        "
+      >
         <div class="modal-title">Add New Card</div>
         <div class="modal-subtitle">
           The status of a client or freelancer is based on
@@ -457,6 +463,7 @@
               outline: none;
               background: transparent;
             "
+            required
           />
         </div>
         <div
@@ -481,6 +488,7 @@
               outline: none;
               background: transparent;
             "
+            required
           />
           <img
             src="assets/img/mastercard.png"
@@ -510,6 +518,7 @@
                 outline: none;
                 background: transparent;
               "
+              required
             />
           </div>
           <div
@@ -531,21 +540,23 @@
                 outline: none;
                 background: transparent;
               "
+              required
             />
           </div>
         </div>
 
-        <button
-          class="btn-primary"
-          onclick="switchModal('modal-add-card-profile', 'modal-card-success')"
-        >
-          Add Card
-        </button>
-      </div>
+        <button type="submit" class="btn-primary">Add Card</button>
+      </form>
     </div>
 
     <div class="modal-overlay" id="modal-add-bank-profile">
-      <div class="modal-box">
+      <form
+        class="modal-box"
+        onsubmit="
+          event.preventDefault();
+          switchModal('modal-add-bank-profile', 'modal-confirm-bank-profile');
+        "
+      >
         <div class="modal-title">Add New Bank</div>
         <div class="modal-subtitle">
           The status of a client or freelancer is based on
@@ -589,6 +600,7 @@
               outline: none;
               background: transparent;
             "
+            required
           />
         </div>
 
@@ -608,19 +620,18 @@
           OGUNLADE, OLUWASAYO JULIANA
         </div>
 
-        <button
-          class="btn-primary"
-          onclick="
-            switchModal('modal-add-bank-profile', 'modal-confirm-bank-profile')
-          "
-        >
-          Add Bank
-        </button>
-      </div>
+        <button type="submit" class="btn-primary">Add Bank</button>
+      </form>
     </div>
 
     <div class="modal-overlay" id="modal-confirm-bank-profile">
-      <div class="modal-box">
+      <form
+        class="modal-box"
+        onsubmit="
+          event.preventDefault();
+          switchModal('modal-confirm-bank-profile', 'modal-bank-success');
+        "
+      >
         <div class="modal-title">Confirm Bank Details</div>
         <div class="modal-subtitle">
           A 6-digit verification has been sent to <strong>081***09</strong>
@@ -647,6 +658,7 @@
               font-weight: 700;
               outline: none;
             "
+            required
           />
           <input
             type="text"
@@ -661,6 +673,7 @@
               font-weight: 700;
               outline: none;
             "
+            required
           />
           <input
             type="text"
@@ -675,6 +688,7 @@
               font-weight: 700;
               outline: none;
             "
+            required
           />
           <input
             type="text"
@@ -689,6 +703,7 @@
               font-weight: 700;
               outline: none;
             "
+            required
           />
           <input
             type="text"
@@ -703,6 +718,7 @@
               font-weight: 700;
               outline: none;
             "
+            required
           />
           <input
             type="text"
@@ -717,17 +733,11 @@
               font-weight: 700;
               outline: none;
             "
+            required
           />
         </div>
 
-        <button
-          class="btn-primary"
-          onclick="
-            switchModal('modal-confirm-bank-profile', 'modal-bank-success')
-          "
-        >
-          Confirm Bank
-        </button>
+        <button type="submit" class="btn-primary">Confirm Bank</button>
 
         <div style="font-size: 14px; color: var(--text-dark); margin-top: 20px">
           Didn't receive any code? <br /><a
@@ -740,7 +750,7 @@
             >Resend Code</a
           >
         </div>
-      </div>
+      </form>
     </div>
 
     <script src="assets/js/dash.js"></script>

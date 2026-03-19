@@ -31,13 +31,7 @@
     </section>
 
     <section class="auth-container">
-      <form
-        class="form-box"
-        onsubmit="
-          event.preventDefault();
-          window.location.href = 'dashboard.html';
-        "
-      >
+      <form class="form-box" onsubmit="handleSignIn(event)">
         <h1>Welcome Back</h1>
         <p>Enter your account details to Sign In</p>
         <input type="email" placeholder="Email Address" required />
@@ -99,31 +93,12 @@
           <button type="submit" class="signup-btn">Sign in</button>
         </div>
 
-        <div class="already mobile-only">
+        <div class="already">
           <p class="signin">Not a member? <a href="signup.html">Sign up</a></p>
         </div>
       </form>
     </section>
 
-    <script>
-      window.onload = function () {
-        document.getElementById("togglePassword").onclick = function () {
-          const password = document.getElementById("password");
-          const eyeOpen = document.getElementById("eyeOpen");
-          const eyeClosed = document.getElementById("eyeClosed");
-
-          if (password.type === "password") {
-            password.type = "text";
-            eyeOpen.style.display = "none";
-            eyeClosed.style.display = "block";
-          } else {
-            password.type = "password";
-            eyeOpen.style.display = "block";
-            eyeClosed.style.display = "none";
-          }
-        };
-      };
-    </script>
     <script src="./assets/js/script.js" defer></script>
   </body>
 </html>

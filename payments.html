@@ -127,14 +127,18 @@
 
           <div class="payment-cards-row">
             <div class="payment-card blue-card">
-              <div class="card-label">AVAILABLE BALANCE</div>
-              <div class="card-amount">₦ 340,000<span>.78</span></div>
-              <button
-                class="btn-withdraw"
-                onclick="openModal('modal-withdraw-amount')"
-              >
-                Withdraw Fund <img src="assets/img/arrow-right-up.png" />
-              </button>
+              <div class="circle circle-1"></div>
+              <div class="circle circle-2"></div>
+              <div style="position: relative; z-index: 2">
+                <div class="card-label">AVAILABLE BALANCE</div>
+                <div class="card-amount">₦ 340,000<span>.78</span></div>
+                <button
+                  class="btn-withdraw"
+                  onclick="openModal('modal-withdraw-amount')"
+                >
+                  Withdraw Fund <img src="assets/img/arrow-right-up.png" />
+                </button>
+              </div>
             </div>
 
             <div class="payment-card white-card relative-card">
@@ -353,7 +357,13 @@
     </div>
 
     <div class="modal-overlay" id="modal-withdraw-amount">
-      <div class="modal-box">
+      <form
+        class="modal-box"
+        onsubmit="
+          event.preventDefault();
+          switchModal('modal-withdraw-amount', 'modal-withdraw-card');
+        "
+      >
         <div class="modal-title">Withdraw Fund</div>
         <div class="modal-subtitle">
           The status of a client or freelancer is based on
@@ -362,16 +372,11 @@
           <select>
             <option>NGN</option>
           </select>
-          <input type="text" placeholder="Amount" />
+          <input type="text" placeholder="Amount" required />
         </div>
         <div class="available-bal-badge">Available balance : ₦500,000.45</div>
-        <button
-          class="btn-primary"
-          onclick="switchModal('modal-withdraw-amount', 'modal-withdraw-card')"
-        >
-          Continue
-        </button>
-      </div>
+        <button type="submit" class="btn-primary">Continue</button>
+      </form>
     </div>
 
     <div class="modal-overlay" id="modal-withdraw-card">
@@ -439,7 +444,13 @@
     </div>
 
     <div class="modal-overlay" id="modal-add-bank">
-      <div class="modal-box">
+      <form
+        class="modal-box"
+        onsubmit="
+          event.preventDefault();
+          switchModal('modal-add-bank', 'modal-confirm-bank');
+        "
+      >
         <div
           class="back-link"
           onclick="switchModal('modal-add-bank', 'modal-withdraw-card')"
@@ -461,20 +472,21 @@
           </select>
         </div>
         <div class="input-group-modal">
-          <input type="text" placeholder="Account Number" />
+          <input type="text" placeholder="Account Number" required />
         </div>
         <div class="resolved-name-badge">OGUNLADE, OLUWASAYO JULIANA</div>
-        <button
-          class="btn-primary"
-          onclick="switchModal('modal-add-bank', 'modal-confirm-bank')"
-        >
-          Add Bank
-        </button>
-      </div>
+        <button type="submit" class="btn-primary">Add Bank</button>
+      </form>
     </div>
 
     <div class="modal-overlay" id="modal-confirm-bank">
-      <div class="modal-box">
+      <form
+        class="modal-box"
+        onsubmit="
+          event.preventDefault();
+          switchModal('modal-confirm-bank', 'modal-withdraw-card');
+        "
+      >
         <div
           class="back-link"
           onclick="switchModal('modal-confirm-bank', 'modal-add-bank')"
@@ -493,32 +505,30 @@
           A 6-digit verification has been sent to <strong>081***09</strong>
         </div>
         <div class="otp-container">
-          <input type="text" maxlength="1" class="otp-input" /><input
+          <input type="text" maxlength="1" class="otp-input" required /><input
             type="text"
             maxlength="1"
             class="otp-input"
+            required
           />
-          <input type="text" maxlength="1" class="otp-input" /><input
+          <input type="text" maxlength="1" class="otp-input" required /><input
             type="text"
             maxlength="1"
             class="otp-input"
+            required
           />
-          <input type="text" maxlength="1" class="otp-input" /><input
+          <input type="text" maxlength="1" class="otp-input" required /><input
             type="text"
             maxlength="1"
             class="otp-input"
+            required
           />
         </div>
-        <button
-          class="btn-primary"
-          onclick="switchModal('modal-confirm-bank', 'modal-withdraw-card')"
-        >
-          Confirm Bank
-        </button>
+        <button type="submit" class="btn-primary">Confirm Bank</button>
         <div class="resend-link">
           Didn't receive any code? <br /><a href="#">Resend Code</a>
         </div>
-      </div>
+      </form>
     </div>
 
     <div class="modal-overlay" id="modal-success">

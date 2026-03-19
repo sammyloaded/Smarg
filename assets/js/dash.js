@@ -25,6 +25,32 @@ function showContractView() {
     document.querySelector('.nav-links a:nth-child(2)').classList.add('active');
     goToStep(1); 
 }
+// --- Global Hover Zoom Effect ---
+(function addGlobalHoverZoom() {
+  const style = document.createElement("style");
+  style.innerHTML = `
+    .btn-primary, .btn-outline, .btn-withdraw, .nav-sec, .ft-btn, .signup-btn, 
+    .google-btn, .btn-action, .btn-action-filled, .btn-action-light, .btn-reject, 
+    .btn-save-changes, .btn-add-new-block, .add-new-btn, .add-signee-btn, 
+    .btn-create, .btn-delete, .btn-delete-card,
+    .card, .payment-card, .role-card, .features-card, .helping-card, 
+    .activity-card, .bank-card, .saved-card-dark, .summary-blue-card, 
+    .document-card, .stat-box, .testimonial, .virtual-card, .payment-method {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      will-change: transform;
+    }
+    .btn-primary:hover, .btn-outline:hover, .btn-withdraw:hover, .nav-sec:hover, .ft-btn:hover, .signup-btn:hover, 
+    .google-btn:hover, .btn-action:hover, .btn-action-filled:hover, .btn-action-light:hover, .btn-reject:hover, 
+    .btn-save-changes:hover, .btn-add-new-block:hover, .add-new-btn:hover, .add-signee-btn:hover, 
+    .btn-create:hover, .btn-delete:hover, .btn-delete-card:hover,
+    .card:hover, .payment-card:hover, .role-card:hover, .features-card:hover, .helping-card:hover, 
+    .activity-card:hover, .bank-card:hover, .saved-card-dark:hover, .summary-blue-card:hover, 
+    .document-card:hover, .stat-box:hover, .testimonial:hover, .virtual-card:hover, .payment-method:hover {
+      transform: scale(1.03);
+    }
+  `;
+  document.head.appendChild(style);
+})();
 
 // --- Modal Logic ---
 function openModal(modalId) {

@@ -62,13 +62,7 @@
 
       <!-- RIGHT SIDE -->
       <div class="register-right">
-        <form
-          class="form-box"
-          onsubmit="
-            event.preventDefault();
-            window.location.href = 'dashboard.html';
-          "
-        >
+        <form class="form-box" onsubmit="handleSignUp(event)">
           <input type="email" placeholder="Email Address" required />
 
           <div class="row">
@@ -144,25 +138,6 @@
       </div>
     </section>
 
-    <script>
-      window.onload = function () {
-        document.getElementById("togglePassword").onclick = function () {
-          const password = document.getElementById("password");
-          const eyeOpen = document.getElementById("eyeOpen");
-          const eyeClosed = document.getElementById("eyeClosed");
-
-          if (password.type === "password") {
-            password.type = "text";
-            eyeOpen.style.display = "none";
-            eyeClosed.style.display = "block";
-          } else {
-            password.type = "password";
-            eyeOpen.style.display = "block";
-            eyeClosed.style.display = "none";
-          }
-        };
-      };
-    </script>
     <script src="./assets/js/script.js" defer></script>
   </body>
 </html>
