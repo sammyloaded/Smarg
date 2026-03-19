@@ -62,12 +62,12 @@
 
       <!-- RIGHT SIDE -->
       <div class="register-right">
-        <div class="form-box">
-          <input type="email" placeholder="Email Address" />
+        <form class="form-box" onsubmit="handleSignUp(event)">
+          <input type="email" placeholder="Email Address" required />
 
           <div class="row">
-            <input type="text" placeholder="First Name" />
-            <input type="text" placeholder="Last Name" />
+            <input type="text" placeholder="First Name" required />
+            <input type="text" placeholder="Last Name" required />
           </div>
 
           <div class="password-field">
@@ -75,6 +75,7 @@
               type="password"
               id="password"
               placeholder="Create a Password"
+              required
             />
 
             <!-- Eye Icon (SVG) -->
@@ -122,15 +123,10 @@
           </p>
 
           <div class="buttons">
-            <button class="google-btn">
+            <button type="button" class="google-btn">
               <img src="assets/img/google.png" />Sign Up with Google
             </button>
-            <button
-              class="signup-btn"
-              onclick="window.location.href = 'dashboard.html'"
-            >
-              Sign Up
-            </button>
+            <button type="submit" class="signup-btn">Sign Up</button>
           </div>
 
           <div class="already mobile-only">
@@ -138,29 +134,10 @@
               Already a member? <a href="signin.html">Sign In</a>
             </p>
           </div>
-        </div>
+        </form>
       </div>
     </section>
 
-    <script>
-      window.onload = function () {
-        document.getElementById("togglePassword").onclick = function () {
-          const password = document.getElementById("password");
-          const eyeOpen = document.getElementById("eyeOpen");
-          const eyeClosed = document.getElementById("eyeClosed");
-
-          if (password.type === "password") {
-            password.type = "text";
-            eyeOpen.style.display = "none";
-            eyeClosed.style.display = "block";
-          } else {
-            password.type = "password";
-            eyeOpen.style.display = "block";
-            eyeClosed.style.display = "none";
-          }
-        };
-      };
-    </script>
     <script src="./assets/js/script.js" defer></script>
   </body>
 </html>
