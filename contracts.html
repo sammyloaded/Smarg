@@ -123,9 +123,9 @@
 
           <div class="contracts-header-actions">
             <div class="pills-tabs">
-              <button class="pill active">All Projects</button>
-              <button class="pill">Ongoing</button>
-              <button class="pill">Completed</button>
+              <button class="pill active" onclick="switchContractTab('all', this)">All Projects</button>
+              <button class="pill" onclick="switchContractTab('ongoing', this)">Ongoing</button>
+              <button class="pill" onclick="switchContractTab('completed', this)">Completed</button>
             </div>
             <div class="search-box">
               <input type="text" placeholder="Search contracts" />
@@ -133,7 +133,7 @@
             </div>
           </div>
 
-          <div class="contracts-list">
+          <div class="contracts-list" id="contracts-list">
             <div class="list-header">
               <div>Project Name</div>
               <div>Role</div>

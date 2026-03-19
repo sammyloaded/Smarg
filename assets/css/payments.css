@@ -136,8 +136,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 15px;
+    padding: 15px 10px; /* Added internal padding so the hover effect looks clean */
+    margin: 0 -10px; /* Offset the padding width so layout alignment holds */
+    border-radius: 8px;
     border-bottom: 1px solid #F5F5F8;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.transaction-item:hover {
+    background-color: #F8F9FA;
+    transform: scale(1.01);
+    border-bottom-color: transparent;
 }
 
 .user-info {
@@ -283,7 +291,7 @@
         align-items: center; 
         justify-content: space-between; 
         gap: 8px; 
-        padding-bottom: 15px; 
+        padding: 15px 10px; 
     }
     
     /* Make the user info flexible so it truncates if needed */
