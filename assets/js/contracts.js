@@ -17,6 +17,25 @@ function showContractDetails() {
     if (contractView) contractView.style.display = 'none';
 }
 
+// --- Contracts Tab Switching Logic ---
+function switchContractTab(tabName, element) {
+    // Remove 'active' class from all tabs
+    const allPills = document.querySelectorAll('.pill');
+    allPills.forEach(pill => pill.classList.remove('active'));
+
+    // Add 'active' class to the clicked tab
+    element.classList.add('active');
+
+    const contractsList = document.getElementById('contracts-list');
+    if (contractsList) {
+        contractsList.style.transition = 'opacity 0.2s ease';
+        contractsList.style.opacity = '0.5';
+        setTimeout(() => {
+            contractsList.style.opacity = '1';
+        }, 200);
+    }
+}
+
 // OVERRIDE: Tell the page how to switch to the Contract Wizard specifically
 window.showContractView = function() {
     // 1. Hide the list and details views

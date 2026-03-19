@@ -80,6 +80,11 @@
   border-bottom:1px solid #F5F5F8;
   font-size:14px;
   color:var(--text-light);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.list-row:hover {
+  background-color: #F8F9FA;
+  transform: scale(1.01);
 }
 .list-row:last-child {
   border-bottom:none;
