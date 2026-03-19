@@ -147,7 +147,7 @@ function handleSignIn(event) {
   // Replace form content with success state
   formBox.innerHTML = `
     <div style="text-align: center; padding: 40px 0;">
-      <div style="width: 80px; height: 80px; background: #e8f5e9; color: #27ae60; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 20px;">✓</div>
+      <img src="assets/img/success.png" alt="Success" style="width: 80px; height: 80px; margin: 0 auto 20px; display: block;" />
       <h1 style="margin-bottom: 15px;">Sign In Successful</h1>
       <p style="color: #666;">Welcome back! Redirecting you to your dashboard...</p>
     </div>
@@ -166,7 +166,7 @@ function handleSignUp(event) {
   // Replace form content with success state
   formBox.innerHTML = `
     <div style="text-align: center; padding: 40px 0;">
-      <div style="width: 80px; height: 80px; background: #e8f5e9; color: #27ae60; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 20px;">✓</div>
+      <img src="assets/img/success.png" alt="Success" style="width: 80px; height: 80px; margin: 0 auto 20px; display: block;" />
       <h1 style="margin-bottom: 15px;">Sign Up Successful</h1>
       <p style="color: #666;">Account created! Redirecting you to your dashboard...</p>
     </div>
@@ -185,7 +185,7 @@ function handleResetPassword(event) {
   // Replace form content with success state
   formBox.innerHTML = `
     <div style="text-align: center; padding: 40px 0;">
-      <div style="width: 80px; height: 80px; background: #e8f5e9; color: #27ae60; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 20px;">✓</div>
+      <img src="assets/img/success.png" alt="Success" style="width: 80px; height: 80px; margin: 0 auto 20px; display: block;" />
       <h1 style="margin-bottom: 15px;">Email Sent</h1>
       <p style="color: #666;">Redirecting you to the confirmation page...</p>
     </div>
