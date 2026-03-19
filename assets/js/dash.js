@@ -163,14 +163,42 @@ window.addEventListener('click', function(e) {
 // --- OTP Input Auto-Advance (Optional nice feature) ---
 const otpInputs = document.querySelectorAll('.otp-input');
 otpInputs.forEach((input, index) => {
-    input.addEventListener('input', function() {
-        if (this.value.length === 1 && index < otpInputs.length - 1) {
-            otpInputs[index + 1].focus();
+    // Auto-advance to next input
+    input.addEventListener('input', function(e) {
+        if (this.value.length === 1) {
+            const container = this.closest('.otp-container');
+            const inputs = Array.from(container.querySelectorAll('.otp-input'));
+            const currentIndex = inputs.indexOf(this);
+            if (currentIndex < inputs.length - 1) {
+                inputs[currentIndex + 1].focus();
+            }
         }
     });
+    
+    // Auto-return to previous input on Backspace
     input.addEventListener('keydown', function(e) {
-        if (e.key === 'Backspace' && this.value === '' && index > 0) {
-            otpInputs[index - 1].focus();
+        if (e.key === 'Backspace' && this.value === '') {
+            const container = this.closest('.otp-container');
+            const inputs = Array.from(container.querySelectorAll('.otp-input'));
+            const currentIndex = inputs.indexOf(this);
+            if (currentIndex > 0) {
+                inputs[currentIndex - 1].focus();
+            }
+        }
+    });
+
+    // Auto-paste 6 digit code
+    input.addEventListener('paste', function(e) {
+        e.preventDefault();
+        const pastedData = e.clipboardData.getData('text').trim();
+        if (/^\d+$/.test(pastedData)) {
+            const container = this.closest('.otp-container');
+            const inputs = Array.from(container.querySelectorAll('.otp-input'));
+            const digits = pastedData.split('').slice(0, inputs.length);
+            digits.forEach((digit, i) => {
+                inputs[i].value = digit;
+                if (i === digits.length - 1) inputs[i].focus();
+            });
         }
     });
 });
