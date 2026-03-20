@@ -12,6 +12,22 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/jpeg/png" href="/assets/img/favicon.jpeg" />
+    <style>
+      @keyframes scaleUpFade {
+        0% {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .scale-up {
+        animation: scaleUpFade 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+          forwards;
+      }
+    </style>
   </head>
   <body>
     <!-- Header section  -->
@@ -36,6 +52,7 @@
           src="assets/img/confirmation-email-img.png"
           alt="Success"
           style="width: 80px; height: 80px; margin: 0 auto 20px; display: block"
+          class="scale-up"
         />
         <h1>Confirmation Email Sent</h1>
         <p>
