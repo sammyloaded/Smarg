@@ -20,7 +20,7 @@ This project is built using:
 
 - **HTML5** – Structure
 - **CSS3** – Styling & layout
-- **JavaScript ** – Interactivity
+- **JavaScript** – Interactivity
 
 ---
 
