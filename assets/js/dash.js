@@ -34,7 +34,7 @@ function showContractView() {
     .btn-save-changes, .btn-add-new-block, .add-new-btn, .add-signee-btn, 
     .btn-create, .btn-delete, .btn-delete-card,
     .card, .payment-card, .role-card, .features-card, .helping-card, 
-    .activity-card, .bank-card, .saved-card-dark, .summary-blue-card, 
+    .activity-card, .activity-item, .bank-card, .saved-card-dark, .summary-blue-card, 
     .document-card, .stat-box, .testimonial, .virtual-card, .payment-method {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       will-change: transform;
@@ -44,7 +44,7 @@ function showContractView() {
     .btn-save-changes:hover, .btn-add-new-block:hover, .add-new-btn:hover, .add-signee-btn:hover, 
     .btn-create:hover, .btn-delete:hover, .btn-delete-card:hover,
     .card:hover, .payment-card:hover, .role-card:hover, .features-card:hover, .helping-card:hover, 
-    .activity-card:hover, .bank-card:hover, .saved-card-dark:hover, .summary-blue-card:hover, 
+    .activity-card:hover, .activity-item:hover, .bank-card:hover, .saved-card-dark:hover, .summary-blue-card:hover, 
     .document-card:hover, .stat-box:hover, .testimonial:hover, .virtual-card:hover, .payment-method:hover {
       transform: scale(1.03);
     }
