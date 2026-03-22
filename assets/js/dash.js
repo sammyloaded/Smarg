@@ -219,3 +219,56 @@ window.addEventListener('click', function(e) {
         }
     }
 });
+
+// --- Dashboard Analytics & Data Animations ---
+function initDataAnimations() {
+  // 1. Animate Bar Charts (grow from bottom like real data populating)
+  const bars = document.querySelectorAll('.bar');
+  const chartObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const bar = entry.target;
+        const targetHeight = bar.getAttribute('data-target-height');
+        // Bouncy ease-out effect for the bars
+        bar.style.transition = `height 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) ${bar.getAttribute('data-delay')}s`;
+        setTimeout(() => { bar.style.height = targetHeight; }, 50);
+        chartObserver.unobserve(bar);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  bars.forEach((bar, index) => {
+    const height = bar.style.height;
+    if (height && height !== '0px') {
+      bar.setAttribute('data-target-height', height);
+      bar.setAttribute('data-delay', (index * 0.05).toString()); // Staggered delay based on order
+      bar.style.height = '0px'; // Initialize to 0 for the animation
+      chartObserver.observe(bar);
+    }
+  });
+
+  // 2. Smooth Slide-Up Fade for Stat Cards and Analytics sections
+  const fadeElements = document.querySelectorAll('.stat-box, .analytics-card, .payment-card, .summary-blue-card');
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  fadeElements.forEach((el) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    fadeObserver.observe(el);
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initDataAnimations);
+} else {
+  initDataAnimations();
+}
