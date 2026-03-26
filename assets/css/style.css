@@ -490,10 +490,11 @@ border-radius:20px;
 
 .about2{
   width: 100%;
+  max-width: 1200px;
   height: auto;
   display: block;
   padding: 20px;
-
+  margin: 0 auto;
 }
 
 /* Testimonial Section  */
@@ -1201,7 +1202,3 @@ input:focus {
     text-align: center;
   }
 }
-
-
-
-
