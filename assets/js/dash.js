@@ -202,6 +202,7 @@ otpInputs.forEach((input, index) => {
         }
     });
 });
+
 // Profile stuff 
 window.addEventListener('click', function(e) {
     // Closes Custom Select Dropdowns
