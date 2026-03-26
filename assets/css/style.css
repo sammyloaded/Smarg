@@ -959,6 +959,7 @@ input:focus {
   box-shadow: 0 8px 20px rgba(59,47,184,0.3);
   background: #F9F8FF;
   color: black;
+  border: 2px solid #0085FF;
 }
 
 
@@ -1059,9 +1060,25 @@ input:focus {
         display: none;
     }
 
+    .hero{
+        margin-top: 70px;
+    }
+
     .hero h1{
         font-size: 48px;
         padding: 20px;
+    }
+
+    .hero-btn{
+        padding: 13px;
+    }
+
+    .bubble1{
+        top: 100px
+    }
+
+    .bubble2{
+        top: 450px;
     }
     .features{
         padding-top: 100px;
@@ -1173,6 +1190,7 @@ input:focus {
   .signup-btn:hover{
     color: white;
     background-color: black;
+    /* border: 2px solid #0085FF; */
   }
 
   .buttons {

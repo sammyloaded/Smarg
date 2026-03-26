@@ -3,6 +3,16 @@ function toggleSidebar() {
     document.getElementById('mobile-sidebar').classList.toggle('active');
     document.getElementById('sidebar-overlay').classList.toggle('active');
 }
+
+// Close sidebar when a link is clicked
+document.querySelectorAll('#mobile-sidebar .mobile-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        const sidebar = document.getElementById('mobile-sidebar');
+        if (sidebar && sidebar.classList.contains('active')) {
+            toggleSidebar();
+        }
+    });
+});
 // --- Profile Menu Logic ---
 function toggleProfileMenu(event) {
     event.stopPropagation(); // Prevents the click from immediately closing the menu

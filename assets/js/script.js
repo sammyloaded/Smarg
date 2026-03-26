@@ -33,6 +33,16 @@ const hamburger = document.getElementById("hamburger");
     mobileMenu.classList.toggle("active");
   });
 
+  // Close mobile menu when a link is clicked
+  const mobileMenuLinks = document.querySelectorAll("#mobileMenu a, #mobileMenu button");
+  mobileMenuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      if (mobileMenu.classList.contains("active")) {
+        mobileMenu.classList.remove("active");
+      }
+    });
+  });
+
 //   Get Started Buttons Onclick 
 const buttons = document.querySelectorAll(".nav-sec, .ft-btn");
 
