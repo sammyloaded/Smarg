@@ -672,6 +672,7 @@ outline:none;
      transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .socials img:hover{
+    cursor: pointer;
     opacity: 0.3;
     transform: scale(1.05);
 }
