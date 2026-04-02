@@ -10,6 +10,12 @@ body {
   background: #ffffff;
 }
 
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
 .header{
     display: flex;
     flex-direction: row;
@@ -178,11 +184,6 @@ nav a.active{
     border-radius:50%;
     z-index: 1;
     animation:float 6s ease-in-out infinite;
-    @keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-10px);}
-100%{transform:translateY(0);}
-    }
 }
 
 .bubble1{
@@ -213,11 +214,6 @@ nav a.active{
 hero-img{
     position: absolute;
     animation:float 6s ease-in-out infinite;
-    @keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-10px);}
-100%{transform:translateY(0);}
-    }
 }
 
 .dashboard-preview{
@@ -486,6 +482,10 @@ border-radius:20px;
 .agreements-right {
     width:100%;
     max-width:480px;
+}
+
+.floating-image {
+  animation: float 6s ease-in-out infinite;
 }
 
 .about2{
