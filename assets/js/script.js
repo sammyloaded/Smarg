@@ -75,8 +75,6 @@ let autoSlideInterval;
 
 const slides = document.querySelectorAll(".testimonial");
 const indicators = document.querySelectorAll(".line");
-
-
 function updateSlider() {
   if (!slider) return;
 
@@ -112,11 +110,9 @@ function startAutoSlide() {
   }, 4000); 
 }
 
-
 function stopAutoSlide() {
   clearInterval(autoSlideInterval);
 }
-
 
 slider.addEventListener("touchstart", (e) => {
   startX = e.touches[0].clientX;
@@ -135,7 +131,6 @@ slider.addEventListener("touchend", () => {
   }
   startAutoSlide();
 });
-
 
 indicators.forEach((line, i) => {
   line.addEventListener("click", () => {
@@ -216,7 +211,6 @@ function handleSignIn(event) {
   event.preventDefault();
   const formBox = event.target;
 
-  // Replace form content with success state
   formBox.innerHTML = `
     <div style="text-align: center; padding: 40px 0;">
       <img src="assets/img/success.png" alt="Success" style="width: 80px; height: 80px; margin: 0 auto 20px; display: block;" />
@@ -224,11 +218,9 @@ function handleSignIn(event) {
       <p style="color: #666;">Welcome back! Redirecting you to your dashboard...</p>
     </div>
   `;
-
-  // Redirect after 2 seconds
   setTimeout(() => {
     window.location.href = "dashboard.html";
-  }, 2000);
+  }, 1000);
 }
 
 function handleSignUp(event) {
@@ -244,17 +236,15 @@ function handleSignUp(event) {
     </div>
   `;
 
-  // Redirect after 2 seconds
   setTimeout(() => {
     window.location.href = "dashboard.html";
-  }, 2000);
+  }, 1000);
 }
 
 function handleResetPassword(event) {
   event.preventDefault();
   const formBox = event.target;
 
-  // Replace form content with success state
   formBox.innerHTML = `
     <div style="text-align: center; padding: 40px 0;">
       <img src="assets/img/success.png" alt="Success" style="width: 80px; height: 80px; margin: 0 auto 20px; display: block;" />
@@ -262,9 +252,7 @@ function handleResetPassword(event) {
       <p style="color: #666;">Redirecting you to the confirmation page...</p>
     </div>
   `;
-
-  // Redirect after 2 seconds
   setTimeout(() => {
     window.location.href = "confirmation.html";
-  }, 2000);
+  }, 1000);
 }
