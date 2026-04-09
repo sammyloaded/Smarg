@@ -170,7 +170,7 @@ window.addEventListener('click', function(e) {
     }
 });
 
-// --- OTP Input Auto-Advance (Optional nice feature) ---
+// --- OTP Input Auto-Advance  ---
 const otpInputs = document.querySelectorAll('.otp-input');
 otpInputs.forEach((input, index) => {
     // Auto-advance to next input
